@@ -6,7 +6,7 @@ import lifeform.LifeForm;
  * A class that creates an Environment type.
  * @author andrewjanuszko
  */
-public class Environment {
+public class Environment extends Object {
   
   private Cell[][] cell;
   
@@ -55,6 +55,24 @@ public class Environment {
    */
   LifeForm getLifeForm(int row, int col) {
     return cell[row][col].getLifeForm();
+  }
+ 
+  /**
+   * Creates a singleton instance of the environment.
+   * @param rows the num of rows in the environment.
+   * @param cols the num of cols in the environment.
+   * @return the Singleton instance of the Environment.
+   */
+  public static Environment getEnvironment(int rows, int cols) {
+    Environment env = new Environment(rows, cols);
+    return env;
+  }
+  
+  /**
+   * Removes all LifeForms and Weapons. Used for resets.
+   */
+  public void clearBoard() {
+    
   }
 
 }
