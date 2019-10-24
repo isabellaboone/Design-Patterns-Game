@@ -9,13 +9,14 @@ import lifeform.LifeForm;
 public class Environment extends Object {
   
   private Cell[][] cell;
+  private volatile static Environment env;
   
   /**
    * Environment constructor — template for Environment type.
    * @param row holds the y position in the 2D array.
    * @param col holds the x position in the 2D array.
    */
-  public Environment(int row, int col) {
+  private Environment(int row, int col) {
     cell = new Cell[row][col];
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < col; j++) {
@@ -63,8 +64,10 @@ public class Environment extends Object {
    * @param cols the num of cols in the environment.
    * @return the Singleton instance of the Environment.
    */
-  public static Environment getEnvironment(int rows, int cols) {
-    Environment env = new Environment(rows, cols);
+  public static synchronized Environment getEnvironment(int rows, int cols) {
+    if (env == null) {
+      env = new Environment(rows, cols);
+    }
     return env;
   }
   

@@ -22,7 +22,7 @@ public abstract class GenericWeapon extends Object implements Weapon {
   
   /**
    * Fire at a target that is some distance away.
-   * @param distance — distance to the target, for now, if the target is in range, it will be hit.
+   * @param distance to the target, for now, if the target is in range, it will be hit.
    * @return the damage the weapon deals to the target, the target's armor may mitigate this damage.
    * @throws WeaponException if distance is incorrect.
    */
