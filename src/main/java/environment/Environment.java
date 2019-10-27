@@ -1,6 +1,7 @@
 package environment;
 
 import lifeform.LifeForm;
+import weapon.Weapon;
 
 /**
  * A class that creates an Environment type.
@@ -33,31 +34,59 @@ public class Environment extends Object {
    * @return true if added successfully, false if not added.
    */
   boolean addLifeForm(LifeForm lf, int row, int col) {
-    if (getLifeForm(row,col) == null) {
+    if (getLifeForm(row, col) == lf) {
+      return false;
+    }
+    if (getLifeForm(row, col) == null) {
       cell[row][col].addLifeForm(lf);
     }
     return (cell[row][col].getLifeForm() == lf) ? true : false;
   }
   
   /**
-   * Allows users to remove LifeForms from the environment.
-   * @param row — the y position to remove from the 2D array.
-   * @param col — the x position to remove from the 2D array.
+   * 
+   * @param weapon
+   * @param row
+   * @param col
+   * @return
    */
-  void removeLifeForm(int row, int col) {
-    cell[row][col] = new Cell();
+  boolean addWeapon(Weapon weapon, int row, int col) {
+    return false;
   }
   
   /**
-   * Allows users to retrive the LifeForm they stored.
-   * @param row — the y position to get from the 2D array.
-   * @param col — the x position to get from the 2D array.
-   * @return the LifeForm from the array.
+   * Removes all LifeForms and Weapons. Used for resets.
    */
-  LifeForm getLifeForm(int row, int col) {
-    return cell[row][col].getLifeForm();
+  public void clearBoard() {
+    for(int i = 0; i < getNumRows(); ++i) {
+      for(int j = 0; j < getNumCols(); ++j) {
+        cell[i][j] = new Cell();
+      }
+    }
   }
- 
+  
+  /**
+   * 
+   * @param row1
+   * @param col1
+   * @param row2
+   * @param col2
+   * @return
+   */
+  double getDistance(int row1, int col1, int row2, int col2) {
+    return 0.0;
+  }
+  
+  /**
+   * 
+   * @param lf1
+   * @param lf2
+   * @return
+   */
+  double getDistance(LifeForm lf1, LifeForm lf2) {
+    return 0.0;
+  }
+  
   /**
    * Creates a singleton instance of the environment.
    * @param rows the num of rows in the environment.
@@ -72,10 +101,58 @@ public class Environment extends Object {
   }
   
   /**
-   * Removes all LifeForms and Weapons. Used for resets.
+   * Allows users to retrive the LifeForm they stored.
+   * @param row — the y position to get from the 2D array.
+   * @param col — the x position to get from the 2D array.
+   * @return the LifeForm from the array.
    */
-  public void clearBoard() {
-    
+  LifeForm getLifeForm(int row, int col) {
+    return cell[row][col].getLifeForm();
+  }
+  
+  /**
+   * 
+   * @return
+   */
+  int getNumCols() {
+    return cell.length;
+  }
+  
+  /**
+   * 
+   * @return
+   */
+  int getNumRows() {
+    return cell[0].length;
+  }
+  
+  /**
+   * 
+   * @param row
+   * @param col
+   * @return
+   */
+  Weapon[] getWeapons(int row, int col) {
+    return null;
+  }
+  
+  /**
+   * Allows users to remove LifeForms from the environment.
+   * @param row — the y position to remove from the 2D array.
+   * @param col — the x position to remove from the 2D array.
+   */
+  void removeLifeForm(int row, int col) {
+    cell[row][col] = new Cell();
   }
 
+  /**
+   * 
+   * @param weapon
+   * @param row
+   * @param col
+   * @return
+   */
+  Weapon removeWeapon(Weapon weapon, int row, int col) {
+    return null;
+  }
 }

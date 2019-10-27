@@ -1,5 +1,6 @@
 package environment;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -15,13 +16,15 @@ import lifeform.MockLifeForm;
  */
 public class TestEnvironment {
 
+  private Environment env = Environment.getEnvironment(3, 3);
+
   /**
    * Tests to see if we can initialize Environments
    * correctly.
    */
   @Test
   public void testInitialization() {
-    Environment env = Environment.getEnvironment(1, 1);
+    env.clearBoard();
     assertNull(env.getLifeForm(0, 0));
   }
 
@@ -31,8 +34,10 @@ public class TestEnvironment {
    */
   @Test
   public void testAddLifeForm() {
-    Environment env = Environment.getEnvironment(2, 3);
-    MockLifeForm lf = new MockLifeForm("lf", 10);
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    assertTrue(env.addLifeForm(lf, 1, 1));
+    assertEquals(lf, env.getLifeForm(1, 1));
+    env.clearBoard();
   }
   
   /**
@@ -40,7 +45,20 @@ public class TestEnvironment {
    */
   @Test
   public void testBorderCases() {
-    Environment env = Environment.getEnvironment(3, 3);
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    for (int i = 0; i < 3; ++i) {
+      for (int j = 0; j < 3; ++j) {
+        System.out.println("i: " + i + "  j: " + j);
+        assertTrue(env.addLifeForm(lf, i, j));
+        assertEquals(lf, env.getLifeForm(i, j));
+      }
+    }
+    for (int i = 0; i < 3; ++i) {
+      for (int j = 0; j < 3; ++j) {
+        assertFalse(env.addLifeForm(lf, i, j));
+        assertEquals(lf, env.getLifeForm(i, j));
+      }
+    }
   }
   
   /**
@@ -49,7 +67,6 @@ public class TestEnvironment {
    */
   @Test
   public void testRemoveLifeForm() {
-    Environment env = Environment.getEnvironment(3, 3);
   }
   
   /**
@@ -59,7 +76,6 @@ public class TestEnvironment {
    */
   @Test
   public void testOverwriteLifeForm() {
-    Environment env = Environment.getEnvironment(3, 3);
   }
   
 }
