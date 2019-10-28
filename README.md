@@ -60,7 +60,8 @@ Example answer: Using the following table
 
 | Task | Assignee | Deadline | Progress (date) |
 |---|---|---|---|
-| Environment (Singleton) | Andrew Januszko | 10/28/2019 | 100% Complete as of 10/28/2019 |
+| Cell | Andrew Januszko | 10/28/2019 | 100% Complete as of 10/28/2019 |
+| Environment (Singleton) | Chase Banyai / Isabella Boone / Joel Gingrich / Morgan Williams | 10/30/19 | 0% as of 10/28/2019 |
 
 # Team Meeting Log
 
