@@ -1,5 +1,7 @@
 package environment;
 
+import java.util.ArrayList;
+
 import lifeform.LifeForm;
 import weapon.Weapon;
 
@@ -10,12 +12,13 @@ import weapon.Weapon;
 public class Cell extends Object {
   
   LifeForm entity;
+  ArrayList<Weapon> weapons = new ArrayList<Weapon>();
   
   /**
    * Empty constructor for Cell().
    */
   public Cell() {
-    // Empty.
+    // Empty
   }
 
   /**
@@ -52,7 +55,7 @@ public class Cell extends Object {
    * @return the number of weapons left.
    */
   public int getWeaponsCount() {
-    return 0; // returns 0 / 1 / 2
+    return weapons.size(); // returns 0 / 1 / 2
   }
   
   /**
@@ -61,7 +64,13 @@ public class Cell extends Object {
    * @return true if placed successfully, false otherwise.
    */
   public boolean addWeapon(Weapon weapon) {
-    return false; // returns true / false
+    if (weapons.contains(weapon)) {
+      return false;
+    } else if (weapons.size() != 2) {
+        weapons.add(weapon);
+        return true;
+    }
+    return false;
   }
   
   /**
@@ -70,7 +79,10 @@ public class Cell extends Object {
    * @return the removed weapon. Null otherwise.
    */
   public Weapon removeWeapon(Weapon weapon) {
-    return null;
+    if(!weapons.contains(weapon)) {
+      return null;
+    }
+    return weapons.remove(weapons.indexOf(weapon));
   }
   
   /**
@@ -78,7 +90,7 @@ public class Cell extends Object {
    * @return the weapon in slot #1.
    */
   public Weapon getWeapon1() {
-    return null;
+    return weapons.get(0);
   }
   
   /**
@@ -86,7 +98,7 @@ public class Cell extends Object {
    * @return the weapon in slot #2.
    */
   public Weapon getWeapon2() {
-    return null;
+    return weapons.get(1);
   }
   
 }

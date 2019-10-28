@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="lifeform.TestHuman" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-10-28T13:58:52" hostname="Andrews-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="testSetArmorPoints" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testHumanVsHuman" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testInvalidArmorPoints" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testGetArmorPoints" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testReduceDamage" classname="lifeform.TestHuman" time="0.001"/>
+  <testcase name="testAttackStrength" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testAbsorbDamage" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testInitialization" classname="lifeform.TestHuman" time="0.0"/>
+  <testcase name="testArmorIsDamage" classname="lifeform.TestHuman" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

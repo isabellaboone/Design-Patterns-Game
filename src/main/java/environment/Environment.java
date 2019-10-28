@@ -10,7 +10,7 @@ import weapon.Weapon;
 public class Environment extends Object {
   
   private Cell[][] cell;
-  private volatile static Environment env;
+  private static Environment env;
   
   /**
    * Environment constructor — template for Environment type.
@@ -74,7 +74,7 @@ public class Environment extends Object {
    * @return
    */
   double getDistance(int row1, int col1, int row2, int col2) {
-    return 0.0;
+    return Math.sqrt(Math.pow(col2 - col1, 2) + Math.pow(row2 - row1, 2));
   }
   
   /**
@@ -93,7 +93,7 @@ public class Environment extends Object {
    * @param cols the num of cols in the environment.
    * @return the Singleton instance of the Environment.
    */
-  public static synchronized Environment getEnvironment(int rows, int cols) {
+  public static Environment getEnvironment(int rows, int cols) {
     if (env == null) {
       env = new Environment(rows, cols);
     }

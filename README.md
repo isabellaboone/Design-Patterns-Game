@@ -60,8 +60,7 @@ Example answer: Using the following table
 
 | Task | Assignee | Deadline | Progress (date) |
 |---|---|---|---|
-| Weapon and Attachment classes | Andrew Januszko & Joshua Stoffey | 10/13/2019 | 100% Complete as of 10/13/2019 |
-| Weapon integration with LifeForm | Ace Walker & Taryn Whitman | 10/15/2019 | 100% Complete as of 10/15/2019 |
+| Environment (Singleton) | Andrew Januszko | 10/28/2019 | 100% Complete as of 10/28/2019 |
 
 # Team Meeting Log
 
@@ -69,4 +68,4 @@ Please also include the in-class meetings.
 
 | Meeting # | When | Where | Attendees | Note |
 |---|---|---|---|---|
-| 1 | 1:52 PM — 4:00 PM, 10/08 | MCT162 | All members | Worked on Weapons |
+| 1 | 10:00 AM — 11:50 AM, 10/23/19 | MCT 162 | All members | Created Lab 5 & Began work on Environment |
