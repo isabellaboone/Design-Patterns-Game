@@ -49,10 +49,10 @@ public class Environment extends Object {
   /**
    * Add a weapon to the the lifeform at the position of row, col.
    * 
-   * @param weapon - weapon to add 
-   * @param row - the y position to store it at in the 2D array.
-   * @param col - the x position to store it at in the 2D array. 
-   * @return - whether or not the addition was successful.  
+   * @param weapon - weapon to add
+   * @param row    - the y position to store it at in the 2D array.
+   * @param col    - the x position to store it at in the 2D array.
+   * @return - whether or not the addition was successful.
    */
   boolean addWeapon(Weapon weapon, int row, int col) {
     if (env.getNumRows() > row && env.getNumCols() > col && col >= 0 && row >= 0) {
@@ -73,27 +73,29 @@ public class Environment extends Object {
   }
 
   /**
-   * Get the distance between a lifeform at [row1][col1] and the other
-   * lifeform at [row2][col2].  
+   * Get the distance between a lifeform at [row1][col1] and the other lifeform at
+   * [row2][col2].
    * 
-   * @param row1 - the y position of the first lifeform. 
-   * @param col1 - the x position of the first lifeform. 
-   * @param row2 - the y position of the second lifeform. 
-   * @param col2 - the x position of the second lifeform. 
-   * @return - the distance between the lifeforms.  
+   * @param row1 - the y position of the first lifeform.
+   * @param col1 - the x position of the first lifeform.
+   * @param row2 - the y position of the second lifeform.
+   * @param col2 - the x position of the second lifeform.
+   * @return - the distance between the lifeforms.
    */
   double getDistance(int row1, int col1, int row2, int col2) {
     return 5 * Math.sqrt(Math.pow(col2 - col1, 2) + Math.pow(row2 - row1, 2));
   }
 
   /**
+   * Gets distance between two life forms.
    * 
-   * @param lf1
-   * @param lf2
-   * @return
+   * @param lf1 - first life form
+   * @param lf2 - second life form
+   * @return distance
    */
   double getDistance(LifeForm lf1, LifeForm lf2) {
-    return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
+    return 5 * Math.sqrt(
+        Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
   }
 
   /**
@@ -122,26 +124,29 @@ public class Environment extends Object {
   }
 
   /**
+   * Get columns.
    * 
-   * @return
+   * @return number of columns
    */
   int getNumCols() {
     return cell[0].length;
   }
 
   /**
+   * Get rows.
    * 
-   * @return
+   * @return number of rows
    */
   int getNumRows() {
     return cell.length;
   }
 
   /**
+   * Gets array of weapons.
    * 
    * @param row
    * @param col
-   * @return
+   * @return weapons
    */
   Weapon[] getWeapons(int row, int col) {
     Weapon[] weapons = new Weapon[2];
@@ -161,11 +166,12 @@ public class Environment extends Object {
   }
 
   /**
+   * Remove weapon.
    * 
-   * @param weapon
-   * @param row
-   * @param col
-   * @return
+   * @param weapon - weapon
+   * @param row - row
+   * @param col - column
+   * @return null
    */
   Weapon removeWeapon(Weapon weapon, int row, int col) {
     return null;
