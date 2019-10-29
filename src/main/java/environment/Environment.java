@@ -51,6 +51,9 @@ public class Environment extends Object {
    * @return
    */
   boolean addWeapon(Weapon weapon, int row, int col) {
+    if(env.getNumRows() > row && env.getNumCols() > col && col < 0 && row <0) {
+      return cell[row][col].addWeapon(weapon);
+    }
     return false;
   }
   
@@ -133,7 +136,10 @@ public class Environment extends Object {
    * @return
    */
   Weapon[] getWeapons(int row, int col) {
-    return null;
+    Weapon[] weapons = new Weapon[2];
+    weapons[0] = cell[row][col].getWeapon1();
+    weapons[1] = cell[row][col].getWeapon2();
+    return weapons;
   }
   
   /**
