@@ -90,6 +90,9 @@ public class Cell extends Object {
    * @return the weapon in slot #1.
    */
   public Weapon getWeapon1() {
+    if(getWeaponsCount() == 0) {
+      return null;
+    }
     return weapons.get(0);
   }
   
@@ -98,6 +101,9 @@ public class Cell extends Object {
    * @return the weapon in slot #2.
    */
   public Weapon getWeapon2() {
+    if(getWeaponsCount() == 1) {
+      return null;
+    }
     return weapons.get(1);
   }
   

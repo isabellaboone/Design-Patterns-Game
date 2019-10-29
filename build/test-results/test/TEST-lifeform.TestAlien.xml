@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lifeform.TestAlien" tests="12" skipped="0" failures="0" errors="0" timestamp="2019-10-24T16:48:45" hostname="Andrews-MacBook-Pro.local" time="0.016">
+<testsuite name="lifeform.TestAlien" tests="12" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:22" hostname="Andrews-MacBook-Pro.local" time="0.015">
   <properties/>
-  <testcase name="testException" classname="lifeform.TestAlien" time="0.011"/>
+  <testcase name="testException" classname="lifeform.TestAlien" time="0.01"/>
   <testcase name="testDefaultAttack" classname="lifeform.TestAlien" time="0.0"/>
-  <testcase name="testLinearFractional" classname="lifeform.TestAlien" time="0.0"/>
+  <testcase name="testLinearFractional" classname="lifeform.TestAlien" time="0.001"/>
   <testcase name="testSetRateNewer" classname="lifeform.TestAlien" time="0.0"/>
   <testcase name="testRecoveryRate" classname="lifeform.TestAlien" time="0.0"/>
-  <testcase name="testTime" classname="lifeform.TestAlien" time="0.001"/>
+  <testcase name="testTime" classname="lifeform.TestAlien" time="0.002"/>
   <testcase name="testSetRateNew" classname="lifeform.TestAlien" time="0.0"/>
   <testcase name="testNoRecoverTime" classname="lifeform.TestAlien" time="0.0"/>
   <testcase name="testRecoverZero" classname="lifeform.TestAlien" time="0.0"/>
-  <testcase name="testInitialization" classname="lifeform.TestAlien" time="0.0"/>
-  <testcase name="testCombatRecovery" classname="lifeform.TestAlien" time="0.001"/>
+  <testcase name="testInitialization" classname="lifeform.TestAlien" time="0.001"/>
+  <testcase name="testCombatRecovery" classname="lifeform.TestAlien" time="0.0"/>
   <testcase name="testSetRate" classname="lifeform.TestAlien" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[exceptions.RecoveryRateException: Invalid recovery rate. (recoveryRate < 0)

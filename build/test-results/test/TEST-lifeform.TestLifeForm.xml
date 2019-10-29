@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lifeform.TestLifeForm" tests="14" skipped="0" failures="0" errors="0" timestamp="2019-10-24T16:48:45" hostname="Andrews-MacBook-Pro.local" time="0.004">
+<testsuite name="lifeform.TestLifeForm" tests="14" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:22" hostname="Andrews-MacBook-Pro.local" time="0.004">
   <properties/>
   <testcase name="testLifePoints" classname="lifeform.TestLifeForm" time="0.0"/>
-  <testcase name="testTakeHit" classname="lifeform.TestLifeForm" time="0.001"/>
-  <testcase name="testAlreadyHasWeapon" classname="lifeform.TestLifeForm" time="0.0"/>
+  <testcase name="testTakeHit" classname="lifeform.TestLifeForm" time="0.0"/>
+  <testcase name="testAlreadyHasWeapon" classname="lifeform.TestLifeForm" time="0.001"/>
   <testcase name="testGetName" classname="lifeform.TestLifeForm" time="0.001"/>
   <testcase name="testAttackLifeForm" classname="lifeform.TestLifeForm" time="0.0"/>
-  <testcase name="testCanShootSomeone" classname="lifeform.TestLifeForm" time="0.001"/>
+  <testcase name="testCanShootSomeone" classname="lifeform.TestLifeForm" time="0.0"/>
   <testcase name="testDropWeapon" classname="lifeform.TestLifeForm" time="0.0"/>
-  <testcase name="testCanReload" classname="lifeform.TestLifeForm" time="0.0"/>
+  <testcase name="testCanReload" classname="lifeform.TestLifeForm" time="0.001"/>
   <testcase name="testInitialization" classname="lifeform.TestLifeForm" time="0.0"/>
-  <testcase name="testMeleeWhenNoAmmo" classname="lifeform.TestLifeForm" time="0.001"/>
+  <testcase name="testMeleeWhenNoAmmo" classname="lifeform.TestLifeForm" time="0.0"/>
   <testcase name="testAttackOfTheDead" classname="lifeform.TestLifeForm" time="0.0"/>
   <testcase name="testPunchRange" classname="lifeform.TestLifeForm" time="0.0"/>
   <testcase name="testMultipleHits" classname="lifeform.TestLifeForm" time="0.0"/>

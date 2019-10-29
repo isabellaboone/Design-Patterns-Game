@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="weapon.TestGenericWeapon" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-24T16:48:45" hostname="Andrews-MacBook-Pro.local" time="0.001">
+<testsuite name="weapon.TestGenericWeapon" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:22" hostname="Andrews-MacBook-Pro.local" time="0.001">
   <properties/>
   <testcase name="testConsumeAmmo" classname="weapon.TestGenericWeapon" time="0.0"/>
-  <testcase name="testNoDamageWhenBeyondRange" classname="weapon.TestGenericWeapon" time="0.0"/>
+  <testcase name="testNoDamageWhenBeyondRange" classname="weapon.TestGenericWeapon" time="0.001"/>
   <testcase name="testRateOfFire" classname="weapon.TestGenericWeapon" time="0.0"/>
   <testcase name="testNoDamageWhenEmpty" classname="weapon.TestGenericWeapon" time="0.0"/>
   <testcase name="testReload" classname="weapon.TestGenericWeapon" time="0.0"/>

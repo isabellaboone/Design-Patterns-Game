@@ -13,6 +13,8 @@ public abstract class LifeForm implements Weapon {
   protected int currentLifePoints;
   private int attackStrength;
   public Weapon weapon;
+  protected int row;
+  protected int col;
   
   /**
    * LifeForm constructor — template for LifeForm type.
@@ -21,6 +23,7 @@ public abstract class LifeForm implements Weapon {
    */
   public LifeForm(String name, int points) {
     this(name, points, 1);
+    setLocation(-1, -1);
   }
   
   /**
@@ -32,6 +35,7 @@ public abstract class LifeForm implements Weapon {
     myName = name;
     currentLifePoints = points;
     attackStrength = attack;
+    setLocation(-1, -1);
   }
   
   /**
@@ -131,6 +135,30 @@ public abstract class LifeForm implements Weapon {
    */
   public boolean hasWeapon() {
     return (weapon == null) ? false : true;
+  }
+  
+  /**
+   * 
+   * @return
+   */
+  public int getRow() {
+    return row;
+  }
+  
+  /**
+   * 
+   * @return
+   */
+  public int getCol() {
+    return col;
+  }
+  
+  public void setLocation(int row, int col) {
+    if (row < -1 || col < -1) {
+      return;
+    } else {
+      
+    }
   }
 
 }

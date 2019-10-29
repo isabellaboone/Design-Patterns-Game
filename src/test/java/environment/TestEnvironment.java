@@ -16,7 +16,7 @@ import lifeform.MockLifeForm;
  */
 public class TestEnvironment {
 
-  private Environment env = Environment.getEnvironment(3, 3);
+  private Environment env = Environment.getEnvironment(100, 100);
 
   /**
    * Tests to see if we can initialize Environments
@@ -48,7 +48,6 @@ public class TestEnvironment {
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     for (int i = 0; i < 3; ++i) {
       for (int j = 0; j < 3; ++j) {
-        System.out.println("i: " + i + "  j: " + j);
         assertTrue(env.addLifeForm(lf, i, j));
         assertEquals(lf, env.getLifeForm(i, j));
       }
@@ -67,6 +66,21 @@ public class TestEnvironment {
    */
   @Test
   public void testRemoveLifeForm() {
+    env.clearBoard();
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    for (int i = 0; i < 3; ++i) {
+      for (int j = 0; j < 3; ++j) {
+        assertTrue(env.addLifeForm(lf, i, j));
+        assertEquals(lf, env.getLifeForm(i, j));
+      }
+    }
+    for (int i = 0; i < 3; ++i) {
+      for (int j = 0; j < 3; ++j) {
+        assertEquals(lf, env.getLifeForm(i, j));
+        env.removeLifeForm(i, j);
+        assertNull(env.getLifeForm(i, j));
+      }
+    }
   }
   
   /**
@@ -76,6 +90,8 @@ public class TestEnvironment {
    */
   @Test
   public void testOverwriteLifeForm() {
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    assertTrue(env.addLifeForm(lf, 1, 1));
+    assertFalse(env.addLifeForm(lf, 1, 1));
   }
-  
 }

@@ -51,7 +51,7 @@ public class Environment extends Object {
    * @return
    */
   boolean addWeapon(Weapon weapon, int row, int col) {
-    if(env.getNumRows() > row && env.getNumCols() > col && col < 0 && row <0) {
+    if(env.getNumRows() > row && env.getNumCols() > col && col >= 0 && row >= 0) {
       return cell[row][col].addWeapon(weapon);
     }
     return false;
@@ -77,7 +77,7 @@ public class Environment extends Object {
    * @return
    */
   double getDistance(int row1, int col1, int row2, int col2) {
-    return Math.sqrt(Math.pow(col2 - col1, 2) + Math.pow(row2 - row1, 2));
+    return 5 * Math.sqrt(Math.pow(col2 - col1, 2) + Math.pow(row2 - row1, 2));
   }
   
   /**
@@ -87,7 +87,8 @@ public class Environment extends Object {
    * @return
    */
   double getDistance(LifeForm lf1, LifeForm lf2) {
-    return 0.0;
+    return 5 * Math.sqrt(
+        Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
   }
   
   /**
@@ -118,7 +119,7 @@ public class Environment extends Object {
    * @return
    */
   int getNumCols() {
-    return cell.length;
+    return cell[0].length;
   }
   
   /**
@@ -126,7 +127,7 @@ public class Environment extends Object {
    * @return
    */
   int getNumRows() {
-    return cell[0].length;
+    return cell.length;
   }
   
   /**
@@ -148,7 +149,7 @@ public class Environment extends Object {
    * @param col — the x position to remove from the 2D array.
    */
   void removeLifeForm(int row, int col) {
-    cell[row][col] = new Cell();
+    cell[row][col].removeLifeForm();
   }
 
   /**

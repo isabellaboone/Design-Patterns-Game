@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="recovery.TestRecovery" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-28T13:58:52" hostname="Andrews-MacBook-Pro.local" time="0.001">
+<testsuite name="recovery.TestRecovery" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:06" hostname="Andrews-MacBook-Pro.local" time="0.001">
   <properties/>
   <testcase name="testRecoverFullAmount" classname="recovery.TestRecovery" time="0.0"/>
   <testcase name="testNoRecoveryWhenNotHurt" classname="recovery.TestRecovery" time="0.0"/>
