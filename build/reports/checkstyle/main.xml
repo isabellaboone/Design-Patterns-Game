@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.11">
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\environment\Cell.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\environment\Environment.java">
+<error line="89" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="91" severity="warning" message="At-clause should have a non-empty description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="92" severity="warning" message="At-clause should have a non-empty description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="96" severity="warning" message="Line is longer than 100 characters (found 110)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="124" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="132" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="163" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="165" severity="warning" message="At-clause should have a non-empty description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="166" severity="warning" message="At-clause should have a non-empty description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+<error line="167" severity="warning" message="At-clause should have a non-empty description." source="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\exceptions\AttachmentException.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\exceptions\EnvironmentException.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\exceptions\RecoveryRateException.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\exceptions\WeaponException.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\gameplay\SimpleTimer.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\gameplay\Timer.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\gameplay\TimerObserver.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\lifeform\Alien.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\lifeform\Human.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\lifeform\LifeForm.java">
+<error line="146" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="154" severity="warning" message="Summary javadoc is missing." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="162" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\recovery\RecoveryBehavior.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\recovery\RecoveryFractional.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\recovery\RecoveryLinear.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\recovery\RecoveryNone.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\Attachment.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\ChainGun.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\GenericWeapon.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\Pistol.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\PlasmaCannon.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\PowerBooster.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\Scope.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\Stabilizer.java">
+</file>
+<file name="C:\Users\Isabella\Documents\Eclipse Workspace\School\Design Patterns\lab5\src\main\java\weapon\Weapon.java">
+</file>
+</checkstyle>

@@ -5,15 +5,17 @@ import weapon.Weapon;
 
 /**
  * A class that creates an Environment type.
+ * 
  * @author andrewjanuszko
  */
 public class Environment extends Object {
-  
+
   private Cell[][] cell;
   private static Environment env;
-  
+
   /**
    * Environment constructor — template for Environment type.
+   * 
    * @param row holds the y position in the 2D array.
    * @param col holds the x position in the 2D array.
    */
@@ -22,13 +24,14 @@ public class Environment extends Object {
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < col; j++) {
         cell[i][j] = new Cell();
-      } 
+      }
     }
   }
-  
+
   /**
    * Allows users to add LifeForms to the environment.
-   * @param lf — holds the LifeForm to be added.
+   * 
+   * @param lf  — holds the LifeForm to be added.
    * @param row — the y position to store it at in the 2D array.
    * @param col — the x position to store it at in the 2D array.
    * @return true if added successfully, false if not added.
@@ -42,44 +45,47 @@ public class Environment extends Object {
     }
     return (cell[row][col].getLifeForm() == lf) ? true : false;
   }
-  
+
   /**
+   * Add a weapon to the the lifeform at the position of row, col.
    * 
-   * @param weapon
-   * @param row
-   * @param col
-   * @return
+   * @param weapon - weapon to add 
+   * @param row - the y position to store it at in the 2D array.
+   * @param col - the x position to store it at in the 2D array. 
+   * @return - whether or not the addition was successful.  
    */
   boolean addWeapon(Weapon weapon, int row, int col) {
-    if(env.getNumRows() > row && env.getNumCols() > col && col >= 0 && row >= 0) {
+    if (env.getNumRows() > row && env.getNumCols() > col && col >= 0 && row >= 0) {
       return cell[row][col].addWeapon(weapon);
     }
     return false;
   }
-  
+
   /**
    * Removes all LifeForms and Weapons. Used for resets.
    */
   public void clearBoard() {
-    for(int i = 0; i < getNumRows(); ++i) {
-      for(int j = 0; j < getNumCols(); ++j) {
+    for (int i = 0; i < getNumRows(); ++i) {
+      for (int j = 0; j < getNumCols(); ++j) {
         cell[i][j] = new Cell();
       }
     }
   }
-  
+
   /**
+   * Get the distance between a lifeform at [row1][col1] and the other
+   * lifeform at [row2][col2].  
    * 
-   * @param row1
-   * @param col1
-   * @param row2
-   * @param col2
-   * @return
+   * @param row1 - the y position of the first lifeform. 
+   * @param col1 - the x position of the first lifeform. 
+   * @param row2 - the y position of the second lifeform. 
+   * @param col2 - the x position of the second lifeform. 
+   * @return - the distance between the lifeforms.  
    */
   double getDistance(int row1, int col1, int row2, int col2) {
     return 5 * Math.sqrt(Math.pow(col2 - col1, 2) + Math.pow(row2 - row1, 2));
   }
-  
+
   /**
    * 
    * @param lf1
@@ -87,12 +93,12 @@ public class Environment extends Object {
    * @return
    */
   double getDistance(LifeForm lf1, LifeForm lf2) {
-    return 5 * Math.sqrt(
-        Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
+    return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
   }
-  
+
   /**
    * Creates a singleton instance of the environment.
+   * 
    * @param rows the num of rows in the environment.
    * @param cols the num of cols in the environment.
    * @return the Singleton instance of the Environment.
@@ -103,9 +109,10 @@ public class Environment extends Object {
     }
     return env;
   }
-  
+
   /**
    * Allows users to retrive the LifeForm they stored.
+   * 
    * @param row — the y position to get from the 2D array.
    * @param col — the x position to get from the 2D array.
    * @return the LifeForm from the array.
@@ -113,7 +120,7 @@ public class Environment extends Object {
   LifeForm getLifeForm(int row, int col) {
     return cell[row][col].getLifeForm();
   }
-  
+
   /**
    * 
    * @return
@@ -121,7 +128,7 @@ public class Environment extends Object {
   int getNumCols() {
     return cell[0].length;
   }
-  
+
   /**
    * 
    * @return
@@ -129,7 +136,7 @@ public class Environment extends Object {
   int getNumRows() {
     return cell.length;
   }
-  
+
   /**
    * 
    * @param row
@@ -142,9 +149,10 @@ public class Environment extends Object {
     weapons[1] = cell[row][col].getWeapon2();
     return weapons;
   }
-  
+
   /**
    * Allows users to remove LifeForms from the environment.
+   * 
    * @param row — the y position to remove from the 2D array.
    * @param col — the x position to remove from the 2D array.
    */
