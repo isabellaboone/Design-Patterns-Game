@@ -144,21 +144,26 @@ public abstract class LifeForm implements Weapon {
   }
 
   /**
-   * 
-   * @return
+   * Returns the row.
+   * @return the row number
    */
   public int getRow() {
     return row;
   }
 
   /**
-   * 
-   * @return
+   * Returns the column number.
+   * @return the column number
    */
   public int getCol() {
     return col;
   }
 
+  /**
+   * Sets the location of the lifeform.
+   * @param row the row number
+   * @param col the column number
+   */
   public void setLocation(int row, int col) {
     if (!((row < -1) || (col < -1))) {
       this.row = row;

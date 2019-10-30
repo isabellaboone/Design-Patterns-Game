@@ -94,8 +94,8 @@ public class Environment extends Object {
    * @return distance
    */
   double getDistance(LifeForm lf1, LifeForm lf2) {
-    return 5 * Math.sqrt(
-        Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
+    return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow()
+        - lf1.getRow(), 2));
   }
 
   /**
@@ -169,8 +169,8 @@ public class Environment extends Object {
    * Remove weapon.
    * 
    * @param weapon - weapon
-   * @param row - row
-   * @param col - column
+   * @param row    - row
+   * @param col    - column
    * @return null
    */
   Weapon removeWeapon(Weapon weapon, int row, int col) {
