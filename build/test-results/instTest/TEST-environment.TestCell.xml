@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="environment.TestCell" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-29T15:11:47" hostname="LAPTOP-JOIFGNL9" time="0.006">
+<testsuite name="environment.TestCell" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-30T00:35:20" hostname="Andrews-MacBook-Pro.local" time="0.001">
   <properties/>
-  <testcase name="testSetLifeForm" classname="environment.TestCell" time="0.004"/>
+  <testcase name="testSetLifeForm" classname="environment.TestCell" time="0.0"/>
   <testcase name="testRemoveLifeForm" classname="environment.TestCell" time="0.0"/>
-  <testcase name="testAddWeapons" classname="environment.TestCell" time="0.002"/>
+  <testcase name="testAddWeapons" classname="environment.TestCell" time="0.001"/>
   <testcase name="testRemoveWeapon" classname="environment.TestCell" time="0.0"/>
   <testcase name="testInitialization" classname="environment.TestCell" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

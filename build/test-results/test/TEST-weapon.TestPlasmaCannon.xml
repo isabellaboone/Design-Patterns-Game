@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="weapon.TestPlasmaCannon" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:22" hostname="Andrews-MacBook-Pro.local" time="0.001">
+<testsuite name="weapon.TestPlasmaCannon" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-10-30T01:26:50" hostname="Andrews-MacBook-Pro.local" time="0.0">
   <properties/>
-  <testcase name="testPlasmaDamageAtRanges" classname="weapon.TestPlasmaCannon" time="0.001"/>
+  <testcase name="testPlasmaDamageAtRanges" classname="weapon.TestPlasmaCannon" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

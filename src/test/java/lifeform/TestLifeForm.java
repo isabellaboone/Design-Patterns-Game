@@ -16,6 +16,38 @@ import weapon.MockWeapon;
 public class TestLifeForm {
   
   /**
+   * Test to see if lifeform stores coords correctly.
+   */
+  @Test
+  public void testSetCoords() {
+    MockLifeForm entity = new MockLifeForm("Bob", 0);
+    entity.setLocation(1,1);
+    assertEquals(1, entity.getRow());
+    assertEquals(1, entity.getCol());
+  }
+  
+  /**
+   * Test to see if lifeform stores coords correctly.
+   */
+  @Test
+  public void testDefaultCoords() {
+    MockLifeForm entity = new MockLifeForm("Bob", 0);
+    assertEquals(-1, entity.getRow());
+    assertEquals(-1, entity.getCol());
+  }
+  
+  /**
+   * Test to see if lifeform stores coords correctly.
+   */
+  @Test
+  public void testInvalidCoords() {
+    MockLifeForm entity = new MockLifeForm("Bob", 0);
+    entity.setLocation(-10,-10);
+    assertEquals(-1, entity.getRow());
+    assertEquals(-1, entity.getCol());
+  }
+  
+  /**
    * Tests to see if we can initialize LifeForms.
    */
   @Test

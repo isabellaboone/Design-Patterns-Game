@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="recovery.TestRecoveryLinear" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:22" hostname="Andrews-MacBook-Pro.local" time="0.0">
+<testsuite name="recovery.TestRecoveryLinear" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-10-30T01:26:50" hostname="Andrews-MacBook-Pro.local" time="0.001">
   <properties/>
-  <testcase name="testRecoverToMax" classname="recovery.TestRecoveryLinear" time="0.0"/>
+  <testcase name="testRecoverToMax" classname="recovery.TestRecoveryLinear" time="0.001"/>
   <testcase name="testRecoverFullStep" classname="recovery.TestRecoveryLinear" time="0.0"/>
   <testcase name="testNoDamage" classname="recovery.TestRecoveryLinear" time="0.0"/>
   <testcase name="testRecoverFromZero" classname="recovery.TestRecoveryLinear" time="0.0"/>

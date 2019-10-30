@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="environment.TestCell" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-10-29T12:57:27" hostname="Andrews-MacBook-Pro.local" time="0.001">
+<testsuite name="environment.TestCell" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-10-30T01:26:55" hostname="Andrews-MacBook-Pro.local" time="0.001">
   <properties/>
   <testcase name="testRemoveLifeForm" classname="environment.TestCell" time="0.0"/>
   <testcase name="testAddLifeForm" classname="environment.TestCell" time="0.0"/>
@@ -7,6 +7,7 @@
   <testcase name="testAddWeapon" classname="environment.TestCell" time="0.0"/>
   <testcase name="testInitialization" classname="environment.TestCell" time="0.0"/>
   <testcase name="testOverwriteLifeForm" classname="environment.TestCell" time="0.0"/>
+  <testcase name="testFullCell" classname="environment.TestCell" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
