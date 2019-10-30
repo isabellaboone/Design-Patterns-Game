@@ -60,7 +60,10 @@ Example answer: Using the following table
 
 | Task | Assignee | Deadline | Progress (date) |
 |---|---|---|---|
-| N/A | N/A | xx/xx/xx | N/A |
+| Game User Interface | Joel Gingrich & Chase Banyai | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Turn & Movement | Andrew Januszko | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Invoker (Builder & UI) | Morgan Williams | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Commands | Isabella Boone | 11/13 ~ 11/20 | 0% as of 10/30/19 |
 
 # Team Meeting Log
 
