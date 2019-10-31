@@ -1,4 +1,4 @@
-# Lab 4 Description
+# Lab 6 Description
 
 Please write a brief description here.
 
@@ -60,9 +60,10 @@ Example answer: Using the following table
 
 | Task | Assignee | Deadline | Progress (date) |
 |---|---|---|---|
-| Cell | Andrew Januszko | 10/28/2019 | 100% Complete as of 10/28/2019 |
-| Environment (Singleton) | Isabella Boone & Morgan Williams | 10/30/19 | 100% as of 10/29/2019 |
-| Checkstyle | Chase Banyai & Joel Gingrich | 10/30/19 | 100% as of 10/29/2019 |
+| Game User Interface | Joel Gingrich & Chase Banyai | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Turn & Movement | Andrew Januszko | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Invoker (Builder & UI) | Morgan Williams | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Commands | Isabella Boone | 11/13 ~ 11/20 | 0% as of 10/30/19 |
 
 # Team Meeting Log
 
@@ -70,4 +71,4 @@ Please also include the in-class meetings.
 
 | Meeting # | When | Where | Attendees | Note |
 |---|---|---|---|---|
-| 1 | 10:00 AM — 11:50 AM, 10/23/19 | MCT 162 | All members | Created Lab 5 & Began work on Environment |
+| 1 | 10:00 AM — 11:50 AM, 10/30/19 | MCT 162 | All members | Began work on lab 6 |
