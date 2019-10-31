@@ -13,7 +13,7 @@ public abstract class LifeForm implements Weapon {
   private String myName;
   protected int currentLifePoints;
   private int attackStrength;
-  public Weapon weapon;
+  protected Weapon weapon;
   protected int row;
   protected int col;
 
@@ -170,5 +170,5 @@ public abstract class LifeForm implements Weapon {
       this.col = col;
     }
   }
-
+  
 }

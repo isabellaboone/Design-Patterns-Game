@@ -56,7 +56,7 @@ Answer: Ask them to work more.
 
 **How will you track who is responsible for which tasks and the work progress?**
 
-Example answer: Using the following table
+Example answer: Using the following table:
 
 | Task | Assignee | Deadline | Progress (date) |
 |---|---|---|---|
