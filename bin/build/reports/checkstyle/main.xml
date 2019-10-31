@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.11">
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/environment/Cell.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/environment/Environment.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/exceptions/AttachmentException.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/exceptions/EnvironmentException.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/exceptions/RecoveryRateException.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/exceptions/WeaponException.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/gameplay/SimpleTimer.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/gameplay/Timer.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/gameplay/TimerObserver.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/lifeform/Alien.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/lifeform/Human.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/lifeform/LifeForm.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/recovery/RecoveryBehavior.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/recovery/RecoveryFractional.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/recovery/RecoveryLinear.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/recovery/RecoveryNone.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/Attachment.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/ChainGun.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/GenericWeapon.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/Pistol.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/PlasmaCannon.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/PowerBooster.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/Scope.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/Stabilizer.java">
+</file>
+<file name="/Users/andrewjanuszko/Documents/University/MAJOR/SWE200/labs/lab5/src/main/java/weapon/Weapon.java">
+</file>
+</checkstyle>

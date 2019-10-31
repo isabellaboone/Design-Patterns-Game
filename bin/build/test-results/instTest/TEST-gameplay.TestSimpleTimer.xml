@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="gameplay.TestSimpleTimer" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-30T15:02:54" hostname="Andrews-MacBook-Pro.local" time="5.272">
+  <properties/>
+  <testcase name="testSimpleTimerAsThread" classname="gameplay.TestSimpleTimer" time="5.271"/>
+  <testcase name="testAddOneAndUpdate" classname="gameplay.TestSimpleTimer" time="0.0"/>
+  <testcase name="testInitialization" classname="gameplay.TestSimpleTimer" time="0.0"/>
+  <testcase name="testAddThreeAndUpdate" classname="gameplay.TestSimpleTimer" time="0.0"/>
+  <testcase name="testRemoveObserver" classname="gameplay.TestSimpleTimer" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
