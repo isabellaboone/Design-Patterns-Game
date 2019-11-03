@@ -1,6 +1,10 @@
 package lifeform;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import exceptions.WeaponException;
+import movement.Movement;
 import weapon.Weapon;
 
 /**
@@ -8,7 +12,7 @@ import weapon.Weapon;
  * 
  * @author andrewjanuszko
  */
-public abstract class LifeForm implements Weapon {
+public abstract class LifeForm implements Weapon, Movement {
 
   private String myName;
   protected int currentLifePoints;
@@ -16,6 +20,8 @@ public abstract class LifeForm implements Weapon {
   protected Weapon weapon;
   protected int row;
   protected int col;
+  protected int direction = 1; // -2 West, -1 South, 1 North, 2 East
+  private ArrayList<Integer> directions = new ArrayList<Integer>(Arrays.asList(-2, -1, 1, 2));
 
   /**
    * LifeForm constructor — template for LifeForm type.
@@ -62,7 +68,9 @@ public abstract class LifeForm implements Weapon {
    * Allows LifeForms to take damage.
    */
   public void takeHit(int damage) {
-    currentLifePoints = (getCurrentLifePoints() - damage) < 0 ? 0 : getCurrentLifePoints() - damage;
+    currentLifePoints = (getCurrentLifePoints() - damage) < 0 
+        ? 0 
+        : getCurrentLifePoints() - damage;
   }
 
   /**
@@ -169,6 +177,10 @@ public abstract class LifeForm implements Weapon {
       this.row = row;
       this.col = col;
     }
+  }
+  
+  public boolean turn(int direction) {
+    
   }
   
 }

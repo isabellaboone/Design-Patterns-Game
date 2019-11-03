@@ -38,7 +38,7 @@ public class Cell extends Object {
    * @return true is the LifeForm was added, false if a LifeForm is saved.
    */
   public boolean addLifeForm(LifeForm entity) {
-    if (this.entity == null) {
+    if(!hasLifeForm()) {
       this.entity = entity;
       return true;
     }
@@ -112,6 +112,15 @@ public class Cell extends Object {
       return null;
     }
     return weapons.get(1);
+  }
+  
+  /**
+   * Return whether the cell has a lifeform in it.
+   */
+  public boolean hasLifeForm() {
+    return (entity == null)
+        ? false
+        : true;
   }
 
 }
