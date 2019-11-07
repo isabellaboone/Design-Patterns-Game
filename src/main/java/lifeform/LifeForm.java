@@ -1,9 +1,7 @@
 package lifeform;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import exceptions.WeaponException;
+import movement.Directions;
 import movement.Movement;
 import weapon.Weapon;
 
@@ -21,7 +19,6 @@ public abstract class LifeForm implements Weapon, Movement {
   protected int row;
   protected int col;
   protected int direction = 1; // -2 West, -1 South, 1 North, 2 East
-  private ArrayList<Integer> directions = new ArrayList<Integer>(Arrays.asList(-2, -1, 1, 2));
 
   /**
    * LifeForm constructor — template for LifeForm type.
@@ -179,8 +176,19 @@ public abstract class LifeForm implements Weapon, Movement {
     }
   }
   
+  public int getDirection() {
+    return direction;
+  }
+  
   public boolean turn(int direction) {
+    if(direction < 1 || direction > 4) {
+      
+    } else if (this.direction == direction){
+      return true;
+    }
+    System.out.println("Player turned " + directions. + ".");
     
   }
+  
   
 }
