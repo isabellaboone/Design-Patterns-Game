@@ -72,3 +72,4 @@ Please also include the in-class meetings.
 | Meeting # | When | Where | Attendees | Note |
 |---|---|---|---|---|
 | 1 | 10:00 AM — 11:50 AM, 10/30/19 | MCT 162 | All members | Began work on lab 6 |
+| 2 | 11:00 AM - 11:50 AM, 11/13/19 | MCT 162 | All members | Continued work on lab 6 |

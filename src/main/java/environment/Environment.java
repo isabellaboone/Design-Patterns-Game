@@ -36,7 +36,7 @@ public class Environment extends Object {
    * @param col — the x position to store it at in the 2D array.
    * @return true if added successfully, false if not added.
    */
-  boolean addLifeForm(LifeForm lf, int row, int col) {
+  public boolean addLifeForm(LifeForm lf, int row, int col) {
     if (getLifeForm(row, col) == lf) {
       return false;
     }
@@ -54,7 +54,7 @@ public class Environment extends Object {
    * @param col    - the x position to store it at in the 2D array.
    * @return - whether or not the addition was successful.
    */
-  boolean addWeapon(Weapon weapon, int row, int col) {
+  public boolean addWeapon(Weapon weapon, int row, int col) {
     if (env.getNumRows() > row && env.getNumCols() > col && col >= 0 && row >= 0) {
       return cell[row][col].addWeapon(weapon);
     }
@@ -82,7 +82,7 @@ public class Environment extends Object {
    * @param col2 - the x position of the second lifeform.
    * @return - the distance between the lifeforms.
    */
-  double getDistance(int row1, int col1, int row2, int col2) {
+  public double getDistance(int row1, int col1, int row2, int col2) {
     return 5 * Math.sqrt(Math.pow(col2 - col1, 2) + Math.pow(row2 - row1, 2));
   }
 
@@ -93,7 +93,7 @@ public class Environment extends Object {
    * @param lf2 - second life form
    * @return distance
    */
-  double getDistance(LifeForm lf1, LifeForm lf2) {
+  public double getDistance(LifeForm lf1, LifeForm lf2) {
     return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow()
         - lf1.getRow(), 2));
   }
@@ -119,7 +119,7 @@ public class Environment extends Object {
    * @param col — the x position to get from the 2D array.
    * @return the LifeForm from the array.
    */
-  LifeForm getLifeForm(int row, int col) {
+  public LifeForm getLifeForm(int row, int col) {
     return cell[row][col].getLifeForm();
   }
 
@@ -128,7 +128,7 @@ public class Environment extends Object {
    * 
    * @return number of columns
    */
-  int getNumCols() {
+  public int getNumCols() {
     return cell[0].length;
   }
 
@@ -137,7 +137,7 @@ public class Environment extends Object {
    * 
    * @return number of rows
    */
-  int getNumRows() {
+  public int getNumRows() {
     return cell.length;
   }
 
@@ -148,7 +148,7 @@ public class Environment extends Object {
    * @param col
    * @return weapons
    */
-  Weapon[] getWeapons(int row, int col) {
+  public Weapon[] getWeapons(int row, int col) {
     Weapon[] weapons = new Weapon[2];
     weapons[0] = cell[row][col].getWeapon1();
     weapons[1] = cell[row][col].getWeapon2();
@@ -161,7 +161,7 @@ public class Environment extends Object {
    * @param row — the y position to remove from the 2D array.
    * @param col — the x position to remove from the 2D array.
    */
-  void removeLifeForm(int row, int col) {
+  public void removeLifeForm(int row, int col) {
     cell[row][col].removeLifeForm();
   }
 
@@ -173,7 +173,19 @@ public class Environment extends Object {
    * @param col    - column
    * @return null
    */
-  Weapon removeWeapon(Weapon weapon, int row, int col) {
+  public Weapon removeWeapon(Weapon weapon, int row, int col) {
     return null;
+  }
+  
+  public int getNumberOfEntities() {
+    int sum = 0;
+    for(int i = 0; i < getNumRows(); i++ ) { 
+	  for(int j = 0; j < getNumCols(); j++ ) { 
+	    if(cell[i][j].hasLifeForm()) {
+		  ++sum;
+	    }
+	  }
+	}
+	return sum;
   }
 }

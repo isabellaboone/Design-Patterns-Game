@@ -1,8 +1,6 @@
 package lifeform;
 
 import exceptions.WeaponException;
-import movement.Directions;
-import movement.Movement;
 import weapon.Weapon;
 
 /**
@@ -10,7 +8,7 @@ import weapon.Weapon;
  * 
  * @author andrewjanuszko
  */
-public abstract class LifeForm implements Weapon, Movement {
+public abstract class LifeForm implements Weapon {
 
   private String myName;
   protected int currentLifePoints;
@@ -18,7 +16,8 @@ public abstract class LifeForm implements Weapon, Movement {
   protected Weapon weapon;
   protected int row;
   protected int col;
-  protected int direction = 1; // -2 West, -1 South, 1 North, 2 East
+  protected int direction;
+  protected int movesLeft;
 
   /**
    * LifeForm constructor — template for LifeForm type.
@@ -29,6 +28,7 @@ public abstract class LifeForm implements Weapon, Movement {
   public LifeForm(String name, int points) {
     this(name, points, 1);
     setLocation(-1, -1);
+    turn(1);
   }
 
   /**
@@ -42,6 +42,7 @@ public abstract class LifeForm implements Weapon, Movement {
     currentLifePoints = points;
     attackStrength = attack;
     setLocation(-1, -1);
+    turn(1);
   }
 
   /**
@@ -176,19 +177,30 @@ public abstract class LifeForm implements Weapon, Movement {
     }
   }
   
+  /**
+	 * Returns the current direction of the LifeForm.
+	 * @return the current direction of the LifeForm.
+	 */
   public int getDirection() {
     return direction;
   }
   
+  /**
+   * Allows LifeForms to turn.
+   * Up = 1 / Right = 2 / Down = 3 / Right = 4
+   * @param direction, the direction to turn.
+   * @return true if LifeForm turned, false if it did not.
+   */
   public boolean turn(int direction) {
-    if(direction < 1 || direction > 4) {
-      
-    } else if (this.direction == direction){
-      return true;
-    }
-    System.out.println("Player turned " + directions. + ".");
-    
+    return false;
   }
   
+  /**
+   * Moves 1 cell (5 meters) in the current direction of the LifeForm.
+   * @return true if the LifeForm moved, false if it did not.
+   */
+  public boolean move() {
+	  return false;
+  }
   
 }

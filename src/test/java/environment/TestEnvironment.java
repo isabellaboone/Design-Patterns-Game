@@ -5,9 +5,14 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
+import org.junit.FixMethodOrder;
+
 import lifeform.MockLifeForm;
 
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
 import weapon.MockWeapon;
 
 /**
@@ -17,7 +22,15 @@ import weapon.MockWeapon;
  */
 public class TestEnvironment {
 
-  private Environment env = Environment.getEnvironment(100, 100);
+  private Environment env;
+  
+  /**
+   * Creates our environment.
+   */
+  @Before
+  public void createEnvironment() {
+	  env = Environment.getEnvironment(100, 100);
+  }
 
   /**
    * Tests to see if we can initialize Environments
