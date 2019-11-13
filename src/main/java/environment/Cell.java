@@ -10,6 +10,7 @@ import weapon.Weapon;
  * 
  * @author andrewjanuszko
  */
+
 public class Cell extends Object {
 
   LifeForm entity;
