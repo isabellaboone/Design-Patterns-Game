@@ -193,7 +193,8 @@ public class Environment extends Object {
     return cell[r][c];
   }
   
-  public void selectCell(Cell c) {
+  public void selectCell(Cell c, int r, int co) {
+    System.out.println("Selected (" + r + ", " + co + ")");
     selectedCell = c;
   }
   

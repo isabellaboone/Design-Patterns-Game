@@ -20,7 +20,8 @@ public class GUI extends JFrame {
   Environment env;
   static GridBagConstraints x = new GridBagConstraints();
   Cell p = new Cell();
-
+  JLabel[][] labelArray;
+  JLabel stats;
   boolean q = p.addLifeForm(new Human("Bob", 100, 10));
 
   public GUI(Environment env) {
@@ -37,18 +38,17 @@ public class GUI extends JFrame {
   public void drawEnvironment() {
 
     JPanel board = new JPanel(new GridBagLayout());
-    JLabel[][] labelArray = new JLabel[env.getNumRows()][env.getNumCols()];
+    labelArray = new JLabel[env.getNumRows()][env.getNumCols()];
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
         // labelArray[r][c] = new JLabel(" ("+r+":"+c+") ");
         JLabel imageLabel = new JLabel(createSquare(env.getCell(r, c)));
         labelArray[r][c] = imageLabel;
         labelArray[r][c].addMouseListener(new MouseAdapter() {
+          @Override
           public void mouseClicked(MouseEvent e) {
-            env.selectCell();
-            drawStats(env.getSelectedCell());
+            onMouseClicked(e);
           }
-          
         });
         x.gridx = c;
         x.gridy = r;
@@ -63,7 +63,7 @@ public class GUI extends JFrame {
   }
 
   public void drawStats(Cell c) {
-    JLabel stats = new JLabel(c.getStats());
+    stats = new JLabel(c.getStats());
     stats.setLocation(0, 0);
     stats.setOpaque(true);
     stats.setBackground(new Color(200, 200, 200));
@@ -105,5 +105,18 @@ public class GUI extends JFrame {
     BufferedImage i = new BufferedImage(500, 150, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
     return new ImageIcon(i);
+  }
+  
+  private void onMouseClicked(MouseEvent e) {
+    for (int r = 0; r < env.getNumRows(); r++) {
+      for (int c = 0; c < env.getNumCols(); c++) {
+        if(e.getSource() == labelArray[r][c]) {
+          env.selectCell(env.getCell(r, c), r, c);
+          remove(stats);
+          drawStats(env.getSelectedCell());
+          add(stats, x);
+        }
+      }
+    }
   }
 }
