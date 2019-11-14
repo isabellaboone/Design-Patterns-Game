@@ -12,7 +12,7 @@ public class Environment extends Object {
 
   private Cell[][] cell;
   private static Environment env;
-
+  private Cell selectedCell;
   /**
    * Environment constructor — template for Environment type.
    * 
@@ -191,5 +191,13 @@ public class Environment extends Object {
   
   public Cell getCell(int r, int c) {
     return cell[r][c];
+  }
+  
+  public void selectCell(Cell c) {
+    selectedCell = c;
+  }
+  
+  public Cell getSelectedCell() {
+    return selectedCell;
   }
 }

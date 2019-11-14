@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -41,6 +43,13 @@ public class GUI extends JFrame {
         // labelArray[r][c] = new JLabel(" ("+r+":"+c+") ");
         JLabel imageLabel = new JLabel(createSquare(env.getCell(r, c)));
         labelArray[r][c] = imageLabel;
+        labelArray[r][c].addMouseListener(new MouseAdapter() {
+          public void mouseClicked(MouseEvent e) {
+            env.selectCell();
+            drawStats(env.getSelectedCell());
+          }
+          
+        });
         x.gridx = c;
         x.gridy = r;
         board.add(labelArray[r][c], x);
