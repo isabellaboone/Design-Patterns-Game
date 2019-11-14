@@ -125,15 +125,12 @@ public class Cell extends Object {
   }
 
   public String getStats() {
-    if(hasLifeForm()) {
+    //if(hasLifeForm()) {
       return "<html><h1 style = font-size:30px>Ground</h1><br/>"
           + "Weapon 1: " + weapons.get(0) + "<br/>"
               + "Weapon 2: " + weapons.get(0) + "<br/>" 
-              + entity.getStats();
-    }
-    return "<html><h1 style = font-size:30px>Ground</h1><br/>"
-    + "Weapon 1: " + weapons.get(0) + "<br/>"
-        + "Weapon 2: " + weapons.get(0) + "<br/>";
+              + (hasLifeForm() ? "" :entity.getStats());
+    //}
   }
 
 }
