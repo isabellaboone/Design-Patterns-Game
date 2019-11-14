@@ -14,6 +14,7 @@ public abstract class LifeForm implements Weapon {
   protected int currentLifePoints;
   private int attackStrength;
   protected Weapon weapon;
+  protected int maxLifePoints;
   protected int row;
   protected int col;
   protected int direction;
