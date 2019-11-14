@@ -1,7 +1,7 @@
 package game;
 
 import environment.Environment;
-
+import gui.GUI;
 public class Runner {
   static Environment e;
   
@@ -11,5 +11,6 @@ public class Runner {
   
   static void start() {
     e = e.getEnvironment(10, 10);
+    GUI gui = new GUI(e);
   }
 }

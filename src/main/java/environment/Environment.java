@@ -188,4 +188,8 @@ public class Environment extends Object {
 	}
 	return sum;
   }
+  
+  public Cell getCell(int r, int c) {
+    return cell[r][c];
+  }
 }
