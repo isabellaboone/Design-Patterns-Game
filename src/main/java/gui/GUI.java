@@ -17,6 +17,7 @@ public class GUI extends JFrame{
   
   public GUI(Environment env) {
    this.env = env;
+   draw();
   }
   
   public void draw() {
