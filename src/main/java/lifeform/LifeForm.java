@@ -41,6 +41,7 @@ public abstract class LifeForm implements Weapon {
   public LifeForm(String name, int points, int attack) {
     myName = name;
     currentLifePoints = points;
+    maxLifePoints = points;
     attackStrength = attack;
     setLocation(-1, -1);
     turn(1);
@@ -202,6 +203,12 @@ public abstract class LifeForm implements Weapon {
    */
   public boolean move() {
 	  return false;
+  }
+  
+  public String getStats() {
+    return "<html><h1 style = font-size:30px>" +  myName + "</h1><br/>"
+        + currentLifePoints + "/" + maxLifePoints + "<br/>"
+        + attackStrength + "</html>";
   }
   
 }

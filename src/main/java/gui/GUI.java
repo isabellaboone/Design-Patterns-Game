@@ -12,8 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import environment.*;
-import lifeform.LifeForm;
-import sun.jvm.hotspot.runtime.StaticBaseConstructor;
+import lifeform.*;
 
 public class GUI extends JFrame {
   Environment env;
@@ -23,7 +22,7 @@ public class GUI extends JFrame {
     this.env = env;
     setLayout(new GridBagLayout());
     drawEnvironment();
-    drawStats();
+    drawStats(new Human("Bob", 100, 10));
     drawLegend();
     pack();
     setVisible(true);
