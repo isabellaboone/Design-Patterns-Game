@@ -17,12 +17,13 @@ import lifeform.*;
 public class GUI extends JFrame {
   Environment env;
   static GridBagConstraints x = new GridBagConstraints();
-
+  Cell p = new Cell();
+  boolean q = p.addLifeForm(new Human("Bob", 100, 10));
   public GUI(Environment env) {
     this.env = env;
     setLayout(new GridBagLayout());
     drawEnvironment();
-    drawStats(new Human("Bob", 100, 10));
+    drawStats(p);
     drawLegend();
     pack();
     setVisible(true);
@@ -50,8 +51,8 @@ public class GUI extends JFrame {
 
   }
 
-  public void drawStats(LifeForm l) {
-    JLabel stats = new JLabel(l.getStats());
+  public void drawStats(Cell c) {
+    JLabel stats = new JLabel(c.getStats());
     stats.setLocation(0, 0);
     stats.setOpaque(true);
     stats.setBackground(new Color(200, 200, 200));
