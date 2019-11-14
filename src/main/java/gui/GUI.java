@@ -67,10 +67,18 @@ public class GUI extends JFrame {
    * draws legend.
    */
   public void drawLegend() {
-
+    JLabel legend = new JLabel(legendImage());
+    legend.setLocation(0,0);
+    legend.setOpaque(true);
+    legend.setBackground(new Color(200, 200, 200));
+    x.anchor = x.FIRST_LINE_START;
+    x.weighty = 1.0;
+    x.gridx = 0;
+    x.gridy = 1;
+    add(legend, x);
   }
 
-  private static ImageIcon createSquare(Cell c) {
+  private ImageIcon createSquare(Cell c) {
     BufferedImage i = new BufferedImage(50, 50, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
     g.setColor(new Color(100, 100, 100));
@@ -79,6 +87,12 @@ public class GUI extends JFrame {
     g.drawRect(49, 0, 1, 50);
     g.drawRect(0, 49, 50, 1);
 
+    return new ImageIcon(i);
+  }
+  
+  private ImageIcon legendImage() {
+    BufferedImage i = new BufferedImage(500, 150, BufferedImage.TYPE_3BYTE_BGR);
+    Graphics g = i.getGraphics();
     return new ImageIcon(i);
   }
 }
