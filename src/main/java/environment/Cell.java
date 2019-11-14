@@ -109,7 +109,7 @@ public class Cell extends Object {
    * @return the weapon in slot #2.
    */
   public Weapon getWeapon2() {
-    if (getWeaponsCount() == 1) {
+    if (getWeaponsCount() == 0 || getWeaponsCount() == 1 ) {
       return null;
     }
     return weapons.get(1);
@@ -127,9 +127,9 @@ public class Cell extends Object {
   public String getStats() {
     //if(hasLifeForm()) {
       return "<html><h1 style = font-size:30px>Ground</h1><br/>"
-          + "Weapon 1: " + weapons.get(0) + "<br/>"
-              + "Weapon 2: " + weapons.get(0) + "<br/>" 
-              + (hasLifeForm() ? "" :entity.getStats());
+          + "Weapon 1: " + (getWeapon1() == null ? "none" : getWeapon1()) + "<br/>"
+              + "Weapon 2: " + (getWeapon2() == null ? "none" : getWeapon2()) + "<br/>" 
+              + (hasLifeForm() ? entity.getStats(): "");
     //}
   }
 

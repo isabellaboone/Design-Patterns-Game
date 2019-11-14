@@ -18,7 +18,9 @@ public class GUI extends JFrame {
   Environment env;
   static GridBagConstraints x = new GridBagConstraints();
   Cell p = new Cell();
+
   boolean q = p.addLifeForm(new Human("Bob", 100, 10));
+
   public GUI(Environment env) {
     this.env = env;
     setLayout(new GridBagLayout());
@@ -68,7 +70,7 @@ public class GUI extends JFrame {
    */
   public void drawLegend() {
     JLabel legend = new JLabel(legendImage());
-    legend.setLocation(0,0);
+    legend.setLocation(0, 0);
     legend.setOpaque(true);
     legend.setBackground(new Color(200, 200, 200));
     x.anchor = x.FIRST_LINE_START;
@@ -89,7 +91,7 @@ public class GUI extends JFrame {
 
     return new ImageIcon(i);
   }
-  
+
   private ImageIcon legendImage() {
     BufferedImage i = new BufferedImage(500, 150, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
