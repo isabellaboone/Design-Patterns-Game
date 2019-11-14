@@ -102,10 +102,10 @@ public class Human extends LifeForm {
   
   @Override
   public String getStats() {
-    return "<html><h1 style = font-size:30px>" +  getName() + "</h1><br/>"
+    return "<html><h1 style = font-size:30px; text-align:center>" +  getName() + "</h1><br/>"
         + "Health: " + currentLifePoints + "/" + maxLifePoints + "<br/>"
-        + "Attack: " + getAttackStrength()
-        + "Armor: " + armor
+        + "Attack: " + getAttackStrength() + "<br/>"
+        + "Armor: " + armor + "<br/>"
         + "Weapon: " + (hasWeapon() ? weapon : "None")
         + "</html>";
   }
