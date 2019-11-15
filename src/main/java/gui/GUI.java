@@ -122,7 +122,7 @@ public class GUI extends JFrame {
   private ImageIcon legendImage() {
     BufferedImage i = new BufferedImage(500, 150, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
-    return new ImageIcon(i);
+    return new ImageIcon(getClass().getResource("CommandButtons/legend.png"));
   }
   
   private void onMouseClicked(MouseEvent e) {
