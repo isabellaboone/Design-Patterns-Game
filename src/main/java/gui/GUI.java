@@ -25,18 +25,16 @@ public class GUI extends JFrame {
 
   Environment env;
   static GridBagConstraints x = new GridBagConstraints();
-  Cell p = new Cell();
   JLabel[][] labelArray;
   JLabel stats;
   JPanel board = new JPanel(new GridBagLayout());
-  boolean q = p.addLifeForm(new Human("Bob", 100, 10));
   
   public GUI(Environment env) {
     this.env = env;
     setLayout(new GridBagLayout());
     drawEnvironment();
     setMouseListener();
-    drawStats(p);
+    drawStats(env.getCell(0, 0));
     drawLegend();
     
     pack();
