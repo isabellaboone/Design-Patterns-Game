@@ -123,6 +123,16 @@ public class Cell extends Object {
         ? false
         : true;
   }
+  
+  /**
+   * 
+   * @return
+   */
+  public void turn(int direction) {
+    if(!hasLifeForm()) {
+      entity.turn(direction);
+    }
+  }
 
   public String getStats() {
     //if(hasLifeForm()) {

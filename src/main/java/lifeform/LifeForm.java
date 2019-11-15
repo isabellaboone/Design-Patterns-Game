@@ -193,16 +193,10 @@ public abstract class LifeForm implements Weapon {
    * @param direction, the direction to turn.
    * @return true if LifeForm turned, false if it did not.
    */
-  public boolean turn(int direction) {
-    return false;
-  }
-  
-  /**
-   * Moves 1 cell (5 meters) in the current direction of the LifeForm.
-   * @return true if the LifeForm moved, false if it did not.
-   */
-  public boolean move() {
-	  return false;
+  public void turn(int direction) {
+    if (direction >= 1 && direction <= 4) {
+      this.direction = direction;
+    }
   }
   
   public String getStats() {

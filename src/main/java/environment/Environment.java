@@ -174,7 +174,7 @@ public class Environment extends Object {
    * @return null
    */
   public Weapon removeWeapon(Weapon weapon, int row, int col) {
-    return null;
+    return cell[row][col].removeWeapon(weapon);
   }
   
   public int getNumberOfEntities() {
@@ -201,5 +201,15 @@ public class Environment extends Object {
   
   public Cell getSelectedCell() {
     return selectedCell;
+  }
+  
+
+  /**
+   * Moves 1 cell (5 meters) in the current direction of the LifeForm.
+   * @return true if the LifeForm moved, false if it did not.
+   */
+  public boolean move() {
+    
+    return false;
   }
 }
