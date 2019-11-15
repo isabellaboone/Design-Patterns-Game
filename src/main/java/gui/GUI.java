@@ -102,6 +102,8 @@ public class GUI extends JFrame {
   private ImageIcon createSquare(Cell c) {
     BufferedImage i = new BufferedImage(50, 50, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
+    
+    //selected cell
     if(c == env.getSelectedCell()) {
       g.setColor(new Color(150, 200, 150));
       g.fillRect(0, 0, 50, 50);
@@ -115,6 +117,17 @@ public class GUI extends JFrame {
       g.setColor(Color.WHITE);
       g.drawRect(49, 0, 1, 50);
       g.drawRect(0, 49, 50, 1);
+    }
+    
+    if(c.hasLifeForm()) {
+      if(c.getLifeForm() instanceof Alien) {
+        g.setColor(new Color(255, 0, 0));
+        g.fillRect(10, 10, 30, 30);
+      }
+      else if(c.getLifeForm() instanceof Human) {
+        g.setColor(new Color(0, 255, 255));
+        g.fillOval(10, 10, 30, 30);
+      }
     }
     return new ImageIcon(i);
   }

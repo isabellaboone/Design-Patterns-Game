@@ -46,6 +46,8 @@ public class Runner extends JFrame{
     e.addLifeForm(a, 8, 3);
     e.addLifeForm(jun, 5, 2);
     e.addLifeForm(kim, 3, 1);
+    
+    gui.redrawBoard();
     commandGui commands = new commandGui(); 
     
   }
