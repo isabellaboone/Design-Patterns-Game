@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class commandGui extends JFrame implements ActionListener {
   
   
-  JButton North, South, East, West, Move;
+  JButton North, South, East, West, Move, Reload, Attack, Drop, Pickup;
   
   public commandGui() {
     JFrame frame = new JFrame("Frame"); 
@@ -29,13 +29,20 @@ public class commandGui extends JFrame implements ActionListener {
     South = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
     East = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
     Move = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_move.png")));
-    
+    Reload = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Reload.png")));
+    Attack = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Attack.png")));
+    Drop = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Drop.png")));
+    Pickup = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Pickup.png")));
     
     North.addActionListener(this);
     West.addActionListener(this);
     South.addActionListener(this);
     East.addActionListener(this);
     Move.addActionListener(this);
+    Reload.addActionListener(this);
+    Attack.addActionListener(this);
+    Drop.addActionListener(this);
+    Pickup.addActionListener(this);
     
     add("Center", Move);
     add("North", North);
