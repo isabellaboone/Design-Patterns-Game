@@ -107,6 +107,7 @@ public class Human extends LifeForm {
         + "Attack: " + getAttackStrength() + "<br/>"
         + "Armor: " + armor + "<br/>"
         + "Weapon: " + (hasWeapon() ? weapon : "None")
+        + "<br/>_________________________________________"
         + "</html>";
   }
 }
