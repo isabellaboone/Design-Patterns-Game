@@ -17,24 +17,22 @@ import environment.*;
 import lifeform.*;
 
 public class GUI extends JFrame {
-  
+
   Environment env;
   static GridBagConstraints x = new GridBagConstraints();
   Cell p = new Cell();
   JLabel[][] labelArray;
   JLabel stats;
-  JPanel board = new JPanel(new GridBagLayout());;
+  JPanel board = new JPanel(new GridBagLayout());
   boolean q = p.addLifeForm(new Human("Bob", 100, 10));
-
+  
   public GUI(Environment env) {
     this.env = env;
     setLayout(new GridBagLayout());
     drawEnvironment();
-    add(board, x);
+    setMouseListener();
     drawStats(p);
-    add(stats, x);
     drawLegend();
-    
     
     pack();
     setVisible(true);
@@ -42,26 +40,28 @@ public class GUI extends JFrame {
   }
 
   public void drawEnvironment() {
+    JLabel imageLabel;
     labelArray = new JLabel[env.getNumRows()][env.getNumCols()];
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
-        // labelArray[r][c] = new JLabel(" ("+r+":"+c+") ");
-        JLabel imageLabel = new JLabel(createSquare(env.getCell(r, c)));
+        imageLabel = new JLabel(createSquare(env.getCell(r, c)));
         labelArray[r][c] = imageLabel;
-        labelArray[r][c].addMouseListener(new MouseAdapter() {
-          @Override
-          public void mouseClicked(MouseEvent e) {
-            onMouseClicked(e);
-          }
-        });
         x.gridx = c;
         x.gridy = r;
         board.add(labelArray[r][c], x);
       }
     }
-
     x.gridx = 0;
     x.gridy = 0;
+    add(board, x);
+  }
+  
+  public void redraw() {
+    for (int r = 0; r < env.getNumRows(); r++) {
+      for (int c = 0; c < env.getNumCols(); c++) {
+        labelArray[r][c].setIcon(createSquare(env.getCell(r, c)));
+      }
+    }
   }
   public void drawStats(Cell c) {
     stats = new JLabel(c.getStats());
@@ -72,7 +72,7 @@ public class GUI extends JFrame {
     x.weighty = 1.0;
     x.gridx = 1;
     x.gridy = 0;
-    
+    add(stats, x);
   }
 
   /*
@@ -121,9 +121,20 @@ public class GUI extends JFrame {
       for (int c = 0; c < env.getNumCols(); c++) {
         if(e.getSource() == labelArray[r][c]) {
           env.selectCell(r, c);
-          
-          //drawStats(env.getSelectedCell());
+          redraw();
         }
+      }
+    }
+  }
+  public void setMouseListener() {
+    for (int r = 0; r < env.getNumRows(); r++) {
+      for (int c = 0; c < env.getNumCols(); c++) {
+        labelArray[r][c].addMouseListener(new MouseAdapter() {
+          @Override
+          public void mouseClicked(MouseEvent e) {
+            onMouseClicked(e);
+          }
+        });
       }
     }
   }
