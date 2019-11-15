@@ -38,6 +38,7 @@ public class GUI extends JFrame {
     drawLegend();
     
     pack();
+    setResizable(false);
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
@@ -76,9 +77,8 @@ public class GUI extends JFrame {
     stats = new JLabel(c.getStats());
     stats.setLocation(0, 0);
     stats.setOpaque(true);
-    stats.setBackground(new Color(200, 200, 200));
+    stats.setBackground(new Color(255,255,255));
     x.anchor = x.FIRST_LINE_START;
-    x.weighty = 1.0;
     x.gridx = 1;
     x.gridy = 0;
     add(stats, x);

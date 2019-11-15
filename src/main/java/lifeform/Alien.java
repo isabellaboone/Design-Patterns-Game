@@ -155,4 +155,15 @@ public class Alien extends LifeForm implements TimerObserver {
     weapon.reload();
   }
   
+  public String getStats() {
+    return "<html><h1 style = font-size:30px; text-align:center>" +  getName() + "</h1><br/>"
+        + "Health: " + currentLifePoints + "/" + maxLifePoints + "<br/>"
+        + "Attack: " + getAttackStrength() + "<br/>"
+        + "Recovery Behavior: " + getRecoveryBehavior() + "<br/>"
+        + "Recovery Rate: " + getRecoveryRate() + "<br/>"
+        + "Weapon: " + (hasWeapon() ? weapon : "None")
+        + "<br/>_________________________________________"
+        + "</html>";
+  }
+  
 }

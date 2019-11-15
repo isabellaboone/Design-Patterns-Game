@@ -24,6 +24,10 @@ public class RecoveryLinear implements RecoveryBehavior {
   public int calculateRecovery(int currentLife, int maxLife) {
     return currentLife == 0 ? 0 : Math.min(maxLife, currentLife + step);
   }
+  
+  public String toString() {
+    return "Linear";
+  }
 
 }
 
