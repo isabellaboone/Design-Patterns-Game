@@ -61,6 +61,7 @@ public class commandGui extends JFrame implements ActionListener {
     
     frame.add(turnButtons);
     frame.add(commandButtons);
+    frame.setLocation(60, 615);
     pack(); 
     frame.setVisible(true); 
     
