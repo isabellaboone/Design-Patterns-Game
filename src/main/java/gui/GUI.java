@@ -103,7 +103,7 @@ public class GUI extends JFrame {
     BufferedImage i = new BufferedImage(50, 50, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
     if(c == env.getSelectedCell()) {
-      g.setColor(new Color(255, 100, 100));
+      g.setColor(new Color(150, 200, 150));
       g.fillRect(0, 0, 50, 50);
       g.setColor(Color.WHITE);
       g.drawRect(49, 0, 1, 50);
