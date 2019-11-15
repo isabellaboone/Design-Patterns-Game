@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,16 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class commandGui extends JFrame implements ActionListener {
-  String UNSELECTED_NORTH = "/CommandButtons/unselected_north.png",
-         UNSELECTED_WEST = "/CommandButtons/unselected_west.png",
-         UNSELECTED_SOUTH = "/CommandButtons/unselected_north.png",
-         UNSELECTED_EAST = "/CommandButtons/unselected_north.png",
-         SELECTED_NORTH = "/CommandButtons/unselected_north.png",
-         SELECTED_WEST = "/CommandButtons/unselected_north.png",
-         SELECTED_SOUTH = "png",
-         SELECTED_EAST = "C:\\Users\\Isabella\\Documents\\Eclipse Workspace\\SampleGui\\PNG files for project\\selected_east.png";
   
-  JButton North, South, East, West; 
+  
+  JButton North, South, East, West, Move;
   
   public commandGui() {
     JFrame frame = new JFrame("Frame"); 
@@ -27,19 +21,23 @@ public class commandGui extends JFrame implements ActionListener {
     
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
-    //setLayout(new BorderLayout()); 
+    setLayout(new BorderLayout()); 
     
     // Create button, add an action listener and add it
     North = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
     West = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
     South = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
     East = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
+    Move = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_move.png")));
+    
     
     North.addActionListener(this);
     West.addActionListener(this);
     South.addActionListener(this);
     East.addActionListener(this);
+    Move.addActionListener(this);
     
+    add("Center", Move);
     add("North", North);
     add("West", West); 
     add("South", South); 
@@ -72,6 +70,8 @@ public class commandGui extends JFrame implements ActionListener {
       West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
       South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
       East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_east.png")));
+    } else if (e.getSource() == Move) {
+      //
     }
   
   }
