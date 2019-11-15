@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,18 +18,20 @@ public class commandGui extends JFrame implements ActionListener {
   
   public commandGui() {
     JFrame frame = new JFrame("Frame"); 
-    JPanel turnButtons = new JPanel(); 
+    JPanel turnButtons = new JPanel();
+    JPanel commandButtons = new JPanel();
     
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
-    setLayout(new BorderLayout()); 
+    frame.setSize(600,200);
+    frame.setLayout(new FlowLayout());
+    turnButtons.setLayout(new BorderLayout()); 
     
     // Create button, add an action listener and add it
     North = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
     West = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
     South = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
     East = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
-    Move = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_move.png")));
+    Move = new JButton(new ImageIcon(getClass().getResource("CommandButtons/move.png")));
     Reload = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Reload.png")));
     Attack = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Attack.png")));
     Drop = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Drop.png")));
@@ -44,14 +47,22 @@ public class commandGui extends JFrame implements ActionListener {
     Drop.addActionListener(this);
     Pickup.addActionListener(this);
     
-    add("Center", Move);
-    add("North", North);
-    add("West", West); 
-    add("South", South); 
-    add("East", East); 
     
+    turnButtons.add("Center", Move);
+    turnButtons.add("North", North);
+    turnButtons.add("West", West); 
+    turnButtons.add("South", South); 
+    turnButtons.add("East", East); 
+    commandButtons.add(Reload); 
+    commandButtons.add(Attack);
+    commandButtons.add(Drop);
+    commandButtons.add(Pickup);
+   
+    
+    frame.add(turnButtons);
+    frame.add(commandButtons);
     pack(); 
-    setVisible(true); 
+    frame.setVisible(true); 
     
   }
 
