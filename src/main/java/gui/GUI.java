@@ -16,6 +16,11 @@ import javax.swing.JPanel;
 import environment.*;
 import lifeform.*;
 
+/*
+ * Possibly do:
+ * make hovering work.
+ */
+
 public class GUI extends JFrame {
 
   Environment env;
@@ -55,15 +60,21 @@ public class GUI extends JFrame {
     x.gridy = 0;
     add(board, x);
   }
-  
-  public void redraw() {
+  /*
+   * Redraws the board.
+   */
+  public void redrawBoard() {
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
         labelArray[r][c].setIcon(createSquare(env.getCell(r, c)));
       }
     }
   }
-  public void drawStats(Cell c) {
+  
+  public void redrawStats() {
+    stats.setText(env.getSelectedCell().getStats());
+  }
+  private void drawStats(Cell c) {
     stats = new JLabel(c.getStats());
     stats.setLocation(0, 0);
     stats.setOpaque(true);
@@ -121,7 +132,8 @@ public class GUI extends JFrame {
       for (int c = 0; c < env.getNumCols(); c++) {
         if(e.getSource() == labelArray[r][c]) {
           env.selectCell(r, c);
-          redraw();
+          redrawBoard();
+          redrawStats();
         }
       }
     }

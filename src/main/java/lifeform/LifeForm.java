@@ -43,7 +43,7 @@ public abstract class LifeForm implements Weapon {
     currentLifePoints = points;
     maxLifePoints = points;
     attackStrength = attack;
-    setLocation(-1, -1);
+    setLocation(0, 0);
     turn(1);
   }
 
