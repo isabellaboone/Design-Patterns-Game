@@ -38,7 +38,9 @@ public class Runner extends JFrame{
     
     LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 2);
     LifeForm kim = new Alien("Rat King: Kim", 3000, rl, 10);
+    
     kim.pickUpWeapon(pc);
+    kim.turn(4);
     e.addLifeForm(c, 1, 1);
     e.addLifeForm(j, 2, 2);
     e.addLifeForm(m, 6, 9);

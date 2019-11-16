@@ -28,6 +28,7 @@ public class GUI extends JFrame {
   JLabel[][] labelArray;
   JLabel stats;
   JPanel board = new JPanel(new GridBagLayout());
+  final int NORTH = 1, EAST = 2, SOUTH = 3, WEST = 4;
 
   public GUI(Environment env) {
     this.env = env;
@@ -127,9 +128,22 @@ public class GUI extends JFrame {
     // life forms
     if (c.hasLifeForm()) {
 
+      // weapons
       if (c.getLifeForm().hasWeapon()) {
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(35, 5, 10, 20);
+        if (c.getDirection() == NORTH) {
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(35, 5, 10, 20);
+        } else if (c.getDirection() == EAST) {
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(25, 35, 20, 10);
+        } else if (c.getDirection() == SOUTH) {
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(35, 25, 10, 20);
+        } else if (c.getDirection() == WEST) {
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(5, 5, 20, 10);
+        }
+
       }
 
       // draw life forms

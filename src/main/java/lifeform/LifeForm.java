@@ -189,7 +189,7 @@ public abstract class LifeForm implements Weapon {
   
   /**
    * Allows LifeForms to turn.
-   * Up = 1 / Right = 2 / Down = 3 / Right = 4
+   * Up = 1 / Right = 2 / Down = 3 / Left = 4
    * @param direction, the direction to turn.
    * @return true if LifeForm turned, false if it did not.
    */

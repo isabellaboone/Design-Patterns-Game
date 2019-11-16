@@ -125,7 +125,7 @@ public class Cell extends Object {
   }
   
   /**
-   * 
+   * i like set direction better
    * @return
    */
   public void turn(int direction) {
@@ -133,7 +133,13 @@ public class Cell extends Object {
       entity.turn(direction);
     }
   }
-
+  
+  public int getDirection() {
+    if(hasLifeForm()) {
+      return entity.getDirection();
+    }
+    return 0;
+  }
   public String getStats() {
     //if(hasLifeForm()) {
       return "<html><h1 style = font-size:30px; text-align:center>Ground</h1><br/>"
