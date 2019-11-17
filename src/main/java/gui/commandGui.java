@@ -11,16 +11,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import environment.Environment;
+
 public class commandGui extends JFrame implements ActionListener {
   
   
   JButton North, South, East, West, Move, Reload, Attack, Drop, Pickup;
-  
-  public commandGui() {
-    JFrame frame = new JFrame("Frame"); 
+  Environment env;
+  GUI g;
+  public commandGui(Environment map, GUI gui) {
+    JFrame frame = new JFrame("Controller"); 
     JPanel turnButtons = new JPanel();
     JPanel commandButtons = new JPanel();
-    
+    env = map;
+    g = gui;
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(600,200);
     frame.setLayout(new FlowLayout());
@@ -90,8 +94,18 @@ public class commandGui extends JFrame implements ActionListener {
       South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
       East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_east.png")));
     } else if (e.getSource() == Move) {
-      //
+      
+    } else if (e.getSource() == Reload) {
+      env.getSelectedCell().getLifeForm().reload();
+    } else if (e.getSource() == Attack) {
+      
+    } else if (e.getSource() == Drop) {
+      env.getSelectedCell().addWeapon(env.getSelectedCell().getLifeForm().dropWeapon());
+    } else if (e.getSource() == Pickup) {
+      env.getSelectedCell().getLifeForm().pickUpWeapon(env.getSelectedCell().getWeapon1());
+      env.getSelectedCell().removeWeapon( env.getSelectedCell().getWeapon1());
     }
-  
+    g.redrawBoard();
+    g.redrawStats();
   }
 }

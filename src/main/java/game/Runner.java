@@ -50,7 +50,7 @@ public class Runner extends JFrame{
     e.addLifeForm(kim, 3, 1);
     
     gui.redrawBoard();
-    commandGui commands = new commandGui(); 
+    commandGui commands = new commandGui(e, gui); 
     
   }
 }
