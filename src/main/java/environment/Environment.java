@@ -274,12 +274,13 @@ public class Environment extends Object {
             return true;
           }
         default:
-          System.out.println("Defaulted. Input direction '" + direction + "' is not in the movement set -> [ 1, 2, 3, 4 ].");
+          System.out.println("Defaulted. Input direction '" + direction + "' is not in [ 1, 2, 3, 4 ].");
           return false;
       }
     }
     return false;
   }
+  
   
   public Cell findTarget() {
     Cell target = null;
