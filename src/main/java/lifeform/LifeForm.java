@@ -194,8 +194,10 @@ public abstract class LifeForm implements Weapon {
    * @return true if LifeForm turned, false if it did not.
    */
   public void turn(int direction) {
+    String[] directions = {"North", "East", "South", "West"};
     if (direction >= 1 && direction <= 4) {
       this.direction = direction;
+      System.out.println("Turned " + directions[direction - 1] + ".");
     }
   }
   

@@ -140,6 +140,7 @@ public class Cell extends Object {
     }
     return 0;
   }
+  
   public String getStats() {
     //if(hasLifeForm()) {
       return "<html><h1 style = font-size:30px; text-align:center>Ground</h1><br/>"
