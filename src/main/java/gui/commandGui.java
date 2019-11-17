@@ -115,7 +115,7 @@ public class commandGui extends JFrame implements ActionListener {
         env.getSelectedCell().getLifeForm().turn(2);
       }
     } else if (e.getSource() == Move) {
-      // move still needed
+        env.move();
     } else if (e.getSource() == Reload) {
       env.getSelectedCell().getLifeForm().reload();
     } else if (e.getSource() == Attack) {

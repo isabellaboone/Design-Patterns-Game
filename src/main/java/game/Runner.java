@@ -43,7 +43,7 @@ public class Runner extends JFrame{
     jun.pickUpWeapon(pc);
     m.pickUpWeapon(cg);
     kim.turn(4);
-    e.addLifeForm(c, 1, 1);
+    e.addLifeForm(c, 0, 0);
     e.addLifeForm(j, 2, 2);
     e.addLifeForm(m, 6, 8);
     e.addLifeForm(i, 3, 5);

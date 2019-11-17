@@ -212,6 +212,7 @@ public class Environment extends Object {
   public boolean move() {
     String[] directions = {"North", "East", "South", "West"};
     Cell selectedCell = getSelectedCell();
+    Cell newCell;
     if(selectedCell.hasLifeForm()) {
       int direction = selectedCell.getDirection();
       int row = selectedCell.getLifeForm().getRow();
@@ -224,8 +225,12 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setLocation(row - 1, col);
+            //selectedCell.getLifeForm().setLocation(row - 1, col);
+            newCell = getCell(row - 1, col);
+            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.getLifeForm().setLocation(row - 1, col);
             selectedCell.removeLifeForm();
+            env.selectCell(row - 1, col);
             System.out.println("Moved " + directions[direction - 1] + ".");
             return true;
           }
@@ -234,8 +239,11 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setLocation(row, col + 1);
+            newCell = getCell(row, col + 1);
+            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.getLifeForm().setLocation(row, col + 1);
             selectedCell.removeLifeForm();
+            env.selectCell(row, col + 1);
             System.out.println("Moved " + directions[direction - 1] + ".");
             return true;
           }
@@ -244,8 +252,11 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setLocation(row + 1, col);
+            newCell = getCell(row + 1, col);
+            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.getLifeForm().setLocation(row + 1, col);
             selectedCell.removeLifeForm();
+            env.selectCell(row + 1, col);
             System.out.println("Moved " + directions[direction - 1] + ".");
             return true;
           }
@@ -254,8 +265,11 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setLocation(row, col - 1);
+            newCell = getCell(row, col - 1);
+            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.getLifeForm().setLocation(row, col - 1);
             selectedCell.removeLifeForm();
+            env.selectCell(row, col - 1);
             System.out.println("Moved " + directions[direction - 1] + ".");
             return true;
           }
