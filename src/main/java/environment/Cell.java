@@ -128,7 +128,7 @@ public class Cell extends Object {
    * i like set direction better
    * @return
    */
-  public void turn(int direction) {
+  public void setDirection(int direction) {
     if(!hasLifeForm()) {
       entity.turn(direction);
     }
