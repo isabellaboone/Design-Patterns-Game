@@ -30,6 +30,7 @@ public abstract class LifeForm implements Weapon {
     this(name, points, 1);
     setLocation(-1, -1);
     turn(1);
+    movesLeft = 3;
   }
 
   /**
@@ -45,6 +46,7 @@ public abstract class LifeForm implements Weapon {
     attackStrength = attack;
     setLocation(0, 0);
     turn(1);
+    movesLeft = 3;
   }
 
   /**
@@ -185,6 +187,20 @@ public abstract class LifeForm implements Weapon {
 	 */
   public int getDirection() {
     return direction;
+  }
+  
+  public void setMovesLeft(int movesLeft) {
+    if(this.movesLeft != 0) {
+      this.movesLeft = movesLeft;
+    }
+  }
+  
+  /**
+   * Returns the remaining amount of moves.
+   * @return the remaining amount of moves.
+   */
+  public int getMovesLeft() {
+    return movesLeft;
   }
   
   /**

@@ -221,11 +221,11 @@ public class Environment extends Object {
       int maxCol = getNumCols();
       switch(direction) {
         case 1:
-          if (row - 1 < 0 || cell[row - 1][col].hasLifeForm()) {
+          if (row - 1 < 0 || cell[row - 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            //selectedCell.getLifeForm().setLocation(row - 1, col);
+            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row - 1, col);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row - 1, col);
@@ -235,10 +235,11 @@ public class Environment extends Object {
             return true;
           }
         case 2:
-          if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm()) {
+          if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
+            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row, col + 1);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row, col + 1);
@@ -248,10 +249,11 @@ public class Environment extends Object {
             return true;
           }
         case 3:
-          if (row + 1 == maxRow || cell[row + 1][col].hasLifeForm()) {
+          if (row + 1 == maxRow || cell[row + 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
+            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row + 1, col);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row + 1, col);
@@ -261,10 +263,11 @@ public class Environment extends Object {
             return true;
           }
         case 4:
-          if (col - 1 < 0 || cell[row][col - 1].hasLifeForm()) {
+          if (col - 1 < 0 || cell[row][col - 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
+            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row, col - 1);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row, col - 1);

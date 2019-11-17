@@ -97,7 +97,7 @@ public class Human extends LifeForm {
 
   @Override
   public void updateTime(int time) {
-    
+    movesLeft = 3;
   }
   
   @Override

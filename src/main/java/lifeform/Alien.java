@@ -104,6 +104,7 @@ public class Alien extends LifeForm implements TimerObserver {
    * cause it updates time.
    */
   public void updateTime(int time) {
+    movesLeft = 3;
     if (time % recoveryRate == 0) {
       this.recover();
     }
