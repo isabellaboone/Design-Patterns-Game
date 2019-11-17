@@ -39,6 +39,14 @@ public class Runner extends JFrame{
     Weapon cg = new PowerBooster(new PowerBooster(new ChainGun()));
     LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 2);
     LifeForm kim = new Alien("Rat King: Kim", 3000, rl, 10);
+    // dummies to test firing
+    LifeForm d1 = new Human("Dummy 1", 1000, 0);
+    LifeForm d2 = new Human("Dummy 2", 1000, 0);
+    e.addLifeForm(d1, 9, 9);
+    e.addLifeForm(d2, 9, 8);
+    
+    //
+    
     
     jun.pickUpWeapon(pc);
     m.pickUpWeapon(cg);

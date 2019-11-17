@@ -119,14 +119,14 @@ public class commandGui extends JFrame implements ActionListener {
     } else if (e.getSource() == Reload) {
       env.getSelectedCell().getLifeForm().reload();
     } else if (e.getSource() == Attack) {
-      // attack still needed *needs away to get the closest lifeform in the direction it is facing the following is placeholder
+      // ***************************************************************************************************
       try {
-        env.findTarget();
-        env.getSelectedCell().getLifeForm().fire(0);
+        env.getSelectedCell().getLifeForm().attack(env.findTarget().getLifeForm(), (int)(env.getDistance(env.getSelectedCell().getLifeForm(), env.findTarget().getLifeForm())));
       } catch (WeaponException e1) {
         // TODO Auto-generated catch block
         e1.printStackTrace();
-      }      
+      }
+          
     } else if (e.getSource() == Drop) {
       env.getSelectedCell().addWeapon(env.getSelectedCell().getLifeForm().dropWeapon());
     } else if (e.getSource() == Pickup) {
