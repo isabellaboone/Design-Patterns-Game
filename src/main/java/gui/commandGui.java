@@ -121,6 +121,7 @@ public class commandGui extends JFrame implements ActionListener {
     } else if (e.getSource() == Attack) {
       // attack still needed *needs away to get the closest lifeform in the direction it is facing the following is placeholder
       try {
+        env.findTarget();
         env.getSelectedCell().getLifeForm().fire(0);
       } catch (WeaponException e1) {
         // TODO Auto-generated catch block

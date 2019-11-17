@@ -42,6 +42,7 @@ public class Environment extends Object {
     }
     if (getLifeForm(row, col) == null) {
       cell[row][col].addLifeForm(lf);
+      lf.setLocation(row, col);
     }
     return (cell[row][col].getLifeForm() == lf) ? true : false;
   }
@@ -211,5 +212,39 @@ public class Environment extends Object {
   public boolean move() {
     
     return false;
+  }
+  
+  public Cell findTarget() {
+    Cell target = null;
+    int row, col;
+    row = selectedCell.getLifeForm().getRow();
+    col = selectedCell.getLifeForm().getCol();
+   
+    if (selectedCell.getLifeForm().getDirection() == 1) {  
+      target = cell[--row][col];
+
+      while(target.hasLifeForm() == false && target != cell[0][col]) {
+         target = cell[--row][col]; 
+
+      }
+    } else  if (selectedCell.getLifeForm().getDirection() == 2) {  
+        target = cell[row][++col];
+
+        while(target.hasLifeForm() == false && target != cell[row][getNumCols() - 1]) {
+          target = cell[row][++col]; 
+      }   
+    }  else  if (selectedCell.getLifeForm().getDirection() == 3) {  
+      target = cell[++row][col];
+      while(target.hasLifeForm() == false && target != cell[getNumRows() - 1][col]) {
+        target = cell[++row][col]; 
+    }   
+  } else  if (selectedCell.getLifeForm().getDirection() == 4) {  
+    target = cell[row][--col];
+    while(target.hasLifeForm() == false && target != cell[row][0]) {
+      target = cell[row][--col];   
+  }   
+}
+    System.out.println("target found at: " + row + " " + col);
+    return target;
   }
 }
