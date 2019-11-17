@@ -35,7 +35,7 @@ public class Runner extends JFrame{
     LifeForm a = new Human("Andrew", 2, 0);
     RecoveryBehavior rl = new RecoveryLinear(2);
     Weapon pc = new PowerBooster(new PowerBooster(new PlasmaCannon()));
-    
+    Weapon cg = new PowerBooster(new PowerBooster(new ChainGun()));
     LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 2);
     LifeForm kim = new Alien("Rat King: Kim", 3000, rl, 10);
     
@@ -48,7 +48,7 @@ public class Runner extends JFrame{
     e.addLifeForm(a, 8, 3);
     e.addLifeForm(jun, 5, 2);
     e.addLifeForm(kim, 3, 1);
-    
+    e.addWeapon(cg, 3, 1);
     gui.redrawBoard();
     commandGui commands = new commandGui(e, gui); 
     
