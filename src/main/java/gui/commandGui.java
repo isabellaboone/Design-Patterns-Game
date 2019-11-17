@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import environment.Environment;
+import exceptions.WeaponException;
 
 public class commandGui extends JFrame implements ActionListener {
   
@@ -118,7 +119,13 @@ public class commandGui extends JFrame implements ActionListener {
     } else if (e.getSource() == Reload) {
       env.getSelectedCell().getLifeForm().reload();
     } else if (e.getSource() == Attack) {
-      // attack still needed *needs away to get the closest lifeform in the direction it is facing
+      // attack still needed *needs away to get the closest lifeform in the direction it is facing the following is placeholder
+      try {
+        env.getSelectedCell().getLifeForm().fire(0);
+      } catch (WeaponException e1) {
+        // TODO Auto-generated catch block
+        e1.printStackTrace();
+      }      
     } else if (e.getSource() == Drop) {
       env.getSelectedCell().addWeapon(env.getSelectedCell().getLifeForm().dropWeapon());
     } else if (e.getSource() == Pickup) {

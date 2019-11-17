@@ -85,7 +85,14 @@ public abstract class GenericWeapon extends Object implements Weapon {
    * This may be refactored in the future to take ammo reserves into account.
    */
   public void reload() {
-    this.currentAmmo = getMaxAmmo();
+    //this.currentAmmo = getMaxAmmo();
+    while(shotsLeft != rateOfFire) {
+      if (currentAmmo == 0) {
+        return;
+      }
+      currentAmmo--;
+      shotsLeft++;
+    }
   }
 
   /**

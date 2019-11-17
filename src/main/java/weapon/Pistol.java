@@ -30,13 +30,13 @@ public class Pistol extends GenericWeapon {
     if (distance < 0) {
       throw new WeaponException("Distance cannot be negative.");
     }
-    if (getCurrentAmmo() == 0) {
-      return 0;
-    }
+   // if (getCurrentAmmo() == 0) {
+   //   return 0;
+   // }
     if (this.getShotsLeft() == 0) {
       return 0;
     }
-    --this.currentAmmo;
+   // --this.currentAmmo;
     --this.shotsLeft;
     return (distance > getMaxRange())
       ? 0
