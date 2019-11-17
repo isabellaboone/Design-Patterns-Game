@@ -202,7 +202,8 @@ public abstract class LifeForm implements Weapon {
   public String getStats() {
     return "<html><h1 style = font-size:30px>" +  myName + "</h1><br/>"
         + currentLifePoints + "/" + maxLifePoints + "<br/>"
-        + attackStrength + "</html>";
+        + attackStrength + "</html>"
+        ;
   }
   
 }

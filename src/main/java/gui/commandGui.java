@@ -74,41 +74,51 @@ public class commandGui extends JFrame implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     if(e.getSource() == North) {
-
-      North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_north.png")));
-      West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
-      South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
-      East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
-      env.getSelectedCell().getLifeForm().turn(1);
-
+      if (env.getSelectedCell().hasLifeForm() == false) {
+        System.out.println("There is no lifeform in the selected cell. Try Again.");
+      } else {
+        North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_north.png")));
+        West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
+        South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
+        East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
+        env.getSelectedCell().getLifeForm().turn(1);
+      }
     } else if (e.getSource() == West) {
-
-      North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
-      West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_west.png")));
-      South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
-      East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
-      env.getSelectedCell().getLifeForm().turn(4);
-
+        if (env.getSelectedCell().hasLifeForm() == false) {
+          System.out.println("There is no lifeform in the selected cell. Try Again.");
+        } else {
+          North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
+          West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_west.png")));
+          South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
+          East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
+          env.getSelectedCell().getLifeForm().turn(4);
+        }
     } else if (e.getSource() == South) {
+        if (env.getSelectedCell().hasLifeForm() == false) {
+          System.out.println("There is no lifeform in the selected cell. Try Again.");
+        } else {
+          North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
+          West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
+          South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_south.png")));
+          East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
+          env.getSelectedCell().getLifeForm().turn(3);
+        }
+    } else if (e.getSource() == East) {
+      if (env.getSelectedCell().hasLifeForm() == false) {
+        System.out.println("There is no lifeform in the selected cell. Try Again.");
+      } else {
         North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
         West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
-        South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_south.png")));
-        East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
-        env.getSelectedCell().getLifeForm().turn(3);
-    } else if (e.getSource() == East) {
-
-      North.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
-      West.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
-      South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
-      East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_east.png")));
-      env.getSelectedCell().getLifeForm().turn(2);
-
+        South.setIcon(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
+        East.setIcon(new ImageIcon(getClass().getResource("CommandButtons/selected_east.png")));
+        env.getSelectedCell().getLifeForm().turn(2);
+      }
     } else if (e.getSource() == Move) {
       // move still needed
     } else if (e.getSource() == Reload) {
       env.getSelectedCell().getLifeForm().reload();
     } else if (e.getSource() == Attack) {
-      // attack still needed
+      // attack still needed *needs away to get the closest lifeform in the direction it is facing
     } else if (e.getSource() == Drop) {
       env.getSelectedCell().addWeapon(env.getSelectedCell().getLifeForm().dropWeapon());
     } else if (e.getSource() == Pickup) {
