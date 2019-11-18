@@ -79,13 +79,11 @@ public class commandGui extends JFrame implements ActionListener {
     /*
     if(env.getSelectedCell().hasLifeForm()) {
       Command c = ((Command) e.getSource());
-      c.execute();
+      c.execute(env);
     } else {
       System.out.println("There is no lifeform in the selected cell. Try Again.");
     }
     */
-    
-    
     
     if(e.getSource() == North) {
       if (env.getSelectedCell().hasLifeForm() == false) {
@@ -144,16 +142,17 @@ public class commandGui extends JFrame implements ActionListener {
       env.getSelectedCell().addWeapon(env.getSelectedCell().getLifeForm().dropWeapon());
     } else if (e.getSource() == Pickup) {
       if (env.getSelectedCell().getWeapon1() != null && !env.getSelectedCell().getLifeForm().hasWeapon()) { 
-        /* check if cell has a weapon1 and lifeform has no weapon */
+        // check if cell has a weapon1 and lifeform has no weapon 
         env.getSelectedCell().getLifeForm().pickUpWeapon(env.getSelectedCell().getWeapon1());
         env.getSelectedCell().removeWeapon( env.getSelectedCell().getWeapon1());
       } else if (env.getSelectedCell().getWeapon2() != null && !env.getSelectedCell().getLifeForm().hasWeapon()) {
-        /* check if cell has a weapon2 and lifeform has no weapon */
+        // check if cell has a weapon2 and lifeform has no weapon 
         env.getSelectedCell().getLifeForm().pickUpWeapon(env.getSelectedCell().getWeapon2());
         env.getSelectedCell().removeWeapon( env.getSelectedCell().getWeapon2());
       }
     }
-
+    
+    // Redraw gui to reflect changes 
     g.redrawBoard();
     g.redrawStats();
   }

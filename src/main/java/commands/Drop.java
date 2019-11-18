@@ -1,11 +1,12 @@
 package commands;
 
 import javax.swing.JButton;
-import javax.swing.JMenuItem; 
+
+import environment.Environment;
 
 public class Drop extends JButton implements Command {
-  public void execute() {
+  public void execute(Environment env) {
+    env.getSelectedCell().addWeapon(env.getSelectedCell().getLifeForm().dropWeapon());
     System.out.println("Drop");
-    // Logic 
   }
 }

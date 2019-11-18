@@ -1,5 +1,7 @@
 package commands;
 
+import environment.Environment;
+
 public interface Command {
-  public void execute(); 
+  public void execute(Environment env); 
 }
