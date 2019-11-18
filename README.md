@@ -36,7 +36,7 @@ Using the following table:
 
 | Task | Assignee | Deadline | Progress (date) |
 |---|---|---|---|
-| Game User Interface | Joel Gingrich & Chase Banyai | 11/13 ~ 11/20 | 0% as of 10/30/19 |
+| Game User Interface | Joel Gingrich & Chase Banyai | 11/13 ~ 11/20 | 99% as of 11/18/19 |
 | Turn & Movement | Andrew Januszko | 11/13 ~ 11/20 | 0% as of 10/30/19 |
 | Invoker (Builder & UI) | Morgan Williams | 11/13 ~ 11/20 | 0% as of 10/30/19 |
 | Commands | Isabella Boone | 11/13 ~ 11/20 | 0% as of 10/30/19 |
