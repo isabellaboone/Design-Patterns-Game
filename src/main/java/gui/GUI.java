@@ -227,6 +227,37 @@ public class GUI extends JFrame {
         g.drawLine(12, 18, 12, 28);
       }
 
+      // chain gun
+      if (c.getWeapon1().toString().contains("ChainGun")) {
+        // handle
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(15, 11, 3, 6);
+        g.fillRect(12, 11, 3, 3);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(15, 11, 3, 6);
+        g.drawRect(12, 11, 3, 3);
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(13, 12, 3, 2);
+        
+        // circle
+        g.setColor(new Color(153, 153, 153));
+        g.fillOval(10, 15, 12, 20);
+        g.setColor(new Color(0, 0, 0));
+        g.drawOval(10, 15, 12, 20);
+
+        // base
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(22, 20, 20, 10);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(22, 20, 20, 10);
+
+        // tip
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(36, 18, 3, 14);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(36, 18, 3, 14);
+      }
+
     }
     return new ImageIcon(i);
   }
