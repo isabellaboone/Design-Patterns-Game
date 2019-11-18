@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import commands.*;
 import environment.Environment;
 import exceptions.WeaponException;
 
@@ -20,6 +21,7 @@ public class commandGui extends JFrame implements ActionListener {
   JButton North, South, East, West, Move, Reload, Attack, Drop, Pickup;
   Environment env;
   GUI g;
+  
   public commandGui(Environment map, GUI gui) {
     JFrame frame = new JFrame("Controller"); 
     JPanel turnButtons = new JPanel();
@@ -74,6 +76,17 @@ public class commandGui extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
+    /*
+    if(env.getSelectedCell().hasLifeForm()) {
+      Command c = ((Command) e.getSource());
+      c.execute();
+    } else {
+      System.out.println("There is no lifeform in the selected cell. Try Again.");
+    }
+    */
+    
+    
+    
     if(e.getSource() == North) {
       if (env.getSelectedCell().hasLifeForm() == false) {
         System.out.println("There is no lifeform in the selected cell. Try Again.");
@@ -140,7 +153,7 @@ public class commandGui extends JFrame implements ActionListener {
         env.getSelectedCell().removeWeapon( env.getSelectedCell().getWeapon2());
       }
     }
-    // redraw the gui to reflect changes
+
     g.redrawBoard();
     g.redrawStats();
   }
