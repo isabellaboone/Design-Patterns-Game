@@ -225,7 +225,6 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row - 1, col);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row - 1, col);
@@ -237,7 +236,6 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row, col + 1);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row, col + 1);
@@ -249,7 +247,6 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row + 1, col);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row + 1, col);
@@ -261,7 +258,6 @@ public class Environment extends Object {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
             return false;
           } else {
-            selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
             newCell = getCell(row, col - 1);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row, col - 1);
@@ -272,6 +268,7 @@ public class Environment extends Object {
           System.out.println("Defaulted. Input direction '" + direction + "' is not in [ 1, 2, 3, 4 ].");
           return false;
       }
+//      selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
       selectedCell.removeLifeForm();
       System.out.println("Moved " + directions[direction - 1] + ".");
       return true;

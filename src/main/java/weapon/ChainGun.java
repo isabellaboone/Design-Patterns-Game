@@ -33,10 +33,10 @@ public class ChainGun extends GenericWeapon {
     if (distance < 0) {
       throw new WeaponException("Distance cannot be negative.");
     }
-   // if (getCurrentAmmo() == 0) {
-   //   return 0;
-   // }
-    //--this.currentAmmo;
+    if (getCurrentAmmo() == 0) {
+      return 0;
+    }
+    --this.currentAmmo;
     --this.shotsLeft;
     return (distance > getMaxRange())
       ? 0
