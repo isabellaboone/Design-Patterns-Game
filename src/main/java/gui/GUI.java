@@ -70,7 +70,6 @@ public class GUI extends JFrame {
         labelArray[r][c].setIcon(createSquare(env.getCell(r, c)));
       }
     }
-    
 
   }
 
@@ -87,7 +86,7 @@ public class GUI extends JFrame {
     x.gridx = 1;
     x.gridy = 0;
     add(stats, x);
-    
+
   }
 
   /*
@@ -154,7 +153,26 @@ public class GUI extends JFrame {
         g.setColor(new Color(0, 255, 255));
         g.fillOval(10, 10, 30, 30);
       }
+
+      if (c.getDirection() == NORTH) {
+        g.setColor(new Color(0, 0, 0));
+        g.drawLine(25, 23, 23, 27);
+        g.drawLine(25, 23, 27, 27);
+      } else if (c.getDirection() == EAST) {
+        g.setColor(new Color(0, 0, 0));
+        g.drawLine(27, 25, 23, 23);
+        g.drawLine(27, 25, 23, 27);
+      } else if (c.getDirection() == SOUTH) {
+        g.setColor(new Color(0, 0, 0));
+        g.drawLine(25, 27, 23, 23);
+        g.drawLine(25, 27, 27, 23);
+      } else if (c.getDirection() == WEST) {
+        g.setColor(new Color(0, 0, 0));
+        g.drawLine(23, 25, 27, 23);
+        g.drawLine(23, 25, 27, 27);
+      }
     }
+    //else if(c.)
     return new ImageIcon(i);
   }
 
