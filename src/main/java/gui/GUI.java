@@ -47,12 +47,10 @@ public class GUI extends JFrame {
   }
 
   public void drawEnvironment() {
-    JLabel imageLabel;
     labelArray = new JLabel[env.getNumRows()][env.getNumCols()];
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
-        imageLabel = new JLabel(createSquare(env.getCell(r, c)));
-        labelArray[r][c] = imageLabel;
+        labelArray[r][c] = new JLabel(createSquare(env.getCell(r, c)));;
         x.gridx = c;
         x.gridy = r;
         board.add(labelArray[r][c], x);
