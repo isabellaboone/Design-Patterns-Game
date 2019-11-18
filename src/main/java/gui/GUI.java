@@ -70,7 +70,7 @@ public class GUI extends JFrame {
         labelArray[r][c].setIcon(createSquare(env.getCell(r, c)));
       }
     }
-    pack();
+    
 
   }
 
@@ -87,7 +87,7 @@ public class GUI extends JFrame {
     x.gridx = 1;
     x.gridy = 0;
     add(stats, x);
-    pack();
+    
   }
 
   /*
