@@ -229,10 +229,8 @@ public class Environment extends Object {
             newCell = getCell(row - 1, col);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row - 1, col);
-            selectedCell.removeLifeForm();
             env.selectCell(row - 1, col);
-            System.out.println("Moved " + directions[direction - 1] + ".");
-            return true;
+            break;
           }
         case 2:
           if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
@@ -243,10 +241,8 @@ public class Environment extends Object {
             newCell = getCell(row, col + 1);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row, col + 1);
-            selectedCell.removeLifeForm();
             env.selectCell(row, col + 1);
-            System.out.println("Moved " + directions[direction - 1] + ".");
-            return true;
+            break;
           }
         case 3:
           if (row + 1 == maxRow || cell[row + 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
@@ -257,10 +253,8 @@ public class Environment extends Object {
             newCell = getCell(row + 1, col);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row + 1, col);
-            selectedCell.removeLifeForm();
             env.selectCell(row + 1, col);
-            System.out.println("Moved " + directions[direction - 1] + ".");
-            return true;
+            break;
           }
         case 4:
           if (col - 1 < 0 || cell[row][col - 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
@@ -271,15 +265,16 @@ public class Environment extends Object {
             newCell = getCell(row, col - 1);
             newCell.addLifeForm(selectedCell.getLifeForm());
             newCell.getLifeForm().setLocation(row, col - 1);
-            selectedCell.removeLifeForm();
             env.selectCell(row, col - 1);
-            System.out.println("Moved " + directions[direction - 1] + ".");
-            return true;
+            break;
           }
         default:
           System.out.println("Defaulted. Input direction '" + direction + "' is not in [ 1, 2, 3, 4 ].");
           return false;
       }
+      selectedCell.removeLifeForm();
+      System.out.println("Moved " + directions[direction - 1] + ".");
+      return true;
     }
     return false;
   }
