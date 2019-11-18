@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import environment.*;
 import lifeform.*;
 import weapon.Pistol;
+import weapon.Weapon;
 
 /*
  * Possibly do:
@@ -181,81 +182,125 @@ public class GUI extends JFrame {
 
     // weapons
     if (c.hasWeapon()) {
-      // pistol
-      if (c.getWeapon1().toString().contains("Pistol")) {
-        // handle
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(12, 15, 7, 22);
-        g.fillRect(19, 18, 20, 10);
-        // base
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(12, 15, 7, 22);
-        g.drawRect(19, 18, 20, 10);
-        // filler
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(13, 19, 10, 9);
+
+      if (c.getWeaponsCount() > 1) {
+        // if cell has life form in in it display small icon for weapon 1 else display
+        // small icon for weapon 2
+        Weapon w = c.getWeapon2();
+        if (w.toString().contains("Pistol")) {
+          // handle
+          g.setColor(new Color(0, 0, 0));
+          g.fillRect(36, 4, 3, 7);
+          g.fillRect(39, 5, 7, 3);
+
+        }
+
+        // plasma canon
+        if (w.toString().contains("Plasma")) {
+          // base
+          g.setColor(new Color(0, 0, 0));
+          g.fillRect(39, 4, 7, 3);
+
+          // nubs
+          g.fillRect(44, 3, 3, 2);
+          g.fillRect(44, 6, 3, 2);
+
+          // handle
+          g.fillRect(40, 7, 1, 1);
+        }
+
+        // chain gun
+        if (w.toString().contains("ChainGun")) {
+          // handle
+          g.setColor(new Color(0, 0, 0));
+
+          g.fillRect(37, 3, 2, 1);
+          g.fillRect(38, 3, 1, 2);
+          g.fillRect(37, 5, 3, 4);
+          g.fillRect(36, 6, 11, 2);
+          g.fillRect(37, 3, 2, 1);
+          g.fillRect(45, 5, 1, 4);
+
+        }
       }
 
-      // plasma canon
-      if (c.getWeapon1().toString().contains("Plasma")) {
-        // handle
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(17, 28, 5, 7);
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(17, 28, 5, 7);
+      if (!c.hasLifeForm()) {
+        // pistol
+        if (c.getWeapon1().toString().contains("Pistol")) {
+          // handle
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(12, 15, 7, 22);
+          g.fillRect(19, 18, 20, 10);
+          // base
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(12, 15, 7, 22);
+          g.drawRect(19, 18, 20, 10);
+          // filler
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(13, 19, 10, 9);
+        }
 
-        // base
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(12, 18, 25, 10);
+        // plasma canon
+        if (c.getWeapon1().toString().contains("Plasma")) {
+          // handle
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(17, 28, 5, 7);
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(17, 28, 5, 7);
 
-        // tiptop
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(33, 15, 8, 6);
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(33, 15, 8, 6);
-        // tipbottom
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(33, 25, 8, 6);
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(33, 25, 8, 6);
+          // base
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(12, 18, 25, 10);
 
-        // base again?
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(12, 18, 25, 10);
-        g.setColor(new Color(0, 0, 0));
-        g.drawLine(12, 18, 33, 18);
-        g.drawLine(12, 18, 12, 28);
-      }
+          // tiptop
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(33, 15, 8, 6);
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(33, 15, 8, 6);
+          // tipbottom
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(33, 25, 8, 6);
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(33, 25, 8, 6);
 
-      // chain gun
-      if (c.getWeapon1().toString().contains("ChainGun")) {
-        // handle
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(15, 11, 3, 6);
-        g.fillRect(12, 11, 3, 3);
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(15, 11, 3, 6);
-        g.drawRect(12, 11, 3, 3);
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(13, 12, 3, 2);
-        
-        // circle
-        g.setColor(new Color(153, 153, 153));
-        g.fillOval(10, 15, 12, 20);
-        g.setColor(new Color(0, 0, 0));
-        g.drawOval(10, 15, 12, 20);
+          // base again?
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(12, 18, 25, 10);
+          g.setColor(new Color(0, 0, 0));
+          g.drawLine(12, 18, 33, 18);
+          g.drawLine(12, 18, 12, 28);
+        }
 
-        // base
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(22, 20, 20, 10);
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(22, 20, 20, 10);
+        // chain gun
+        if (c.getWeapon1().toString().contains("ChainGun")) {
+          // handle
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(15, 11, 3, 6);
+          g.fillRect(12, 11, 3, 3);
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(15, 11, 3, 6);
+          g.drawRect(12, 11, 3, 3);
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(13, 12, 3, 2);
 
-        // tip
-        g.setColor(new Color(153, 153, 153));
-        g.fillRect(36, 18, 3, 14);
-        g.setColor(new Color(0, 0, 0));
-        g.drawRect(36, 18, 3, 14);
+          // circle
+          g.setColor(new Color(153, 153, 153));
+          g.fillOval(10, 15, 12, 20);
+          g.setColor(new Color(0, 0, 0));
+          g.drawOval(10, 15, 12, 20);
+
+          // base
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(22, 20, 20, 10);
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(22, 20, 20, 10);
+
+          // tip
+          g.setColor(new Color(153, 153, 153));
+          g.fillRect(36, 18, 3, 14);
+          g.setColor(new Color(0, 0, 0));
+          g.drawRect(36, 18, 3, 14);
+        }
       }
 
     }
