@@ -61,7 +61,14 @@ public class Cell extends Object {
   public int getWeaponsCount() {
     return weapons.size(); // returns 0 / 1 / 2
   }
-
+  
+  public boolean hasWeapon() {
+    if(weapons.size() > 0) {
+      return true;
+    }else {
+      return false;
+    }
+  }
   /**
    * Adds a weapon to a cell.
    * 

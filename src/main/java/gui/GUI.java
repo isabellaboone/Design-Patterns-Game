@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import environment.*;
 import lifeform.*;
+import weapon.Pistol;
 
 /*
  * Possibly do:
@@ -127,7 +128,7 @@ public class GUI extends JFrame {
     // life forms
     if (c.hasLifeForm()) {
 
-      // weapons
+      // life form weapons
       if (c.getLifeForm().hasWeapon()) {
         if (c.getDirection() == NORTH) {
           g.setColor(new Color(153, 153, 153));
@@ -149,11 +150,16 @@ public class GUI extends JFrame {
       if (c.getLifeForm() instanceof Alien) {
         g.setColor(new Color(255, 0, 0));
         g.fillRect(10, 10, 30, 30);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(10, 10, 30, 30);
       } else if (c.getLifeForm() instanceof Human) {
         g.setColor(new Color(0, 255, 255));
         g.fillOval(10, 10, 30, 30);
+        g.setColor(new Color(0, 0, 0));
+        g.drawOval(10, 10, 30, 30);
       }
 
+      // direction facing arrow
       if (c.getDirection() == NORTH) {
         g.setColor(new Color(0, 0, 0));
         g.drawLine(25, 23, 23, 27);
@@ -172,7 +178,56 @@ public class GUI extends JFrame {
         g.drawLine(23, 25, 27, 27);
       }
     }
-    //else if(c.)
+
+    // weapons
+    if (c.hasWeapon()) {
+      // pistol
+      if (c.getWeapon1().toString().contains("Pistol")) {
+        // handle
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(12, 15, 7, 22);
+        g.fillRect(19, 18, 20, 10);
+        // base
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(12, 15, 7, 22);
+        g.drawRect(19, 18, 20, 10);
+        // filler
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(13, 19, 10, 9);
+      }
+
+      // plasma canon
+      if (c.getWeapon1().toString().contains("Plasma")) {
+        // handle
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(17, 28, 5, 7);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(17, 28, 5, 7);
+
+        // base
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(12, 18, 25, 10);
+
+        // tiptop
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(33, 15, 8, 6);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(33, 15, 8, 6);
+        // tipbottom
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(33, 25, 8, 6);
+        g.setColor(new Color(0, 0, 0));
+        g.drawRect(33, 25, 8, 6);
+
+        // base again?
+        g.setColor(new Color(153, 153, 153));
+        g.fillRect(12, 18, 25, 10);
+        g.setColor(new Color(0, 0, 0));
+        g.drawLine(12, 18, 33, 18);
+        g.drawLine(12, 18, 12, 28);
+      }
+
+    }
     return new ImageIcon(i);
   }
 
