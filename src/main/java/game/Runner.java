@@ -35,6 +35,9 @@ public class Runner extends JFrame{
     LifeForm i = new Human("Isabella", 120, 45);
     LifeForm a = new Human("Andrew", 2, 0);
     RecoveryBehavior rl = new RecoveryLinear(2);
+    Weapon p1 = new Scope(new PowerBooster(new Pistol())); 
+    Weapon p2 = new PowerBooster(new PowerBooster(new Pistol()));
+    Weapon p3 = new Scope(new Scope(new PlasmaCannon()));
     Weapon pc = new PowerBooster(new PowerBooster(new PlasmaCannon()));
     Weapon cg = new PowerBooster(new PowerBooster(new ChainGun()));
     LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 2);
@@ -58,7 +61,9 @@ public class Runner extends JFrame{
     e.addLifeForm(a, 8, 3);
     e.addLifeForm(jun, 6, 2);
     e.addLifeForm(kim, 3, 1);
- 
+    e.addWeapon(p1, 1, 1);
+    e.addWeapon(p2, 1, 1);
+    e.addWeapon(p3, 1, 2);
 
     gui.redrawBoard();
     commandGui commands = new commandGui(e, gui); 

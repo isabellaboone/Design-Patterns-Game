@@ -152,6 +152,10 @@ public abstract class LifeForm implements Weapon {
   public boolean hasWeapon() {
     return (weapon == null) ? false : true;
   }
+  
+  public Weapon getWeapon() {
+    return weapon; 
+  }
 
   /**
    * Returns the row.
