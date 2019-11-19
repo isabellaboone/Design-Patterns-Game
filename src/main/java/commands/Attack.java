@@ -19,7 +19,7 @@ public class Attack extends JButton implements Command {
 
     LifeForm player = env.getSelectedCell().getLifeForm();
     try {
-      if(env.findTarget() == null || env.findTarget().getLifeForm() == null) {
+      if (env.findTarget() == null || env.findTarget().getLifeForm() == null) {
         System.out.println("There are no enemies to attack.");
       } else {
         LifeForm victim = env.findTarget().getLifeForm();
@@ -34,8 +34,9 @@ public class Attack extends JButton implements Command {
           player.attack(victim, distance);
 
           int after = victim.getCurrentLifePoints();
-          if(player.hasWeapon()) {
-            System.out.println("'" + player.getName() + "' shot '" + victim.getName() + "' with a '" + player.getWeapon().toString() + "' for " + (before - after) + " damage!");
+          if (player.hasWeapon()) {
+            System.out.println("'" + player.getName() + "' shot '" + victim.getName() + "' with a '" +
+          player.getWeapon().toString() + "' for " + (before - after) + " damage!");
           } else {
             System.out.println("'" + player.getName() + "' hit '" + victim.getName() + "' for " + (before - after) + " damage!");
           }

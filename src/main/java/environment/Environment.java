@@ -325,7 +325,7 @@ public class Environment extends Object {
     row = selectedCell.getLifeForm().getRow();
     col = selectedCell.getLifeForm().getCol();
     if (selectedCell.getLifeForm().getDirection() == 1) {
-      if(row == 0) {
+      if (row == 0) {
         target = null;
       } else {
         target = cell[--row][col];
@@ -334,7 +334,7 @@ public class Environment extends Object {
         }
       }
     } else if (selectedCell.getLifeForm().getDirection() == 2) {
-      if(col == getNumCols() - 1) {
+      if (col == getNumCols() - 1) {
         target = null;
       } else {
         target = cell[row][++col];
@@ -343,7 +343,7 @@ public class Environment extends Object {
         }
       }
     } else if (selectedCell.getLifeForm().getDirection() == 3) {
-      if(row == getNumRows() - 1) {
+      if (row == getNumRows() - 1) {
         target = null;
       } else {
         target = cell[++row][col];
@@ -352,7 +352,7 @@ public class Environment extends Object {
         }
       }
     } else if (selectedCell.getLifeForm().getDirection() == 4) {
-      if(col == 0) {
+      if (col == 0) {
         target = null;
       } else {
         target = cell[row][--col];
