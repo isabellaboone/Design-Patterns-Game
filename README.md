@@ -2,7 +2,7 @@
 In lab 6, we will add functionality to the game by implementing an interface. 
 
 # Team Members 
-Andrew Januszko, Chase Banyai, Isabella Boone, Joel Ginrich, Morgan Willams-Burrell
+Andrew Januszko, Chase Banyai, Isabella Boone, Joel Ginrgich, Morgan Willams-Burrell
 
 
 # Team Contract

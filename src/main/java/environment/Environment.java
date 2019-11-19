@@ -13,6 +13,7 @@ public class Environment extends Object {
   private Cell[][] cell;
   private static Environment env;
   private Cell selectedCell;
+
   /**
    * Environment constructor — template for Environment type.
    * 
@@ -95,8 +96,7 @@ public class Environment extends Object {
    * @return distance.
    */
   public double getDistance(LifeForm lf1, LifeForm lf2) {
-    return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow()
-        - lf1.getRow(), 2));
+    return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow() - lf1.getRow(), 2));
   }
 
   /**
@@ -168,33 +168,36 @@ public class Environment extends Object {
 
   /**
    * Removes a weapon from a cell.
+   * 
    * @param weapon the weapon to be removed.
-   * @param row the row of the weapon.
-   * @param col the col of the weapon.
+   * @param row    the row of the weapon.
+   * @param col    the col of the weapon.
    * @return the weapon in the cell.
    */
   public Weapon removeWeapon(Weapon weapon, int row, int col) {
     return cell[row][col].removeWeapon(weapon);
   }
-  
+
   /**
    * Returns the number of entities in the environment.
+   * 
    * @return the number of entities in the environment.
    */
   public int getNumberOfEntities() {
     int sum = 0;
-    for(int i = 0; i < getNumRows(); i++ ) { 
-      for(int j = 0; j < getNumCols(); j++ ) { 
-        if(cell[i][j].hasLifeForm()) {
+    for (int i = 0; i < getNumRows(); i++) {
+      for (int j = 0; j < getNumCols(); j++) {
+        if (cell[i][j].hasLifeForm()) {
           ++sum;
         }
       }
     }
-	return sum;
+    return sum;
   }
-  
+
   /**
    * Returns a cell based on row, col.
+   * 
    * @param r the row of the cell.
    * @param c the col of the cell.
    * @return the cell based on row, col.
@@ -202,54 +205,56 @@ public class Environment extends Object {
   public Cell getCell(int r, int c) {
     return cell[r][c];
   }
-  
+
   /**
    * Selects a cell from row, col.
-   * @param r the row of the cell.
+   * 
+   * @param r  the row of the cell.
    * @param co the col of the cell.
    */
   public void selectCell(int r, int co) {
-   
+
     selectedCell = cell[r][co];
     System.out.println("Selected (" + r + ", " + co + ")");
   }
-  
+
   /**
    * Returns the selected cell.
+   * 
    * @return the selected cell.
    */
   public Cell getSelectedCell() {
     return selectedCell;
   }
-  
 
   /**
    * Moves 1 cell (5 meters) in the current direction of the LifeForm.
+   * 
    * @return true if the LifeForm moved, false if it did not.
    */
   public boolean move() {
-    String[] directions = {"North", "East", "South", "West"};
+    String[] directions = { "North", "East", "South", "West" };
     Cell selectedCell = getSelectedCell();
     Cell newCell;
-    if(selectedCell.hasLifeForm()) {
+    if (selectedCell.hasLifeForm()) {
       int maxMove = selectedCell.getLifeForm().getMoveSpeed();
       int direction = selectedCell.getDirection();
       int row = selectedCell.getLifeForm().getRow();
       int col = selectedCell.getLifeForm().getCol();
       int maxRow = getNumRows();
       int maxCol = getNumCols();
-      switch(direction) {
-        case 1:
-          if (row - 1 < 0 || cell[row - 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
-            newCell = getCell(row - 1, col);
-            newCell.addLifeForm(selectedCell.getLifeForm());
-            newCell.getLifeForm().setLocation(row - 1, col);
-            env.selectCell(row - 1, col);
-            break;
-          }
+      switch (direction) {
+      case 1:
+        if (row - 1 < 0 || cell[row - 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
+          return false;
+        } else {
+          newCell = getCell(row - 1, col);
+          newCell.addLifeForm(selectedCell.getLifeForm());
+          newCell.getLifeForm().setLocation(row - 1, col);
+          env.selectCell(row - 1, col);
+          break;
+        }
 //          for(int i = maxMove; i >= 0; --i) {
 //            if(i == 0) {
 //              System.out.println("Failed to move " + directions[direction - 1] + ".");
@@ -264,42 +269,42 @@ public class Environment extends Object {
 //            }
 //          }
 //          break;
-        case 2:
-          if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
-            newCell = getCell(row, col + 1);
-            newCell.addLifeForm(selectedCell.getLifeForm());
-            newCell.getLifeForm().setLocation(row, col + 1);
-            env.selectCell(row, col + 1);
-            break;
-          }
-        case 3:
-          if (row + 1 == maxRow || cell[row + 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
-            newCell = getCell(row + 1, col);
-            newCell.addLifeForm(selectedCell.getLifeForm());
-            newCell.getLifeForm().setLocation(row + 1, col);
-            env.selectCell(row + 1, col);
-            break;
-          }
-        case 4:
-          if (col - 1 < 0 || cell[row][col - 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
-            newCell = getCell(row, col - 1);
-            newCell.addLifeForm(selectedCell.getLifeForm());
-            newCell.getLifeForm().setLocation(row, col - 1);
-            env.selectCell(row, col - 1);
-            break;
-          }
-        default:
-          System.out.println("Defaulted. Input direction '" + direction + "' is not in [ 1, 2, 3, 4 ].");
+      case 2:
+        if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
           return false;
+        } else {
+          newCell = getCell(row, col + 1);
+          newCell.addLifeForm(selectedCell.getLifeForm());
+          newCell.getLifeForm().setLocation(row, col + 1);
+          env.selectCell(row, col + 1);
+          break;
+        }
+      case 3:
+        if (row + 1 == maxRow || cell[row + 1][col].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
+          return false;
+        } else {
+          newCell = getCell(row + 1, col);
+          newCell.addLifeForm(selectedCell.getLifeForm());
+          newCell.getLifeForm().setLocation(row + 1, col);
+          env.selectCell(row + 1, col);
+          break;
+        }
+      case 4:
+        if (col - 1 < 0 || cell[row][col - 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
+          return false;
+        } else {
+          newCell = getCell(row, col - 1);
+          newCell.addLifeForm(selectedCell.getLifeForm());
+          newCell.getLifeForm().setLocation(row, col - 1);
+          env.selectCell(row, col - 1);
+          break;
+        }
+      default:
+        System.out.println("Defaulted. Input direction '" + direction + "' is not in [ 1, 2, 3, 4 ].");
+        return false;
       }
       selectedCell.removeLifeForm();
       System.out.println("Moved " + directions[direction - 1] + ".");
@@ -307,9 +312,10 @@ public class Environment extends Object {
     }
     return false;
   }
-  
+
   /**
    * Allows the selected cell to find the nearest target?
+   * 
    * @return the selected target.
    */
   public Cell findTarget() {
@@ -317,32 +323,34 @@ public class Environment extends Object {
     int row, col;
     row = selectedCell.getLifeForm().getRow();
     col = selectedCell.getLifeForm().getCol();
-   
-    if (selectedCell.getLifeForm().getDirection() == 1) {  
+
+    if (selectedCell.getLifeForm().getDirection() == 1) {
       target = cell[--row][col];
 
-      while(target.hasLifeForm() == false && target != cell[0][col]) {
-         target = cell[--row][col]; 
+      while (target.hasLifeForm() == false && target != cell[0][col]) {
+        target = cell[--row][col];
 
       }
-    } else  if (selectedCell.getLifeForm().getDirection() == 2) {  
-        target = cell[row][++col];
+    } else if (selectedCell.getLifeForm().getDirection() == 2) {
+      target = cell[row][++col];
 
-        while(target.hasLifeForm() == false && target != cell[row][getNumCols() - 1]) {
-          target = cell[row][++col]; 
-      }   
-    }  else  if (selectedCell.getLifeForm().getDirection() == 3) {  
+      while (target.hasLifeForm() == false && target != cell[row][getNumCols() - 1]) {
+        target = cell[row][++col];
+      }
+    } else if (selectedCell.getLifeForm().getDirection() == 3) {
       target = cell[++row][col];
-      while(target.hasLifeForm() == false && target != cell[getNumRows() - 1][col]) {
-        target = cell[++row][col]; 
-    }   
-  } else  if (selectedCell.getLifeForm().getDirection() == 4) {  
-    target = cell[row][--col];
-    while(target.hasLifeForm() == false && target != cell[row][0]) {
-      target = cell[row][--col];   
-  }   
-}
-    System.out.println("target found at: " + row + " " + col);
+      while (target.hasLifeForm() == false && target != cell[getNumRows() - 1][col]) {
+        target = cell[++row][col];
+      }
+    } else if (selectedCell.getLifeForm().getDirection() == 4) {
+      target = cell[row][--col];
+      while (target.hasLifeForm() == false && target != cell[row][0]) {
+        target = cell[row][--col];
+      }
+    }
+    
+    String victim = env.getCell(row, col).getLifeForm().getName(), player = env.getSelectedCell().getLifeForm().getName();
+    System.out.println("'" + player + "' hit '" + victim + "' (" + row + "," + col + ") ");
     return target;
   }
 }
