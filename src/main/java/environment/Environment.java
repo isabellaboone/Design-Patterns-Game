@@ -238,7 +238,7 @@ public class Environment extends Object {
     Cell selectedCell = getSelectedCell();
     Cell newCell;
     if (selectedCell.hasLifeForm()) {
-      int maxMove = selectedCell.getLifeForm().getMoveSpeed();
+//      int maxMove = selectedCell.getLifeForm().getMoveSpeed();
       int direction = selectedCell.getDirection();
       int row = selectedCell.getLifeForm().getRow();
       int col = selectedCell.getLifeForm().getCol();
@@ -324,37 +324,45 @@ public class Environment extends Object {
     int row, col;
     row = selectedCell.getLifeForm().getRow();
     col = selectedCell.getLifeForm().getCol();
-
     if (selectedCell.getLifeForm().getDirection() == 1) {
       if(row == 0) {
-        return null;
+        target = null;
       } else {
         target = cell[--row][col];
-      }
-
-      while (target.hasLifeForm() == false && target != cell[0][col]) {
-        target = cell[--row][col];
-
+        while (target.hasLifeForm() == false && target != cell[0][col]) {
+          target = cell[--row][col];
+        }
       }
     } else if (selectedCell.getLifeForm().getDirection() == 2) {
-      target = cell[row][++col];
-
-      while (target.hasLifeForm() == false && target != cell[row][getNumCols() - 1]) {
+      if(col == getNumCols() - 1) {
+        target = null;
+      } else {
         target = cell[row][++col];
+        while (target.hasLifeForm() == false && target != cell[row][getNumCols() - 1]) {
+          target = cell[row][++col];
+        }
       }
     } else if (selectedCell.getLifeForm().getDirection() == 3) {
-      target = cell[++row][col];
-      while (target.hasLifeForm() == false && target != cell[getNumRows() - 1][col]) {
+      if(row == getNumRows() - 1) {
+        target = null;
+      } else {
         target = cell[++row][col];
+        while (target.hasLifeForm() == false && target != cell[getNumRows() - 1][col]) {
+          target = cell[++row][col];
+        }
       }
     } else if (selectedCell.getLifeForm().getDirection() == 4) {
-      target = cell[row][--col];
-      while (target.hasLifeForm() == false && target != cell[row][0]) {
+      if(col == 0) {
+        target = null;
+      } else {
         target = cell[row][--col];
+        while (target.hasLifeForm() == false && target != cell[row][0]) {
+          target = cell[row][--col];
+        }
       }
     }
     
-    String victim = env.getCell(row, col).getLifeForm().getName(), player = env.getSelectedCell().getLifeForm().getName();
+//    String victim = env.getCell(row, col).getLifeForm().getName(), player = env.getSelectedCell().getLifeForm().getName();
 //    System.out.println("'" + player + "' hit '" + victim + "' (" + row + "," + col + ") ");
     return target;
   }

@@ -28,6 +28,7 @@ public class PlasmaCannon extends GenericWeapon {
    */
   public int fire(int distance) throws WeaponException {
     if (getShotsLeft() == 0) {
+      System.out.println("No remaining shots for the round.");
       return 0;
     }
     if (distance < 0) {

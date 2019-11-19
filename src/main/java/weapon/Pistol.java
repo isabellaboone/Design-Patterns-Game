@@ -34,6 +34,7 @@ public class Pistol extends GenericWeapon {
       return 0;
     }
     if (this.getShotsLeft() == 0) {
+      System.out.println("No remaining shots for the round.");
       return 0;
     }
     --this.currentAmmo;

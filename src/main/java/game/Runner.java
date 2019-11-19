@@ -70,11 +70,11 @@ public class Runner extends JFrame {
     //****************************************************************
     
     
-    LifeForm c = new Human("Chase", 200, 10);
+    LifeForm c = new Human("Chase", 140, 10);
     e.addLifeForm(c, 0, 0);
-    LifeForm j = new Human("Joel-chan", 10000, 10);
+    LifeForm j = new Human("Joel-chan", 110, 10);
     e.addLifeForm(j, 2, 2);
-    LifeForm m = new Human("Morgan", 150, 10);
+    LifeForm m = new Human("Morgan", 130, 10);
     e.addLifeForm(m, 6, 8);
     LifeForm i = new Human("Isabella", 120, 10);
     e.addLifeForm(i, 3, 5);
@@ -93,14 +93,14 @@ public class Runner extends JFrame {
     e.addWeapon(cg, 1, 3);
     Weapon p4 = new ChainGun();
     e.addWeapon(p4, 1, 3);
-    LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 10);
+    LifeForm jun = new Alien("America's Sweetheart: Jun", 150, rl, 10);
     e.addLifeForm(jun, 6, 2);
-    LifeForm kim = new Alien("Rat King: Kim", 3000, rl, 10);
+    LifeForm kim = new Alien("Rat King: Kim", 105, rl, 10);
     e.addLifeForm(kim, 3, 1);
     
     // dummies to test firing
-    LifeForm d1 = new Human("Dummy 1", 1000, 5);
-    LifeForm d2 = new Human("Dummy 2", 1000, 5);
+    LifeForm d1 = new Human("Dummy 1", 100, 6);
+    LifeForm d2 = new Human("Dummy 2", 120, 9);
     e.addLifeForm(d1, 9, 9);
     e.addLifeForm(d2, 9, 8);
     
