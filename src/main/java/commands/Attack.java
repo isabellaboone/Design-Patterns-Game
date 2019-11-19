@@ -32,7 +32,7 @@ public class Attack extends JButton implements Command {
         System.out.println("'" + player.getName() + "' hit '" + victim.getName() + "' for " + (before - after) + " damage!");
       }
     } catch (WeaponException e1) {
-      e1.printStackTrace();
+      System.out.println("There are no enemies to attack.");
     }
 
   }

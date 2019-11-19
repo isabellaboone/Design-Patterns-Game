@@ -326,7 +326,11 @@ public class Environment extends Object {
     col = selectedCell.getLifeForm().getCol();
 
     if (selectedCell.getLifeForm().getDirection() == 1) {
-      target = cell[--row][col];
+      if(row == 0) {
+        return null;
+      } else {
+        target = cell[--row][col];
+      }
 
       while (target.hasLifeForm() == false && target != cell[0][col]) {
         target = cell[--row][col];

@@ -28,6 +28,7 @@ import weapon.*;
 
 
 
+@SuppressWarnings("serial")
 public class Runner extends JFrame {
   static Environment e;
   static GUI gui;
