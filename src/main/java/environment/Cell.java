@@ -39,7 +39,7 @@ public class Cell extends Object {
    * @return true is the LifeForm was added, false if a LifeForm is saved.
    */
   public boolean addLifeForm(LifeForm entity) {
-    if(!hasLifeForm()) {
+    if (!hasLifeForm()) {
       this.entity = entity;
       return true;
     }
@@ -61,14 +61,19 @@ public class Cell extends Object {
   public int getWeaponsCount() {
     return weapons.size(); // returns 0 / 1 / 2
   }
-  
+
+  /**
+   * check to see if a weapon is in a cell.
+   * @return if a cell has a weapon.
+   */
   public boolean hasWeapon() {
-    if(weapons.size() > 0) {
+    if (weapons.size() > 0) {
       return true;
-    }else {
+    } else {
       return false;
     }
   }
+
   /**
    * Adds a weapon to a cell.
    * 
@@ -116,46 +121,54 @@ public class Cell extends Object {
    * @return the weapon in slot #2.
    */
   public Weapon getWeapon2() {
-    if (getWeaponsCount() == 0 || getWeaponsCount() == 1 ) {
+    if (getWeaponsCount() == 0 || getWeaponsCount() == 1) {
       return null;
     }
     return weapons.get(1);
   }
-  
+
   /**
    * Return whether the cell has a lifeform in it.
    */
   public boolean hasLifeForm() {
-    return (entity == null)
-        ? false
-        : true;
+    return (entity == null) ? false : true;
   }
-  
+
   /**
-   * i like set direction better
+   * i like set direction better.
+   * 
    * @return
    */
   public void setDirection(int direction) {
-    if(!hasLifeForm()) {
+    if (!hasLifeForm()) {
       entity.turn(direction);
     }
   }
-  
+
+  /**
+   * gets the direction of a lifeform in the cell.
+   * @return the direct of the lifeform in the cell.
+   */
   public int getDirection() {
-    if(hasLifeForm()) {
+    if (hasLifeForm()) {
       return entity.getDirection();
     }
     return 0;
   }
-  
+
+  /**
+   * gets the statue of the cell.
+   * @return the stats in HTML.
+   */
   public String getStats() {
-    //if(hasLifeForm()) {
-      return "<html><h1 style = font-size:30px; text-align:center>Ground</h1><br/>"
-          + "Weapon 1: " + (getWeapon1() == null ? "none" : getWeapon1()) + "<br/>"
-              + "Weapon 2: " + (getWeapon2() == null ? "none" : getWeapon2()) + "<br/>" 
-              + "<br/>_________________________________________"
-              + (hasLifeForm() ? entity.getStats(): "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>");
-    //}
+    // if(hasLifeForm()) {
+    return "<html><h1 style = font-size:30px; text-align:center>Ground</h1><br/>" + "Weapon 1: "
+        + (getWeapon1() == null ? "none" : getWeapon1()) + "<br/>" + "Weapon 2: "
+        + (getWeapon2() == null ? "none" :
+          getWeapon2()) + "<br/>" + "<br/>_________________________________________"
+        + (hasLifeForm() ? entity.getStats() :
+          "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>");
+    // }
   }
 
 }
