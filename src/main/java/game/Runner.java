@@ -110,6 +110,7 @@ public class Runner extends JFrame {
     kim.turn(4);
    
     gui.redrawBoard();
+    
     CommandGui commands = new CommandGui(e, gui, r); 
     
   }

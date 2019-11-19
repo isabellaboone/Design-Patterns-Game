@@ -33,7 +33,7 @@ public class Pickup extends JButton implements Command {
         
       }
     }
-    
+    // If the lifeform does not have a weapon
     if (env.getSelectedCell().getWeapon1() != null 
         && !env.getSelectedCell().getLifeForm().hasWeapon()) { 
       /* check if cell has a weapon1 and lifeform has no weapon */
