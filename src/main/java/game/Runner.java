@@ -19,8 +19,8 @@ import environment.Environment;
 import exceptions.AttachmentException;
 import exceptions.RecoveryRateException;
 import exceptions.WeaponException;
+import gui.CommandGui;
 import gui.GUI;
-import gui.commandGui;
 import lifeform.*;
 import recovery.*;
 import weapon.*;
@@ -106,7 +106,7 @@ public class Runner extends JFrame{
     e.addWeapon(p4, 1, 3);
 
     gui.redrawBoard();
-    commandGui commands = new commandGui(e, gui, r); 
+    CommandGui commands = new CommandGui(e, gui, r); 
     
   }
 }
