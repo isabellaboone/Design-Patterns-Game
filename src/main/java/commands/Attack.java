@@ -3,11 +3,13 @@ package commands;
 import environment.Environment;
 
 import exceptions.WeaponException;
+
+import javax.swing.JButton;
+
 import lifeform.Alien;
 import lifeform.Human;
 import lifeform.LifeForm;
 
-import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class Attack extends JButton implements Command {
@@ -35,10 +37,21 @@ public class Attack extends JButton implements Command {
 
           int after = victim.getCurrentLifePoints();
           if (player.hasWeapon()) {
-            System.out.println("'" + player.getName() + "' shot '" + victim.getName() + "' with a '" +
-          player.getWeapon().toString() + "' for " + (before - after) + " damage!");
+            System.out.println(
+                "'" + player.getName()
+                + "' shot '" + victim.getName()
+                + "' with a '" + player.getWeapon().toString()
+                + "' for "
+                + (before - after)
+                + " damage!");
           } else {
-            System.out.println("'" + player.getName() + "' hit '" + victim.getName() + "' for " + (before - after) + " damage!");
+            System.out.println(
+                "'" + player.getName()
+                + "' hit '"
+                + victim.getName()
+                + "' for "
+                + (before - after) 
+                + " damage!");
           }
         }
       }

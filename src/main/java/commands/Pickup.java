@@ -11,7 +11,7 @@ public class Pickup extends JButton implements Command {
    * pick up a weapon in the selected cell or swap it.
    */
   public void execute(Environment env) {
-    if(env.getSelectedCell().getWeaponsCount() == 0) {
+    if (env.getSelectedCell().getWeaponsCount() == 0) {
       System.out.println("No weapons to pick up in this cell.");
       return;
     }
