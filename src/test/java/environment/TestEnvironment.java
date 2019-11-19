@@ -6,12 +6,10 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
-import org.junit.FixMethodOrder;
 
 import lifeform.MockLifeForm;
 
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 import weapon.MockWeapon;
 
@@ -29,7 +27,7 @@ public class TestEnvironment {
    */
   @Before
   public void createEnvironment() {
-	  env = Environment.getEnvironment(100, 100);
+	  env = Environment.getEnvironment(4, 4);
   }
 
   /**
@@ -67,7 +65,7 @@ public class TestEnvironment {
    */
   @Test
   public void testGetRow() {
-    assertEquals(100, env.getNumRows());
+    assertEquals(4, env.getNumRows());
   }
   
   /**
@@ -75,7 +73,7 @@ public class TestEnvironment {
    */
   @Test
   public void testGetCols() {
-    assertEquals(100, env.getNumCols());
+    assertEquals(4, env.getNumCols());
   }
   
   /**
@@ -167,5 +165,100 @@ public class TestEnvironment {
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     assertTrue(env.addLifeForm(lf, 1, 1));
     assertFalse(env.addLifeForm(lf, 1, 1));
+  }
+  
+  /**
+   * Test that lifeforms can move north.
+   */
+  @Test
+  public void moveNorth() {
+    env.clearBoard();
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    assertTrue(env.addLifeForm(lf, 1, 1));
+    assertEquals(1, env.getLifeForm(1, 1).getRow());
+    assertEquals(1, env.getLifeForm(1, 1).getCol());
+    env.selectCell(1,1);
+    assertTrue(env.move());
+    assertEquals(lf, env.getCell(0, 1).getLifeForm());
+    env.clearBoard();
+  }
+  
+  /**
+   * Test that lifeforms can move south.
+   */
+  @Test
+  public void moveSouth() {
+    env.clearBoard();
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    lf.turn(3);
+    assertTrue(env.addLifeForm(lf, 1, 1));
+    assertEquals(1, env.getLifeForm(1, 1).getRow());
+    assertEquals(1, env.getLifeForm(1, 1).getCol());
+    env.selectCell(1,1);
+    assertTrue(env.move());
+    assertEquals(lf, env.getCell(2, 1).getLifeForm());
+    env.clearBoard();
+  }
+  
+  /**
+   * Test that lifeforms can move east.
+   */
+  @Test
+  public void moveEast() {
+    env.clearBoard();
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    lf.turn(2);
+    assertTrue(env.addLifeForm(lf, 1, 1));
+    assertEquals(1, env.getLifeForm(1, 1).getRow());
+    assertEquals(1, env.getLifeForm(1, 1).getCol());
+    env.selectCell(1,1);
+    assertTrue(env.move());
+    assertEquals(lf, env.getCell(1, 2).getLifeForm());
+    env.clearBoard();
+  }
+  
+  /**
+   * Test that lifeforms can move west.
+   */
+  @Test
+  public void moveWest() {
+    env.clearBoard();
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    lf.turn(4);
+    assertTrue(env.addLifeForm(lf, 1, 1));
+    assertEquals(1, env.getLifeForm(1, 1).getRow());
+    assertEquals(1, env.getLifeForm(1, 1).getCol());
+    env.selectCell(1,1);
+    assertTrue(env.move());
+    assertEquals(lf, env.getCell(1, 0).getLifeForm());
+    env.clearBoard();
+  }
+  
+  /**
+   * Test lifeform at edges (0,0) (0,3) (3,3) (3,0)
+   */
+  @Test
+  public void borderCase() {
+    env.clearBoard();
+    MockLifeForm lf = new MockLifeForm("LifeForm", 10);
+    env.addLifeForm(lf, 0, 0);
+    env.selectCell(0, 0);
+    assertFalse(env.move());
+    env.removeLifeForm(0, 0);
+    lf.turn(2);
+    env.addLifeForm(lf, 0, 3);
+    env.selectCell(0, 3);
+    assertFalse(env.move());
+    env.removeLifeForm(0, 3);
+    lf.turn(3);
+    env.addLifeForm(lf, 3, 3);
+    env.selectCell(3, 3);
+    assertFalse(env.move());
+    env.removeLifeForm(3, 3);
+    lf.turn(4);
+    env.addLifeForm(lf, 3, 0);
+    env.selectCell(3, 0);
+    assertFalse(env.move());
+    env.removeLifeForm(3, 0);
   }
 }
