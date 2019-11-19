@@ -16,22 +16,30 @@ import exceptions.AttachmentException;
 import exceptions.RecoveryRateException;
 import exceptions.WeaponException;
 import gui.CommandGui;
-import gui.GUI;
+import gui.Gui;
 
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
-import lifeform.*;
-import recovery.*;
-import weapon.*;
+import lifeform.Alien;
+import lifeform.Human;
+import lifeform.LifeForm;
+import recovery.RecoveryBehavior;
+import recovery.RecoveryLinear;
+import weapon.ChainGun;
+import weapon.Pistol;
+import weapon.PlasmaCannon;
+import weapon.PowerBooster;
+import weapon.Scope;
+import weapon.Weapon;
 
 
 
 @SuppressWarnings("serial")
 public class Runner extends JFrame {
   static Environment e;
-  static GUI gui;
+  static Gui gui;
 
   public static void main(String[] args) 
       throws RecoveryRateException, AttachmentException, WeaponException {
@@ -45,7 +53,7 @@ public class Runner extends JFrame {
   
   static void start() throws RecoveryRateException, AttachmentException, WeaponException { 
     e = Environment.getEnvironment(10, 10);
-    gui = new GUI(e);
+    gui = new Gui(e);
     //**********************The Remote******************************************
     Remote r = new Remote(e);
     Command north = new North();

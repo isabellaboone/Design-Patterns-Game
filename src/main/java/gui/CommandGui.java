@@ -28,7 +28,7 @@ public class CommandGui extends JFrame implements ActionListener {
   JButton drop;
   JButton pickup;
   Environment env;
-  GUI gui;
+  Gui gui;
   Remote remote; 
   
   /**
@@ -37,7 +37,7 @@ public class CommandGui extends JFrame implements ActionListener {
    * @param gui the main game display.
    * @param r the remote of commands.
    */
-  public CommandGui(Environment map, GUI gui, Remote r) {
+  public CommandGui(Environment map, Gui gui, Remote r) {
     env = map;
     this.gui = gui;
     remote = r; 

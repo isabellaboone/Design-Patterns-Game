@@ -61,6 +61,7 @@ public abstract class LifeForm implements Weapon {
 
   /**
    * Allows the user to get the assigned name of a LifeForm.
+   * 
    * @return the name of the LifeForm.
    */
   public String getName() {
@@ -71,9 +72,7 @@ public abstract class LifeForm implements Weapon {
    * Allows LifeForms to take damage.
    */
   public void takeHit(int damage) {
-    currentLifePoints = (getCurrentLifePoints() - damage) < 0 
-        ? 0 
-        : getCurrentLifePoints() - damage;
+    currentLifePoints = (getCurrentLifePoints() - damage) < 0 ? 0 : getCurrentLifePoints() - damage;
   }
 
   /**
@@ -153,13 +152,14 @@ public abstract class LifeForm implements Weapon {
   public boolean hasWeapon() {
     return (weapon == null) ? false : true;
   }
-  
+
   public Weapon getWeapon() {
-    return weapon; 
+    return weapon;
   }
 
   /**
    * Returns the row.
+   * 
    * @return the row number
    */
   public int getRow() {
@@ -168,6 +168,7 @@ public abstract class LifeForm implements Weapon {
 
   /**
    * Returns the column number.
+   * 
    * @return the column number
    */
   public int getCol() {
@@ -176,6 +177,7 @@ public abstract class LifeForm implements Weapon {
 
   /**
    * Sets the location of the lifeform.
+   * 
    * @param row the row number
    * @param col the column number
    */
@@ -185,55 +187,65 @@ public abstract class LifeForm implements Weapon {
       this.col = col;
     }
   }
-  
+
   /**
-	 * Returns the current direction of the LifeForm.
-	 * @return the current direction of the LifeForm.
-	 */
+   * Returns the current direction of the LifeForm.
+   * 
+   * @return the current direction of the LifeForm.
+   */
   public int getDirection() {
     return direction;
   }
-  
+
+  /**
+   * setter for moves left.
+   * @param movesLeft the amount you can still move.
+   */
   public void setMovesLeft(int movesLeft) {
-    if(this.movesLeft != 0) {
+    if (this.movesLeft != 0) {
       this.movesLeft = movesLeft;
     }
   }
-  
+
   /**
    * Returns the remaining amount of moves.
+   * 
    * @return the remaining amount of moves.
    */
   public int getMovesLeft() {
     return movesLeft;
   }
-  
+
   /**
    * Allows LifeForms to turn.
-   * Up = 1 / Right = 2 / Down = 3 / Left = 4
-   * @param direction, the direction to turn.
-   * @return true if LifeForm turned, false if it did not.
+   * @param direction the direction to turn.
    */
   public void turn(int direction) {
-    String[] directions = {"North", "East", "South", "West"};
+    String[] directions = { "North", "East", "South", "West" };
     if (direction >= 1 && direction <= 4) {
       this.direction = direction;
       System.out.println("Turned " + directions[direction - 1] + ".");
     }
   }
-  
+
+  /**
+   * gets the stats of the lifeform.
+   * @return the stats.
+   */
   public String getStats() {
-    return "<html><h1 style = font-size:30px>" +  myName + "</h1><br/>"
-        + currentLifePoints + "/" + maxLifePoints + "<br/>"
-        + attackStrength + "</html>"
-        ;
+    return "<html><h1 style = font-size:30px>" 
+        + myName
+        + "</h1><br/>" 
+        + currentLifePoints + "/" + maxLifePoints
+        + "<br/>" + attackStrength + "</html>";
   }
-  
+
   /**
    * Returns the move speed of the LifeForm.
+   * 
    * @return the move speed of the LifeForm.
    */
   public int getMoveSpeed() {
     return moveSpeed;
-  }  
+  }
 }

@@ -7,7 +7,7 @@ package exceptions;
 public class MovementException extends Exception {
   
   /**
-   * An exception thrown when movement is incorrect;
+   * An exception thrown when movement is incorrect.
    * @param message the message to be thrown.
    */
   public MovementException(String message) {

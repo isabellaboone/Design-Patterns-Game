@@ -1,5 +1,8 @@
 package gui;
 
+import environment.Cell;
+import environment.Environment;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,26 +16,35 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import environment.*;
-import lifeform.*;
+import lifeform.Alien;
+import lifeform.Human;
+import lifeform.LifeForm;
 import weapon.Pistol;
 import weapon.Weapon;
+
 
 /*
  * Possibly do:
  * make hovering work.
  */
 
-public class GUI extends JFrame {
+public class Gui extends JFrame {
 
   Environment env;
   static GridBagConstraints x = new GridBagConstraints();
   JLabel[][] labelArray;
   JLabel stats;
   JPanel board = new JPanel(new GridBagLayout());
-  final int NORTH = 1, EAST = 2, SOUTH = 3, WEST = 4;
+  static final int NORTH = 1;
+  static final int EAST = 2; 
+  static final int SOUTH = 3;
+  static final int WEST = 4;
 
-  public GUI(Environment env) {
+  /**
+   * constructs the gui.
+   * @param env the displayed environment.
+   */
+  public Gui(Environment env) {
     this.env = env;
     setLayout(new GridBagLayout());
     drawEnvironment();
@@ -46,6 +58,9 @@ public class GUI extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
+  /**
+   * draws the environment.
+   */
   public void drawEnvironment() {
     labelArray = new JLabel[env.getNumRows()][env.getNumCols()];
     for (int r = 0; r < env.getNumRows(); r++) {
@@ -61,8 +76,9 @@ public class GUI extends JFrame {
     add(board, x);
   }
 
-  /*
-   * Redraws the board.
+  
+  /**
+   * redraws the board.
    */
   public void redrawBoard() {
     for (int r = 0; r < env.getNumRows(); r++) {
@@ -73,6 +89,9 @@ public class GUI extends JFrame {
 
   }
 
+  /**
+   * redraws the stats.
+   */
   public void redrawStats() {
     stats.setText(env.getSelectedCell().getStats());
   }
@@ -89,8 +108,8 @@ public class GUI extends JFrame {
 
   }
 
-  /*
-   * draws legend.
+  /**
+   * draws the legend.
    */
   public void drawLegend() {
     JLabel legend = new JLabel(legendImage());
@@ -105,6 +124,11 @@ public class GUI extends JFrame {
 
   }
 
+  /**
+   * makes the squares.
+   * @param c a cell.
+   * @return an icon
+   */
   private ImageIcon createSquare(Cell c) {
     BufferedImage i = new BufferedImage(50, 50, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
@@ -305,12 +329,20 @@ public class GUI extends JFrame {
     return new ImageIcon(i);
   }
 
+  /**
+   * makes the legend.
+   * @return the legend
+   */
   private ImageIcon legendImage() {
     BufferedImage i = new BufferedImage(500, 150, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = i.getGraphics();
     return new ImageIcon(getClass().getResource("CommandButtons/legend.png"));
   }
 
+  /**
+   * Something.
+   * @param e a click
+   */
   private void onMouseClicked(MouseEvent e) {
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
@@ -323,6 +355,9 @@ public class GUI extends JFrame {
     }
   }
 
+  /**
+   * makes the squares clickable.
+   */
   public void setMouseListener() {
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {

@@ -158,6 +158,9 @@ public class Alien extends LifeForm implements TimerObserver {
     weapon.reload();
   }
   
+  /**
+   *gets the stats of the alien.
+   */
   public String getStats() {
     return "<html><h1 style = font-size:30px; text-align:center>" +  getName() + "</h1><br/>"
         + "Health: " + currentLifePoints + "/" + maxLifePoints + "<br/>"
