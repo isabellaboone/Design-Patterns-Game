@@ -235,6 +235,5 @@ public abstract class LifeForm implements Weapon {
    */
   public int getMoveSpeed() {
     return moveSpeed;
-  }
-  
+  }  
 }

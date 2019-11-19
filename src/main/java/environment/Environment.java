@@ -350,7 +350,7 @@ public class Environment extends Object {
     }
     
     String victim = env.getCell(row, col).getLifeForm().getName(), player = env.getSelectedCell().getLifeForm().getName();
-    System.out.println("'" + player + "' hit '" + victim + "' (" + row + "," + col + ") ");
+//    System.out.println("'" + player + "' hit '" + victim + "' (" + row + "," + col + ") ");
     return target;
   }
 }
