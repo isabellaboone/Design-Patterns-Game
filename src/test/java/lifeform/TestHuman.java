@@ -107,4 +107,13 @@ public class TestHuman {
     fender.attack(sam, 5);
     assertEquals(36, sam.getCurrentLifePoints());
   }
+  
+  /**
+   * Test movement speed.
+   */
+  @Test
+  public void testMoveSpeed() {
+    Human shukuchi = new Human("Shukuchi", 33, 4);
+    assertEquals(3, shukuchi.getMoveSpeed());
+  }
 }

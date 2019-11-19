@@ -109,6 +109,7 @@ public class Environment extends Object {
   public static Environment getEnvironment(int rows, int cols) {
     if (env == null) {
       env = new Environment(rows, cols);
+      env.selectCell(0, 0);
     }
     return env;
   }

@@ -43,7 +43,7 @@ public class Runner extends JFrame {
   }
   
   static void start() throws RecoveryRateException, AttachmentException, WeaponException { 
-    e = e.getEnvironment(10, 10);
+    e = Environment.getEnvironment(10, 10);
     gui = new GUI(e);
     //**********************The Remote******************************************
     Remote r = new Remote(e);
@@ -69,15 +69,15 @@ public class Runner extends JFrame {
     //****************************************************************
     
     
-    LifeForm c = new Human("Chase", 200, 20);
+    LifeForm c = new Human("Chase", 200, 10);
     e.addLifeForm(c, 0, 0);
-    LifeForm j = new Human("Joel-chan", 10000, 1000);
+    LifeForm j = new Human("Joel-chan", 10000, 10);
     e.addLifeForm(j, 2, 2);
-    LifeForm m = new Human("Morgan", 150, 30);
+    LifeForm m = new Human("Morgan", 150, 10);
     e.addLifeForm(m, 6, 8);
-    LifeForm i = new Human("Isabella", 120, 45);
+    LifeForm i = new Human("Isabella", 120, 10);
     e.addLifeForm(i, 3, 5);
-    LifeForm a = new Human("Andrew", 2, 0);
+    LifeForm a = new Human("Andrew", 100, 10);
     e.addLifeForm(a, 8, 3);
     RecoveryBehavior rl = new RecoveryLinear(2);
     Weapon p1 = new Scope(new PowerBooster(new Pistol())); 
@@ -92,14 +92,14 @@ public class Runner extends JFrame {
     e.addWeapon(cg, 1, 3);
     Weapon p4 = new ChainGun();
     e.addWeapon(p4, 1, 3);
-    LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 2);
+    LifeForm jun = new Alien("America's Sweetheart: Jun", 10000, rl, 10);
     e.addLifeForm(jun, 6, 2);
     LifeForm kim = new Alien("Rat King: Kim", 3000, rl, 10);
     e.addLifeForm(kim, 3, 1);
     
     // dummies to test firing
-    LifeForm d1 = new Human("Dummy 1", 1000, 0);
-    LifeForm d2 = new Human("Dummy 2", 1000, 0);
+    LifeForm d1 = new Human("Dummy 1", 1000, 5);
+    LifeForm d2 = new Human("Dummy 2", 1000, 5);
     e.addLifeForm(d1, 9, 9);
     e.addLifeForm(d2, 9, 8);
     

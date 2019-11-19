@@ -193,5 +193,15 @@ public class TestAlien {
     timer.timeChanged();
     assertEquals(0, a.getCurrentLifePoints());
   }
+  
+  /**
+   * Test movement speed.
+   * @throws RecoveryRateException 
+   */
+  @Test
+  public void testMoveSpeed() throws RecoveryRateException {
+    Alien shukuchi = new Alien("Shukuchi", 334);
+    assertEquals(2, shukuchi.getMoveSpeed());
+  }
 
 }

@@ -245,4 +245,25 @@ public class TestLifeForm {
     hunter.attack(bear, 5);
     assertEquals(5, bear.getCurrentLifePoints());
   }
+  
+  /**
+   * Test that the default direction is north.
+   */
+  @Test
+  public void testFaceNorth() {
+    MockLifeForm montag = new MockLifeForm("Montag", 4, 51);
+    assertEquals(1, montag.getDirection());
+  }
+  
+  /**
+   * Test turning directions.
+   */
+  @Test
+  public void testTurning() {
+    MockLifeForm gray = new MockLifeForm("Gray", 18, 91);
+    assertEquals(1, gray.getDirection());
+    gray.turn(2);
+    assertEquals(2, gray.getDirection());
+  }
+  
 }

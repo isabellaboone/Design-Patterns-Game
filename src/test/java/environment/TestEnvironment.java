@@ -171,7 +171,7 @@ public class TestEnvironment {
    * Test that lifeforms can move north.
    */
   @Test
-  public void moveNorth() {
+  public void testMoveNorth() {
     env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     assertTrue(env.addLifeForm(lf, 1, 1));
@@ -187,7 +187,7 @@ public class TestEnvironment {
    * Test that lifeforms can move south.
    */
   @Test
-  public void moveSouth() {
+  public void testMoveSouth() {
     env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     lf.turn(3);
@@ -204,7 +204,7 @@ public class TestEnvironment {
    * Test that lifeforms can move east.
    */
   @Test
-  public void moveEast() {
+  public void testMoveEast() {
     env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     lf.turn(2);
@@ -221,7 +221,7 @@ public class TestEnvironment {
    * Test that lifeforms can move west.
    */
   @Test
-  public void moveWest() {
+  public void testMoveWest() {
     env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     lf.turn(4);
@@ -238,7 +238,7 @@ public class TestEnvironment {
    * Test lifeform at edges (0,0) (0,3) (3,3) (3,0)
    */
   @Test
-  public void borderCase() {
+  public void testBorderCase() {
     env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     env.addLifeForm(lf, 0, 0);
