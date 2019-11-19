@@ -51,7 +51,7 @@ public class Runner extends JFrame{
     Command attack = new Attack();
     Command pickup = new Pickup();
     Command move = new Move();
-   // r.setCommand(0, north);
+    r.setCommand(0, north);
     r.setCommand(1, east);
     r.setCommand(2, south);
     r.setCommand(3, west);

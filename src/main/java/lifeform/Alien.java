@@ -23,6 +23,7 @@ public class Alien extends LifeForm implements TimerObserver {
   public Alien(String name, int maxLifePoints) throws RecoveryRateException {
     super(name, maxLifePoints, 10);
     setMaxLifePoints(maxLifePoints);
+    moveSpeed = 2;
   }
   
   /**
@@ -35,6 +36,7 @@ public class Alien extends LifeForm implements TimerObserver {
     super(name, maxLifePoints, 10);
     recoveryBehavior = behavior;
     setMaxLifePoints(maxLifePoints);
+    moveSpeed = 2;
   }
   
   /**
@@ -48,6 +50,7 @@ public class Alien extends LifeForm implements TimerObserver {
     recoveryBehavior = behavior;
     setMaxLifePoints(maxLifePoints);
     recoveryBehavior = behavior;
+    moveSpeed = 2;
     if (recoveryRate < 0) {
       throw new RecoveryRateException("Invalid recovery rate. (recoveryRate < 0)");
     }

@@ -19,6 +19,7 @@ public abstract class LifeForm implements Weapon {
   protected int col;
   protected int direction;
   protected int movesLeft;
+  protected int moveSpeed;
 
   /**
    * LifeForm constructor — template for LifeForm type.
@@ -226,6 +227,14 @@ public abstract class LifeForm implements Weapon {
         + currentLifePoints + "/" + maxLifePoints + "<br/>"
         + attackStrength + "</html>"
         ;
+  }
+  
+  /**
+   * Returns the move speed of the LifeForm.
+   * @return the move speed of the LifeForm.
+   */
+  public int getMoveSpeed() {
+    return moveSpeed;
   }
   
 }

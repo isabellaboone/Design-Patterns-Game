@@ -214,6 +214,7 @@ public class Environment extends Object {
     Cell selectedCell = getSelectedCell();
     Cell newCell;
     if(selectedCell.hasLifeForm()) {
+      int maxMove = selectedCell.getLifeForm().getMoveSpeed();
       int direction = selectedCell.getDirection();
       int row = selectedCell.getLifeForm().getRow();
       int col = selectedCell.getLifeForm().getCol();
@@ -268,7 +269,6 @@ public class Environment extends Object {
           System.out.println("Defaulted. Input direction '" + direction + "' is not in [ 1, 2, 3, 4 ].");
           return false;
       }
-//      selectedCell.getLifeForm().setMovesLeft(selectedCell.getLifeForm().getMovesLeft() - 1);
       selectedCell.removeLifeForm();
       System.out.println("Moved " + directions[direction - 1] + ".");
       return true;
