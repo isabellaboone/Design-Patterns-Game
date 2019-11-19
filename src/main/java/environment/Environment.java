@@ -90,9 +90,9 @@ public class Environment extends Object {
   /**
    * Gets distance between two life forms.
    * 
-   * @param lf1 - first life form
-   * @param lf2 - second life form
-   * @return distance
+   * @param lf1 - first life form.
+   * @param lf2 - second life form.
+   * @return distance.
    */
   public double getDistance(LifeForm lf1, LifeForm lf2) {
     return 5 * Math.sqrt(Math.pow(lf2.getCol() - lf1.getCol(), 2) + Math.pow(lf2.getRow()
@@ -127,7 +127,7 @@ public class Environment extends Object {
   /**
    * Get columns.
    * 
-   * @return number of columns
+   * @return number of columns.
    */
   public int getNumCols() {
     return cell[0].length;
@@ -136,7 +136,7 @@ public class Environment extends Object {
   /**
    * Get rows.
    * 
-   * @return number of rows
+   * @return number of rows.
    */
   public int getNumRows() {
     return cell.length;
@@ -145,9 +145,9 @@ public class Environment extends Object {
   /**
    * Gets array of weapons.
    * 
-   * @param row
-   * @param col
-   * @return weapons
+   * @param row the row of the cell
+   * @param col the col of the cell
+   * @return the weapons in the cell.
    */
   public Weapon[] getWeapons(int row, int col) {
     Weapon[] weapons = new Weapon[2];
@@ -167,39 +167,57 @@ public class Environment extends Object {
   }
 
   /**
-   * Remove weapon.
-   * 
-   * @param weapon - weapon
-   * @param row    - row
-   * @param col    - column
-   * @return null
+   * Removes a weapon from a cell.
+   * @param weapon the weapon to be removed.
+   * @param row the row of the weapon.
+   * @param col the col of the weapon.
+   * @return the weapon in the cell.
    */
   public Weapon removeWeapon(Weapon weapon, int row, int col) {
     return cell[row][col].removeWeapon(weapon);
   }
   
+  /**
+   * Returns the number of entities in the environment.
+   * @return the number of entities in the environment.
+   */
   public int getNumberOfEntities() {
     int sum = 0;
     for(int i = 0; i < getNumRows(); i++ ) { 
-	  for(int j = 0; j < getNumCols(); j++ ) { 
-	    if(cell[i][j].hasLifeForm()) {
-		  ++sum;
-	    }
-	  }
-	}
+      for(int j = 0; j < getNumCols(); j++ ) { 
+        if(cell[i][j].hasLifeForm()) {
+          ++sum;
+        }
+      }
+    }
 	return sum;
   }
   
+  /**
+   * Returns a cell based on row, col.
+   * @param r the row of the cell.
+   * @param c the col of the cell.
+   * @return the cell based on row, col.
+   */
   public Cell getCell(int r, int c) {
     return cell[r][c];
   }
   
+  /**
+   * Selects a cell from row, col.
+   * @param r the row of the cell.
+   * @param co the col of the cell.
+   */
   public void selectCell(int r, int co) {
    
     selectedCell = cell[r][co];
     System.out.println("Selected (" + r + ", " + co + ")");
   }
   
+  /**
+   * Returns the selected cell.
+   * @return the selected cell.
+   */
   public Cell getSelectedCell() {
     return selectedCell;
   }
@@ -232,6 +250,20 @@ public class Environment extends Object {
             env.selectCell(row - 1, col);
             break;
           }
+//          for(int i = maxMove; i >= 0; --i) {
+//            if(i == 0) {
+//              System.out.println("Failed to move " + directions[direction - 1] + ".");
+//              return false;
+//            }
+//            if(row - i >= 0 && !cell[row - i][col].hasLifeForm() && selectedCell.getLifeForm().getMovesLeft() != 0) {
+//              newCell = getCell(row - i, col);
+//              newCell.addLifeForm(selectedCell.getLifeForm());
+//              newCell.getLifeForm().setLocation(row - i, col);
+//              env.selectCell(row - i, col);
+//              break;
+//            }
+//          }
+//          break;
         case 2:
           if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm() || selectedCell.getLifeForm().getMovesLeft() == 0) {
             System.out.println("Failed to move " + directions[direction - 1] + ".");
@@ -276,7 +308,10 @@ public class Environment extends Object {
     return false;
   }
   
-  
+  /**
+   * Allows the selected cell to find the nearest target?
+   * @return the selected target.
+   */
   public Cell findTarget() {
     Cell target = null;
     int row, col;
