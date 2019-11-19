@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
+import commands.Remote;
 import environment.Environment;
 import exceptions.AttachmentException;
 import exceptions.RecoveryRateException;
@@ -27,6 +28,7 @@ public class Runner extends JFrame{
   }
   
   static void start() throws RecoveryRateException, AttachmentException, WeaponException {
+    Remote r = new Remote(); 
     e = e.getEnvironment(10, 10);
     gui = new GUI(e);
     LifeForm c = new Human("Chase", 200, 20);
@@ -71,7 +73,7 @@ public class Runner extends JFrame{
     e.addWeapon(p4, 1, 3);
 
     gui.redrawBoard();
-    commandGui commands = new commandGui(e, gui); 
+    commandGui commands = new commandGui(e, gui, r); 
     
   }
 }

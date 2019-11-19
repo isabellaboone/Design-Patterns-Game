@@ -21,13 +21,15 @@ public class commandGui extends JFrame implements ActionListener {
   JButton North, South, East, West, Move, Reload, Attack, Drop, Pickup;
   Environment env;
   GUI g;
+  Remote remote; 
   
-  public commandGui(Environment map, GUI gui) {
+  public commandGui(Environment map, GUI gui, Remote r) {
     JFrame frame = new JFrame("Controller"); 
     JPanel turnButtons = new JPanel();
     JPanel commandButtons = new JPanel();
     env = map;
     g = gui;
+    remote = r; 
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(600,200);
     frame.setLayout(new FlowLayout());
@@ -76,31 +78,30 @@ public class commandGui extends JFrame implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    Command c; 
-    
     if(env.getSelectedCell().hasLifeForm()) {
       if(e.getSource() == North) {
-        c = new North(); 
+        remote.setCommand(new North(), env);
       } else if(e.getSource() == East) {
-        c = new East(); 
+        remote.setCommand(new East(), env);
       } else if (e.getSource() == South) {
-        c = new South(); 
+        remote.setCommand(new South(), env);
       } else if (e.getSource() == West) {
-        c = new West(); 
+        remote.setCommand(new West(), env);
       } else if (e.getSource() == Reload) {
-        c = new Reload(); 
+        remote.setCommand(new Reload(), env);
       } else if (e.getSource() == Drop) {
-        c = new Drop(); 
+        remote.setCommand(new Drop(), env);
       } else if (e.getSource() == Attack) {
-        c = new Attack();
+        remote.setCommand(new Attack(), env);
       } else if (e.getSource() == Pickup) {
-        c = new Pickup(); 
+        remote.setCommand(new Pickup(), env);
       } else if (e.getSource() == Move) {
-        c = new Move(); 
+        remote.setCommand(new Move(), env);
       } else {
-        c = null;
+        remote.setCommand(null, env);
       }
-      c.execute(env);
+      
+      remote.buttonPressed();
     } else {
       System.out.println("There is no lifeform in the selected cell. Try Again.");
     }
