@@ -7,15 +7,23 @@ import environment.Environment;
  * Invoker - accepts commands and executes them. 
  */
 public class Remote {
-  Command command; 
+  Command command[]; 
   Environment env; 
   
-  public void setCommand(Command c, Environment env) {
-    this.command = c;
-    this.env = env; 
+  public Remote(Environment env) {
+    this.env = env;
+    command = new Command[9];
+    for (int i = 0; i < 9; i++) {
+      command[i] = null;
+    }
+    
   }
   
-  public void buttonPressed() {
-    command.execute(env);
+  public void setCommand(int slot, Command c) {
+    this.command[slot] = c; 
+  }
+  
+  public void buttonPressed(int slot) {
+    command[slot].execute(env);
   }
 }

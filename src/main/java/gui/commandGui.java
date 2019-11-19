@@ -80,28 +80,28 @@ public class commandGui extends JFrame implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     if(env.getSelectedCell().hasLifeForm()) {
       if(e.getSource() == North) {
-        remote.setCommand(new North(), env);
+        remote.buttonPressed(0);
       } else if(e.getSource() == East) {
-        remote.setCommand(new East(), env);
+        remote.buttonPressed(1);
       } else if (e.getSource() == South) {
-        remote.setCommand(new South(), env);
+        remote.buttonPressed(2);
       } else if (e.getSource() == West) {
-        remote.setCommand(new West(), env);
+        remote.buttonPressed(3);
       } else if (e.getSource() == Reload) {
-        remote.setCommand(new Reload(), env);
+        remote.buttonPressed(4);
       } else if (e.getSource() == Drop) {
-        remote.setCommand(new Drop(), env);
+        remote.buttonPressed(5);
       } else if (e.getSource() == Attack) {
-        remote.setCommand(new Attack(), env);
+        remote.buttonPressed(6);
       } else if (e.getSource() == Pickup) {
-        remote.setCommand(new Pickup(), env);
+        remote.buttonPressed(7);
       } else if (e.getSource() == Move) {
-        remote.setCommand(new Move(), env);
-      } else {
-        remote.setCommand(null, env);
-      }
+        remote.buttonPressed(8);
+      } //else {
+        //remote.setCommand(null, env);
+      //}
       
-      remote.buttonPressed();
+      //remote.buttonPressed();
     } else {
       System.out.println("There is no lifeform in the selected cell. Try Again.");
     }

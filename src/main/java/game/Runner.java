@@ -4,7 +4,17 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
+import commands.Attack;
+import commands.Command;
+import commands.Drop;
+import commands.East;
+import commands.Move;
+import commands.North;
+import commands.Pickup;
+import commands.Reload;
 import commands.Remote;
+import commands.South;
+import commands.West;
 import environment.Environment;
 import exceptions.AttachmentException;
 import exceptions.RecoveryRateException;
@@ -27,10 +37,33 @@ public class Runner extends JFrame{
     add(gui);
   }
   
-  static void start() throws RecoveryRateException, AttachmentException, WeaponException {
-    Remote r = new Remote(); 
+  static void start() throws RecoveryRateException, AttachmentException, WeaponException { 
     e = e.getEnvironment(10, 10);
     gui = new GUI(e);
+    //**********************The Remote******************************************
+    Remote r = new Remote(e);
+    Command north = new North();
+    Command east = new East();
+    Command south = new South();
+    Command west = new West();
+    Command reload = new Reload();
+    Command drop = new Drop();
+    Command attack = new Attack();
+    Command pickup = new Pickup();
+    Command move = new Move();
+   // r.setCommand(0, north);
+    r.setCommand(1, east);
+    r.setCommand(2, south);
+    r.setCommand(3, west);
+    r.setCommand(4, reload);
+    r.setCommand(5, drop);
+    r.setCommand(6, attack);
+    r.setCommand(7, pickup);
+    r.setCommand(8, move);
+    
+    //****************************************************************
+    
+    
     LifeForm c = new Human("Chase", 200, 20);
     LifeForm j = new Human("Joel-chan", 10000, 1000);
     LifeForm m = new Human("Morgan", 150, 30);
