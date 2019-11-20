@@ -38,6 +38,7 @@ public class TestEnvironment {
   public void testInitialization() {
     env.clearBoard();
     assertNull(env.getLifeForm(0, 0));
+    env.clearBoard();
   }
   
   /**
@@ -48,6 +49,7 @@ public class TestEnvironment {
     env.clearBoard();
     MockWeapon weapon = new MockWeapon();
     assertTrue(env.addWeapon(weapon, 1, 1));
+    env.clearBoard();
   }
   
   /**
@@ -55,9 +57,11 @@ public class TestEnvironment {
    */
   @Test
   public void testRemoveWeapon() {
+    env.clearBoard();
     MockWeapon weapon = new MockWeapon();
     assertTrue(env.addWeapon(weapon, 1, 1));
     env.removeWeapon(weapon, 1, 1);
+    env.clearBoard();
   }
   
   /**
@@ -106,6 +110,7 @@ public class TestEnvironment {
    */
   @Test
   public void testAddLifeForm() {
+    env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     assertTrue(env.addLifeForm(lf, 1, 1));
     assertEquals(lf, env.getLifeForm(1, 1));
@@ -260,5 +265,6 @@ public class TestEnvironment {
     env.selectCell(3, 0);
     assertFalse(env.move());
     env.removeLifeForm(3, 0);
+    env.clearBoard();
   }
 }
