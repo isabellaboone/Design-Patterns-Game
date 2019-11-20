@@ -76,48 +76,38 @@ public class Runner extends JFrame {
     r.setCommand(8, move);
     
     //****************************************************************
+    LifeForm tuner = new Human("Tuner", 1000, 0);
+    e.addLifeForm(tuner, 1, 1);
+    
+    LifeForm picker = new Human("Pick and Drop", 1000, 0);
+    e.addLifeForm(picker, 2, 2);
+    Weapon w1 = new Pistol();
+    e.addWeapon(w1, 2, 3);
+    Weapon w2 = new ChainGun();
+    e.addWeapon(w2, 2, 4);
+    Weapon w3 = new PlasmaCannon();
+    e.addWeapon(w3, 2, 5);
+    Weapon w4 = new Pistol();
+    e.addWeapon(w4, 2, 5);
+    
+    LifeForm fighter = new Human("Fighter", 1000, 0);
+    e.addLifeForm(fighter, 3, 6);
+    Weapon gun = new Pistol();
+    fighter.pickUpWeapon(gun);
+    LifeForm target1 = new Alien("Target 1", 1000);
+    e.addLifeForm(target1, 3, 8);
+    LifeForm target2 = new Alien("Target 2", 1000);
+    e.addLifeForm(target2, 6, 6);
+    
+    LifeForm mover = new Human("Mover", 1000, 0);
+    e.addLifeForm(mover, 9, 9);
+    
+    Alien wall = new Alien("Wall", 1000);
+    e.addLifeForm(wall, 9, 7);
     
     
-    LifeForm c = new Human("Chase", 140, 10);
-    e.addLifeForm(c, 0, 0);
-    LifeForm j = new Human("Joel-chan", 110, 10);
-    e.addLifeForm(j, 2, 2);
-    LifeForm m = new Human("Morgan", 130, 10);
-    e.addLifeForm(m, 6, 8);
-    LifeForm i = new Human("Isabella", 120, 10);
-    e.addLifeForm(i, 3, 5);
-    LifeForm a = new Human("Andrew", 100, 10);
-    e.addLifeForm(a, 8, 3);
-    RecoveryBehavior rl = new RecoveryLinear(2);
-    Weapon p1 = new Scope(new PowerBooster(new Pistol())); 
-    e.addWeapon(p1, 1, 1);
-    Weapon p2 = new PowerBooster(new PowerBooster(new Pistol()));
-    e.addWeapon(p2, 1, 1);
-    Weapon p3 = new Scope(new Scope(new PlasmaCannon()));
-    e.addWeapon(p3, 1, 2);
-    Weapon pc = new PowerBooster(new PowerBooster(new PlasmaCannon()));
-    e.addWeapon(pc, 1, 2);
-    Weapon cg = new PowerBooster(new PowerBooster(new ChainGun()));
-    e.addWeapon(cg, 1, 3);
-    Weapon p4 = new ChainGun();
-    e.addWeapon(p4, 1, 3);
-    LifeForm jun = new Alien("America's Sweetheart: Jun", 150, rl, 10);
-    e.addLifeForm(jun, 6, 2);
-    LifeForm kim = new Alien("Rat King: Kim", 105, rl, 10);
-    e.addLifeForm(kim, 3, 1);
     
-    // dummies to test firing
-    LifeForm d1 = new Human("Dummy 1", 100, 6);
-    LifeForm d2 = new Human("Dummy 2", 120, 9);
-    e.addLifeForm(d1, 9, 9);
-    e.addLifeForm(d2, 9, 8);
     
-    //
-    
-    jun.pickUpWeapon(pc);
-    m.pickUpWeapon(cg);
-    kim.turn(4);
-   
     gui.redrawBoard();
     
     CommandGui commands = new CommandGui(e, gui, r); 

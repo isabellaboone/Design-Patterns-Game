@@ -23,4 +23,8 @@ public class RecoveryNone implements RecoveryBehavior {
     return currentLife;
   }
   
+  public String toString() {
+    return "None";
+  }
+  
 }

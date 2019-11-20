@@ -22,7 +22,7 @@ public class Attack extends JButton implements Command {
     try {
       if (env.findTarget() == null || env.findTarget().getLifeForm() == null) {
         // If find target could not find a target it will be marked as null
-        System.out.println("There are no enemies to attack.");
+        player.fire(0);
       } else {
         // If the target is not null
         LifeForm victim = env.findTarget().getLifeForm();

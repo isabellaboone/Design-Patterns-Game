@@ -29,5 +29,9 @@ public class RecoveryFractional implements RecoveryBehavior {
     return (currentLife + returnedHealth) > maxLife
         ? maxLife : (currentLife + returnedHealth);
   }
+  
+  public String toString() {
+    return "Fractional";
+  }
 
 }
