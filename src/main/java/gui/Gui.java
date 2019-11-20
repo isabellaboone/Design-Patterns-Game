@@ -22,12 +22,6 @@ import lifeform.LifeForm;
 import weapon.Pistol;
 import weapon.Weapon;
 
-
-/*
- * Possibly do:
- * make hovering work.
- */
-
 public class Gui extends JFrame {
 
   Environment env;
@@ -36,12 +30,13 @@ public class Gui extends JFrame {
   JLabel stats;
   JPanel board = new JPanel(new GridBagLayout());
   static final int NORTH = 1;
-  static final int EAST = 2; 
+  static final int EAST = 2;
   static final int SOUTH = 3;
   static final int WEST = 4;
 
   /**
-   * constructs the gui.
+   * constructs the GUI for the first time.
+   * 
    * @param env the displayed environment.
    */
   public Gui(Environment env) {
@@ -59,13 +54,15 @@ public class Gui extends JFrame {
   }
 
   /**
-   * draws the environment.
+   * draws the environment by creating an array of JLabels with GridBag layout.
+   * Each JLabel displays an icon representing cell.
    */
   public void drawEnvironment() {
     labelArray = new JLabel[env.getNumRows()][env.getNumCols()];
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
-        labelArray[r][c] = new JLabel(createSquare(env.getCell(r, c)));;
+        labelArray[r][c] = new JLabel(createSquare(env.getCell(r, c)));
+        ;
         x.gridx = c;
         x.gridy = r;
         board.add(labelArray[r][c], x);
@@ -76,9 +73,8 @@ public class Gui extends JFrame {
     add(board, x);
   }
 
-  
   /**
-   * redraws the board.
+   * redraws the board by resetting icons.
    */
   public void redrawBoard() {
     for (int r = 0; r < env.getNumRows(); r++) {
@@ -90,12 +86,17 @@ public class Gui extends JFrame {
   }
 
   /**
-   * redraws the stats.
+   * redraws the stats by resetting text in JLabel.
    */
   public void redrawStats() {
     stats.setText(env.getSelectedCell().getStats());
   }
 
+  /**
+   * draws stats for the first time.
+   * 
+   * @param c cell
+   */
   private void drawStats(Cell c) {
     stats = new JLabel(c.getStats());
     stats.setLocation(0, 0);
@@ -109,7 +110,7 @@ public class Gui extends JFrame {
   }
 
   /**
-   * draws the legend.
+   * draws the legend which is just a PNG.
    */
   public void drawLegend() {
     JLabel legend = new JLabel(legendImage());
@@ -125,7 +126,9 @@ public class Gui extends JFrame {
   }
 
   /**
-   * makes the squares.
+   * Creates Squares. Creates and paints a buffered image to represent what is in
+   * squares.
+   * 
    * @param c a cell.
    * @return an icon
    */
@@ -204,15 +207,17 @@ public class Gui extends JFrame {
 
     // weapons
     if (c.hasWeapon()) {
-
+      // if cell has life form in in it display small icon for weapon 1 else display
       if (c.getWeaponsCount() > 1) {
-        // if cell has life form in in it display small icon for weapon 1 else display
         // small icon for weapon 2
         Weapon w = c.getWeapon2();
+
+        // pistol
         if (w.toString().contains("Pistol")) {
-          // handle
           g.setColor(new Color(0, 0, 0));
+          // handle
           g.fillRect(36, 4, 3, 7);
+          // base
           g.fillRect(39, 5, 7, 3);
 
         }
@@ -235,7 +240,7 @@ public class Gui extends JFrame {
         if (w.toString().contains("ChainGun")) {
           // handle
           g.setColor(new Color(0, 0, 0));
-
+          // the rest lol
           g.fillRect(37, 3, 2, 1);
           g.fillRect(38, 3, 1, 2);
           g.fillRect(37, 5, 3, 4);
@@ -245,7 +250,7 @@ public class Gui extends JFrame {
 
         }
       }
-
+      // if there is no life form in the cell draw big weapon icon
       if (!c.hasLifeForm()) {
         // pistol
         if (c.getWeapon1().toString().contains("Pistol")) {
@@ -326,11 +331,13 @@ public class Gui extends JFrame {
       }
 
     }
+    // return completed icon
     return new ImageIcon(i);
   }
 
   /**
-   * makes the legend.
+   * makes the legend image.
+   * 
    * @return the legend
    */
   private ImageIcon legendImage() {
@@ -340,7 +347,9 @@ public class Gui extends JFrame {
   }
 
   /**
-   * Something.
+   * If mouse is clicked, check which cell is clicked. Set selected cell to
+   * clicked cell, redraw board and redraw stats.
+   * 
    * @param e a click
    */
   private void onMouseClicked(MouseEvent e) {
@@ -356,7 +365,8 @@ public class Gui extends JFrame {
   }
 
   /**
-   * makes the squares clickable.
+   * listens for mouse click on all cells.
+   * 
    */
   public void setMouseListener() {
     for (int r = 0; r < env.getNumRows(); r++) {
