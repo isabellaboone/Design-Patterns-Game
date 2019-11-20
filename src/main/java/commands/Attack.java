@@ -10,14 +10,15 @@ import lifeform.Alien;
 import lifeform.Human;
 import lifeform.LifeForm;
 
-
 @SuppressWarnings("serial")
 public class Attack extends JButton implements Command {
 
-  /** Attack command - Makes the selected cell attack an enemy in the
-   * direction it is facing */
+  /**
+   * Attack command - Makes the selected cell attack an enemy in the direction it
+   * is facing
+   */
   public void execute(Environment env) {
-    LifeForm player = env.getSelectedCell().getLifeForm(); 
+    LifeForm player = env.getSelectedCell().getLifeForm();
     // Store player (selected cell) in a variable for readability.
     try {
       if (env.findTarget() == null || env.findTarget().getLifeForm() == null) {
@@ -26,7 +27,7 @@ public class Attack extends JButton implements Command {
       } else {
         // If the target is not null
         LifeForm victim = env.findTarget().getLifeForm();
-        // Store victim (find target) in a variable for readability. 
+        // Store victim (find target) in a variable for readability.
         int before = victim.getCurrentLifePoints();
         // Store the victims health before the hit to calculate the damage
         if (((victim instanceof Human) && (player instanceof Human))
@@ -38,26 +39,22 @@ public class Attack extends JButton implements Command {
           // Redundant else if that ensures a human and alien can only attack eachother
           int distance = (int) (env.getDistance(player, victim));
           // Distance between lifeforms, done for readability
-          
+
           player.attack(victim, distance);
 
           int after = victim.getCurrentLifePoints();
           // Victims health after hit
-          
+
           // Print statements
           if (player.hasWeapon()) {
-            System.out.println(player.getName()
-                + " shot " + victim.getName()
-                + " with a " + player.getWeapon().toString()
-                + " for " + (before - after) + " damage!");
+            System.out.println(player.getName() + " shot " + victim.getName() + " with a "
+                + player.getWeapon().toString() + " for " + (before - after) + " damage!");
           } else {
-            System.out.println(player.getName()
-                + " hit " + victim.getName()
-                + " for " + (before - after) + " damage!");
+            System.out.println(player.getName() + " hit " + victim.getName() + " for " + (before - after) + " damage!");
           }
         }
       }
-      
+
     } catch (WeaponException e1) {
       e1.printStackTrace();
     }

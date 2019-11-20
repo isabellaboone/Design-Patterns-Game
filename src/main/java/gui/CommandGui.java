@@ -16,8 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class CommandGui extends JFrame implements ActionListener {
-  
-  
+
   JButton north;
   JButton south;
   JButton east;
@@ -29,45 +28,39 @@ public class CommandGui extends JFrame implements ActionListener {
   JButton pickup;
   Environment env;
   Gui gui;
-  Remote remote; 
-  
+  Remote remote;
+
   /**
-   * constructs the CommandGUI. 
+   * constructs the CommandGUI.
+   * 
    * @param map the environment that is passed in.
    * @param gui the main game display.
-   * @param r the remote of commands.
+   * @param r   the remote of commands.
    */
   public CommandGui(Environment map, Gui gui, Remote r) {
-    env = map;
+    this.env = map;
     this.gui = gui;
-    remote = r; 
-    JFrame frame = new JFrame("Controller"); 
+    this.remote = r;
+    
+    JFrame frame = new JFrame("Controller");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(600,200);
+    frame.setSize(600, 200);
     frame.setLayout(new FlowLayout());
     JPanel turnButtons = new JPanel();
-    turnButtons.setLayout(new BorderLayout()); 
-    
-    // Create button, add an action listener and add it
-    north = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/unselected_north.png")));
-    west = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/unselected_west.png")));
-    south = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/unselected_south.png")));
-    east = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/unselected_east.png")));
-    move = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/move.png")));
-    reload = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/Reload.png")));
-    attack = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/Attack.png")));
-    drop = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/Drop.png")));
-    pickup = new JButton(new ImageIcon(getClass()
-        .getResource("CommandButtons/Pickup.png")));
-    
+    turnButtons.setLayout(new BorderLayout());
+
+    // Create button
+    north = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
+    west = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
+    south = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
+    east = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
+    move = new JButton(new ImageIcon(getClass().getResource("CommandButtons/move.png")));
+    reload = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Reload.png")));
+    attack = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Attack.png")));
+    drop = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Drop.png")));
+    pickup = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Pickup.png")));
+
+    // Add action listeners 
     north.addActionListener(this);
     west.addActionListener(this);
     south.addActionListener(this);
@@ -77,26 +70,24 @@ public class CommandGui extends JFrame implements ActionListener {
     attack.addActionListener(this);
     drop.addActionListener(this);
     pickup.addActionListener(this);
-    
-    
+
     turnButtons.add("Center", move);
     turnButtons.add("North", north);
-    turnButtons.add("West", west); 
-    turnButtons.add("South", south); 
-    turnButtons.add("East", east); 
+    turnButtons.add("West", west);
+    turnButtons.add("South", south);
+    turnButtons.add("East", east);
     JPanel commandButtons = new JPanel();
-    commandButtons.add(reload); 
+    commandButtons.add(reload);
     commandButtons.add(attack);
     commandButtons.add(drop);
     commandButtons.add(pickup);
-   
-    
+
     frame.add(turnButtons);
     frame.add(commandButtons);
     frame.setLocation(60, 615);
-    pack(); 
-    frame.setVisible(true); 
-    
+    pack();
+    frame.setVisible(true);
+
   }
 
   @Override
@@ -124,7 +115,6 @@ public class CommandGui extends JFrame implements ActionListener {
     } else {
       System.out.println("There is no lifeform in the selected cell. Try Again.");
     }
-    
 
     gui.redrawBoard();
     gui.redrawStats();

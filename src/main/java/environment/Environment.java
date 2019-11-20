@@ -67,6 +67,7 @@ public class Environment extends Object {
    * Removes all LifeForms and Weapons. Used for resets.
    */
   public void clearBoard() {
+    selectCell(0, 0); 
     for (int i = 0; i < getNumRows(); ++i) {
       for (int j = 0; j < getNumCols(); ++j) {
         cell[i][j] = new Cell();
