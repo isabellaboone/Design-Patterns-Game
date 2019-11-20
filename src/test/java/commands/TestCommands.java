@@ -19,7 +19,7 @@ public class TestCommands {
   
   @Before
   public synchronized void createEnvironment() {
-    e = Environment.getEnvironment(3, 3);
+    e = Environment.getEnvironment(4, 4);
     r = new Remote(e); 
     r.setCommand(0, new North());
     r.setCommand(1, new East());

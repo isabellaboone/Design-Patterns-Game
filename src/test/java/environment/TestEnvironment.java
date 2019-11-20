@@ -20,13 +20,13 @@ import weapon.MockWeapon;
  */
 public class TestEnvironment {
 
-  private Environment env;
+  private static Environment env;
   
   /**
    * Creates our environment.
    */
   @Before
-  public void createEnvironment() {
+  public synchronized void createEnvironment() {
 	  env = Environment.getEnvironment(4, 4);
   }
 
@@ -122,6 +122,7 @@ public class TestEnvironment {
    */
   @Test
   public void testBorderCases() {
+    env.clearBoard();
     MockLifeForm lf = new MockLifeForm("LifeForm", 10);
     for (int i = 0; i < 3; ++i) {
       for (int j = 0; j < 3; ++j) {
@@ -135,6 +136,7 @@ public class TestEnvironment {
         assertEquals(lf, env.getLifeForm(i, j));
       }
     }
+    env.clearBoard();
   }
   
   /**
