@@ -36,7 +36,11 @@ public class Pickup extends JButton implements Command {
         env.getSelectedCell().removeWeapon(a);
         env.getSelectedCell().addWeapon(b);
         env.getSelectedCell().getLifeForm().dropWeapon();
+<<<<<<< HEAD
         env.getSelectedCell().getLifeForm().pickUpWeapon(a);
+=======
+        env.getSelectedCell().getLifeForm().pickUpWeapon(a);      
+>>>>>>> c3f52142485911ee99e8e53bd20d1eb2ff1bba30
       }
     }
 

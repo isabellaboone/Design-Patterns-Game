@@ -165,9 +165,9 @@ public class Cell extends Object {
     return "<html><h1 style = font-size:30px; text-align:center>Ground</h1><br/>" + "Weapon 1: "
         + (getWeapon1() == null ? "none" : getWeapon1()) + "<br/>" + "Weapon 2: "
         + (getWeapon2() == null ? "none" :
-          getWeapon2()) + "<br/>" + "<br/>_________________________________________"
+          getWeapon2()) + "<br/>" + "<br/>_____________________________________________"
         + (hasLifeForm() ? entity.getStats() :
-          "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>");
+          "");
     // }
   }
 
