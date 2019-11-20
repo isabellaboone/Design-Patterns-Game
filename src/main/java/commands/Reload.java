@@ -12,9 +12,11 @@ public class Reload extends JButton implements Command {
    */
   public void execute(Environment env) {
     if (!env.getSelectedCell().getLifeForm().hasWeapon()) {
+      // If the lifeform does not have a weapon
       System.out.println(
           env.getSelectedCell().getLifeForm().getName() + " does not have a weapon!");
     } else {
+      // Otherwise, the lifeform does have a weapon, you can reload
       env.getSelectedCell().getLifeForm().reload();
     }
   }
