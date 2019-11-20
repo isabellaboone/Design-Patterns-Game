@@ -12,16 +12,10 @@ import lifeform.LifeForm;
 
 @SuppressWarnings("serial")
 public class Attack extends JButton implements Command {
-
-<<<<<<< HEAD
   /**
    * Attack command - Makes the selected cell attack an enemy in the direction it
-   * is facing
+   * is facing.
    */
-=======
-  /** Attack command - Makes the selected cell attack an enemy in the
-   * direction it is facing. */
->>>>>>> c3f52142485911ee99e8e53bd20d1eb2ff1bba30
   public void execute(Environment env) {
     LifeForm player = env.getSelectedCell().getLifeForm();
     // Store player (selected cell) in a variable for readability.
@@ -55,7 +49,8 @@ public class Attack extends JButton implements Command {
             System.out.println(player.getName() + " shot " + victim.getName() + " with a "
                 + player.getWeapon().toString() + " for " + (before - after) + " damage!");
           } else {
-            System.out.println(player.getName() + " hit " + victim.getName() + " for " + (before - after) + " damage!");
+            System.out.println(player.getName() + " hit " + victim.getName() 
+                + " for " + (before - after) + " damage!");
           }
         }
       }

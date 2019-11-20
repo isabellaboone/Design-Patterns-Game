@@ -36,20 +36,19 @@ public class Pickup extends JButton implements Command {
         env.getSelectedCell().removeWeapon(a);
         env.getSelectedCell().addWeapon(b);
         env.getSelectedCell().getLifeForm().dropWeapon();
-<<<<<<< HEAD
         env.getSelectedCell().getLifeForm().pickUpWeapon(a);
-=======
-        env.getSelectedCell().getLifeForm().pickUpWeapon(a);      
->>>>>>> c3f52142485911ee99e8e53bd20d1eb2ff1bba30
       }
     }
 
     // If the lifeform does not have a weapon
-    if (env.getSelectedCell().getWeapon1() != null && !env.getSelectedCell().getLifeForm().hasWeapon()) {
+    if (env.getSelectedCell().getWeapon1() != null 
+        && !env.getSelectedCell().getLifeForm().hasWeapon()) {
       // check if cell has a weapon1 and lifeform has no weapon
-      env.getSelectedCell().getLifeForm().pickUpWeapon(env.getSelectedCell().getWeapon1());
+      env.getSelectedCell().getLifeForm().pickUpWeapon(
+          env.getSelectedCell().getWeapon1());
       env.getSelectedCell().removeWeapon(env.getSelectedCell().getWeapon1());
-    } else if (env.getSelectedCell().getWeapon2() != null && !env.getSelectedCell().getLifeForm().hasWeapon()) {
+    } else if (env.getSelectedCell().getWeapon2() != null 
+        && !env.getSelectedCell().getLifeForm().hasWeapon()) {
       // check if cell has a weapon2 and lifeform has no weapon
       env.getSelectedCell().getLifeForm().pickUpWeapon(env.getSelectedCell().getWeapon2());
       env.getSelectedCell().removeWeapon(env.getSelectedCell().getWeapon2());

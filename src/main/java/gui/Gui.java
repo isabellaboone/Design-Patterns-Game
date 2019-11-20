@@ -25,7 +25,8 @@ import weapon.Weapon;
 
 
 /**
- * This is all of the Gui aspects of the project.  It uses JFrame and JPanel to divide the sections of the Gui.
+ * This is all of the Gui aspects of the project.  
+ * It uses JFrame and JPanel to divide the sections of the Gui.
  * Email: cb5522@ship.edu or jg2446@ship.edu.
  * @author Chase Banyai, Joel Gingrich. 
  *

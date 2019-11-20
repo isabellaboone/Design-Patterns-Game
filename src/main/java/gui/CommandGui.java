@@ -50,15 +50,24 @@ public class CommandGui extends JFrame implements ActionListener {
     turnButtons.setLayout(new BorderLayout());
 
     // Create button
-    north = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_north.png")));
-    west = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_west.png")));
-    south = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_south.png")));
-    east = new JButton(new ImageIcon(getClass().getResource("CommandButtons/unselected_east.png")));
-    move = new JButton(new ImageIcon(getClass().getResource("CommandButtons/move.png")));
-    reload = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Reload.png")));
-    attack = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Attack.png")));
-    drop = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Drop.png")));
-    pickup = new JButton(new ImageIcon(getClass().getResource("CommandButtons/Pickup.png")));
+    north = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/unselected_north.png")));
+    west = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/unselected_west.png")));
+    south = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/unselected_south.png")));
+    east = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/unselected_east.png")));
+    move = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/move.png")));
+    reload = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/Reload.png")));
+    attack = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/Attack.png")));
+    drop = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/Drop.png")));
+    pickup = new JButton(new ImageIcon(getClass().getResource(
+        "CommandButtons/Pickup.png")));
 
     // Add action listeners 
     north.addActionListener(this);
