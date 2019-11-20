@@ -2,7 +2,7 @@
 In lab 6, we will add functionality to the game by implementing an interface. 
 
 # Team Members 
-Andrew Januszko, Chase Banyai, Isabella Boone, Joel Ginrgich, Morgan Willams-Burrell
+Andrew Januszko, Chase Banyai, Isabella Boone, Joel Gingrich, Morgan Willams-Burrell
 
 
 # Team Contract
@@ -14,7 +14,7 @@ the section.)
 **Is it acceptable for one or two team members to do more work than the others
 in order to get the team an A?**
 
-Answer: No.
+No, we will all work equally.
 
 **How will you use the in-class time?**
 
@@ -54,3 +54,4 @@ Please also include the in-class meetings.
 | 1 | 10:00 AM — 11:50 AM, 10/30/19 | MCT 162 | All members | Began work on lab 6 |
 | 2 | 11:00 AM - 11:50 AM, 11/13/19 | MCT 162 | All members | Continued work on lab 6 |
 | 3 | 7:00 PM - 10:00 PM, 11/14/19 | Lackhove | All members | Continued work on lab 6 |
+| 4 | 7:00 PM - 10:00 PM, 11/19/19 | Lackhove | All members | Final touches | 
