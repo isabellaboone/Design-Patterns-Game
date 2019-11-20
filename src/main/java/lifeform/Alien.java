@@ -170,7 +170,7 @@ public class Alien extends LifeForm implements TimerObserver {
         + "Weapon: " + (hasWeapon() ? weapon : "None") + "<br/>"
         + "Ammo: " + (hasWeapon() ? getCurrentAmmo() : "None") + "<br/>"
         + "Shots left: " + (hasWeapon() ? getShotsLeft() + "/" + getRateOfFire()  : "None")
-        + "<br/>_________________________________________"
+        + "<br/>_____________________________________________"
         + "</html>";
   }
   

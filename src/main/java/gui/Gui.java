@@ -29,6 +29,7 @@ public class Gui extends JFrame {
   JLabel[][] labelArray;
   JLabel stats;
   JPanel board = new JPanel(new GridBagLayout());
+  //The direction values
   static final int NORTH = 1;
   static final int EAST = 2;
   static final int SOUTH = 3;
@@ -43,7 +44,7 @@ public class Gui extends JFrame {
     this.env = env;
     setLayout(new GridBagLayout());
     drawEnvironment();
-    setMouseListener();
+    setMouseListener();             //Sets MouseListeners on each Cell
     drawStats(env.getCell(0, 0));
     drawLegend();
 
@@ -122,12 +123,11 @@ public class Gui extends JFrame {
     x.gridx = 0;
     x.gridy = 1;
     add(legend, x);
-
   }
 
   /**
    * Creates Squares. Creates and paints a buffered image to represent what is in
-   * squares.
+   * squares.  Uses the graphics from the buffered image to draw.
    * 
    * @param c a cell.
    * @return an icon
@@ -164,7 +164,7 @@ public class Gui extends JFrame {
           g.fillRect(25, 35, 20, 10);
         } else if (c.getDirection() == SOUTH) {
           g.setColor(new Color(153, 153, 153));
-          g.fillRect(35, 25, 10, 20);
+          g.fillRect(5, 25, 10, 20);
         } else if (c.getDirection() == WEST) {
           g.setColor(new Color(153, 153, 153));
           g.fillRect(5, 5, 20, 10);
@@ -350,7 +350,7 @@ public class Gui extends JFrame {
    * If mouse is clicked, check which cell is clicked. Set selected cell to
    * clicked cell, redraw board and redraw stats.
    * 
-   * @param e a click
+   * @param e The MouseClick event.
    */
   private void onMouseClicked(MouseEvent e) {
     for (int r = 0; r < env.getNumRows(); r++) {
@@ -365,13 +365,14 @@ public class Gui extends JFrame {
   }
 
   /**
-   * listens for mouse click on all cells.
+   * listens for mouse click on all cells/JLabels.
    * 
    */
   public void setMouseListener() {
     for (int r = 0; r < env.getNumRows(); r++) {
       for (int c = 0; c < env.getNumCols(); c++) {
         labelArray[r][c].addMouseListener(new MouseAdapter() {
+          //When the mouse is clicked it calls onMouseClicked.
           @Override
           public void mouseClicked(MouseEvent e) {
             onMouseClicked(e);
