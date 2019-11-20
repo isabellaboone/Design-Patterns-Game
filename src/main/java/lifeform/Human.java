@@ -107,9 +107,10 @@ public class Human extends LifeForm {
         + "Health: " + currentLifePoints + "/" + maxLifePoints + "<br/>"
         + "Attack: " + getAttackStrength() + "<br/>"
         + "Armor: " + armor + "<br/>"
-        + "Weapon: " + (hasWeapon() ? weapon : "None") + "<br/>"
+        + "Weapon: " + (hasWeapon() ? weapon + "<br/>"
         + "Ammo: " + (hasWeapon() ? getCurrentAmmo() : "None") + "<br/>"
-        + "Shots left: " + (hasWeapon() ? getShotsLeft() + "/" + getRateOfFire()  : "None")
+        + "Shots left: " + (hasWeapon() ? getShotsLeft() + "/" + getRateOfFire()  
+        : "None") : "None") 
         + "<br/>_____________________________________________"
         + "</html>";
   }
