@@ -36,7 +36,8 @@ public class Pickup extends JButton implements Command {
         env.getSelectedCell().removeWeapon(a);
         env.getSelectedCell().addWeapon(b);
         env.getSelectedCell().getLifeForm().dropWeapon();
-        env.getSelectedCell().getLifeForm().pickUpWeapon(a);      }
+        env.getSelectedCell().getLifeForm().pickUpWeapon(a);      
+      }
     }
     
     // If the lifeform does not have a weapon

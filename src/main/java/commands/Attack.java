@@ -15,7 +15,7 @@ import lifeform.LifeForm;
 public class Attack extends JButton implements Command {
 
   /** Attack command - Makes the selected cell attack an enemy in the
-   * direction it is facing */
+   * direction it is facing. */
   public void execute(Environment env) {
     LifeForm player = env.getSelectedCell().getLifeForm(); 
     // Store player (selected cell) in a variable for readability.
