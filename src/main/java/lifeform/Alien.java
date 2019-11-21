@@ -12,7 +12,7 @@ import recovery.RecoveryNone;
  */
 public class Alien extends LifeForm implements TimerObserver {
   
-  private RecoveryBehavior recoveryBehavior = new RecoveryNone();
+  private RecoveryBehavior recoveryBehavior;
   private int recoveryRate = 0;
 
   /**
@@ -24,6 +24,7 @@ public class Alien extends LifeForm implements TimerObserver {
     super(name, maxLifePoints, 10);
     setMaxLifePoints(maxLifePoints);
     moveSpeed = 2;
+    recoveryBehavior = new RecoveryNone();
   }
   
   /**

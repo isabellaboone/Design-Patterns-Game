@@ -1,5 +1,6 @@
 package environment;
 
+import lifeform.Human;
 import lifeform.LifeForm;
 import weapon.Weapon;
 
@@ -238,8 +239,10 @@ public class Environment extends Object {
   public boolean move() {
     String[] directions = { "North", "East", "South", "West" };
     Cell selectedCell = getSelectedCell();
-    Cell newCell;
     if (selectedCell.hasLifeForm()) {
+      Cell newCell;
+      LifeForm lf = selectedCell.getLifeForm();
+      int movesLeft = lf.getMovesLeft();
       int direction = selectedCell.getDirection();
       int row = selectedCell.getLifeForm().getRow();
       int col = selectedCell.getLifeForm().getCol();
@@ -247,56 +250,100 @@ public class Environment extends Object {
       int maxCol = getNumCols();
       switch (direction) {
         case 1:
-          if (row - 1 < 0 || cell[row - 1][col].hasLifeForm() 
-              || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
+          if (lf instanceof Human && row - 1 > 0 && cell[row - 1][col].hasLifeForm() && row - 2 >= 0 && cell[row - 2][col].hasLifeForm() && row - 3 >= 0 && !cell[row - 3][col].hasLifeForm() && movesLeft - 3 >= 0) {
+            newCell = getCell(row - 3, col);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row - 3, col);
+            env.selectCell(row - 3, col);
+            break;
+          }
+          if (row - 1 > 0 && cell[row - 1][col].hasLifeForm() && row - 2 >= 0 && !cell[row - 2][col].hasLifeForm() && movesLeft - 2 >= 0) {
+            newCell = getCell(row - 2, col);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row - 2, col);
+            env.selectCell(row - 2, col);
+            break;
+          }
+          if (row - 1 >= 0 && !cell[row - 1][col].hasLifeForm() && movesLeft - 1 >= 0) {
             newCell = getCell(row - 1, col);
-            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.addLifeForm(lf);
             newCell.getLifeForm().setLocation(row - 1, col);
             env.selectCell(row - 1, col);
             break;
           }
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
+          return false;
         case 2:
-          if (col + 1 == maxCol || cell[row][col + 1].hasLifeForm() 
-              || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
+          if (lf instanceof Human && col + 1 < maxCol && cell[row][col + 1].hasLifeForm() && col + 2 < maxCol && cell[row][col + 2].hasLifeForm() && col + 3 < maxCol && !cell[row][col + 3].hasLifeForm() && movesLeft - 3 >= 0) {
+            newCell = getCell(row, col + 3);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row, col + 3);
+            env.selectCell(row, col + 3);
+            break;
+          }
+          if (col + 1 < maxCol && cell[row][col + 1].hasLifeForm() && col + 2 < maxCol && !cell[row][col + 2].hasLifeForm() && movesLeft - 2 >= 0) {
+            newCell = getCell(row, col + 2);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row, col + 2);
+            env.selectCell(row, col + 2);
+            break;
+          }
+          if (col + 1 < maxCol && !cell[row][col + 1].hasLifeForm() && movesLeft - 1 >= 0) {
             newCell = getCell(row, col + 1);
-            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.addLifeForm(lf);
             newCell.getLifeForm().setLocation(row, col + 1);
             env.selectCell(row, col + 1);
             break;
           }
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
+          return false;
         case 3:
-          if (row + 1 == maxRow || cell[row + 1][col].hasLifeForm() 
-              || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
+          if (lf instanceof Human && row + 1 < maxRow && cell[row + 1][col].hasLifeForm() && row + 2 < maxRow && cell[row + 2][col].hasLifeForm() && row + 3 < maxRow && !cell[row + 3][col].hasLifeForm() && movesLeft - 3 >= 0) {
+            newCell = getCell(row + 3, col);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row + 3, col);
+            env.selectCell(row + 3, col);
+            break;
+          }
+          if (row + 1 < maxRow && cell[row + 1][col].hasLifeForm() && row + 2 < maxRow && !cell[row + 2][col].hasLifeForm() && movesLeft - 2 >= 0) {
+            newCell = getCell(row + 2, col);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row + 2, col);
+            env.selectCell(row + 2, col);
+            break;
+          }
+          if (row + 1 < maxRow && !cell[row + 1][col].hasLifeForm() && movesLeft - 1 >= 0) {
             newCell = getCell(row + 1, col);
-            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.addLifeForm(lf);
             newCell.getLifeForm().setLocation(row + 1, col);
             env.selectCell(row + 1, col);
             break;
           }
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
+          return false;
         case 4:
-          if (col - 1 < 0 || cell[row][col - 1].hasLifeForm() 
-              || selectedCell.getLifeForm().getMovesLeft() == 0) {
-            System.out.println("Failed to move " + directions[direction - 1] + ".");
-            return false;
-          } else {
+          if (lf instanceof Human && col - 1 > 0 && cell[row][col - 1].hasLifeForm() && col - 2 >= 0 && cell[row][col - 2].hasLifeForm() && col - 3 >= 0 && !cell[row][col - 3].hasLifeForm() && movesLeft - 3 >= 0) {
+            newCell = getCell(row, col - 3);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row, col - 3);
+            env.selectCell(row, col - 3);
+            break;
+          }
+          if (col - 1 > 0 && cell[row][col - 1].hasLifeForm() && col - 2 >= 0 && !cell[row][col - 2].hasLifeForm() && movesLeft - 2 >= 0) {
+            newCell = getCell(row, col - 2);
+            newCell.addLifeForm(lf);
+            newCell.getLifeForm().setLocation(row, col - 2);
+            env.selectCell(row, col - 2);
+            break;
+          }
+          if (col - 1 >= 0 && !cell[row][col - 1].hasLifeForm() && movesLeft - 1 >= 0) {
             newCell = getCell(row, col - 1);
-            newCell.addLifeForm(selectedCell.getLifeForm());
+            newCell.addLifeForm(lf);
             newCell.getLifeForm().setLocation(row, col - 1);
             env.selectCell(row, col - 1);
             break;
           }
-        default:
-          System.out.println("Defaulted. Input direction '" 
-               + direction + "' is not in [ 1, 2, 3, 4 ].");
+          System.out.println("Failed to move " + directions[direction - 1] + ".");
           return false;
       }
       selectedCell.removeLifeForm();
