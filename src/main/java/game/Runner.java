@@ -86,7 +86,7 @@ public class Runner extends JFrame {
     
     for(int i = 0; i < 10; ++i) {
       int recoveryRate = Double.valueOf((Math.random() * 5) + 1).intValue();
-      final RecoveryBehavior[] behaviors = { new RecoveryNone(), new RecoveryLinear(recoveryRate), new RecoveryFractional(recoveryRate) };
+      final RecoveryBehavior[] behaviors = { new RecoveryNone(), new RecoveryLinear(recoveryRate), new RecoveryFractional(recoveryRate / 100.00) };
       int row = Double.valueOf((Math.random() * range) + minimum).intValue();
       int column = Double.valueOf((Math.random() * range) + minimum).intValue();
       int health = Double.valueOf((Math.random() * 100) + 50).intValue();
