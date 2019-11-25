@@ -2,6 +2,7 @@ package exceptions;
 
 /**
  * Exception for attachments.
+ * 
  * @author andrewjanuszko
  */
 @SuppressWarnings("serial")

@@ -13,15 +13,8 @@ import weapon.Weapon;
 
 public class Cell extends Object {
 
-  LifeForm entity;
+  LifeForm lifeform;
   ArrayList<Weapon> weapons = new ArrayList<Weapon>();
-
-  /**
-   * Empty constructor for Cell().
-   */
-  public Cell() {
-    // Empty
-  }
 
   /**
    * Allows the user to return the stored LifeForm.
@@ -29,18 +22,18 @@ public class Cell extends Object {
    * @return the LifeForm
    */
   public LifeForm getLifeForm() {
-    return entity;
+    return lifeform;
   }
 
   /**
    * Allows the user to add a LifeForm.
    * 
-   * @param entity — the LifeForm to be stored.
+   * @param lifeform — the LifeForm to be stored.
    * @return true is the LifeForm was added, false if a LifeForm is saved.
    */
-  public boolean addLifeForm(LifeForm entity) {
+  public boolean addLifeForm(LifeForm lifeform) {
     if (!hasLifeForm()) {
-      this.entity = entity;
+      this.lifeform = lifeform;
       return true;
     }
     return false;
@@ -50,7 +43,7 @@ public class Cell extends Object {
    * Allows the user to remove a LifeForm.
    */
   void removeLifeForm() {
-    entity = null;
+    lifeform = null;
   }
 
   /**
@@ -67,11 +60,7 @@ public class Cell extends Object {
    * @return if a cell has a weapon.
    */
   public boolean hasWeapon() {
-    if (weapons.size() > 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return (weapons.size() > 0) ? true : false;
   }
 
   /**
@@ -81,13 +70,11 @@ public class Cell extends Object {
    * @return true if placed successfully, false otherwise.
    */
   public boolean addWeapon(Weapon weapon) {
-    if (weapons.contains(weapon)) {
+    if (weapons.contains(weapon) || weapons.size() == 2) {
       return false;
-    } else if (weapons.size() != 2) {
-      weapons.add(weapon);
-      return true;
     }
-    return false;
+    weapons.add(weapon);
+    return true;
   }
 
   /**
@@ -121,7 +108,7 @@ public class Cell extends Object {
    * @return the weapon in slot #2.
    */
   public Weapon getWeapon2() {
-    if (getWeaponsCount() == 0 || getWeaponsCount() == 1) {
+    if (getWeaponsCount() < 2) {
       return null;
     }
     return weapons.get(1);
@@ -131,7 +118,7 @@ public class Cell extends Object {
    * Return whether the cell has a lifeform in it.
    */
   public boolean hasLifeForm() {
-    return (entity == null) ? false : true;
+    return (lifeform == null) ? false : true;
   }
 
   /**
@@ -141,7 +128,7 @@ public class Cell extends Object {
    */
   public void setDirection(int direction) {
     if (!hasLifeForm()) {
-      entity.turn(direction);
+      lifeform.turn(direction);
     }
   }
 
@@ -151,7 +138,7 @@ public class Cell extends Object {
    */
   public int getDirection() {
     if (hasLifeForm()) {
-      return entity.getDirection();
+      return lifeform.getDirection();
     }
     return 0;
   }
@@ -166,7 +153,7 @@ public class Cell extends Object {
         + (getWeapon1() == null ? "none" : getWeapon1()) + "<br/>" + "Weapon 2: "
         + (getWeapon2() == null ? "none" :
           getWeapon2()) + "<br/>" + "<br/>_____________________________________________"
-        + (hasLifeForm() ? entity.getStats() :
+        + (hasLifeForm() ? lifeform.getStats() :
           "");
     // }
   }

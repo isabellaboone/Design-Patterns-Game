@@ -26,12 +26,15 @@ import lifeform.Alien;
 import lifeform.Human;
 import lifeform.LifeForm;
 import recovery.RecoveryBehavior;
+import recovery.RecoveryFractional;
 import recovery.RecoveryLinear;
+import recovery.RecoveryNone;
 import weapon.ChainGun;
 import weapon.Pistol;
 import weapon.PlasmaCannon;
 import weapon.PowerBooster;
 import weapon.Scope;
+import weapon.Stabilizer;
 import weapon.Weapon;
 
 
@@ -52,7 +55,10 @@ public class Runner extends JFrame {
   }
   
   static void start() throws RecoveryRateException, AttachmentException, WeaponException { 
-    e = Environment.getEnvironment(10, 10);
+    final int maximum = 10;
+    final int minimum = 0;
+    final int range = (maximum - minimum);
+    e = Environment.getEnvironment(maximum, maximum);
     gui = new Gui(e);
     //**********************The Remote******************************************
     Remote r = new Remote(e);
@@ -76,34 +82,74 @@ public class Runner extends JFrame {
     r.setCommand(8, move);
     
     //****************************************************************
-    LifeForm tuner = new Human("Tuner", 1000, 0);
-    e.addLifeForm(tuner, 1, 1);
+    // Generate the lifeforms on the board.
     
-    LifeForm picker = new Human("Pick and Drop", 1000, 0);
-    e.addLifeForm(picker, 2, 2);
-    Weapon w1 = new Pistol();
-    e.addWeapon(w1, 2, 3);
-    Weapon w2 = new ChainGun();
-    e.addWeapon(w2, 2, 4);
-    Weapon w3 = new PlasmaCannon();
-    e.addWeapon(w3, 2, 5);
-    Weapon w4 = new Pistol();
-    e.addWeapon(w4, 2, 5);
+    for(int i = 0; i < 10; ++i) {
+      int recoveryRate = Double.valueOf((Math.random() * 5) + 1).intValue();
+      final RecoveryBehavior[] behaviors = { new RecoveryNone(), new RecoveryLinear(recoveryRate), new RecoveryFractional(recoveryRate) };
+      int row = Double.valueOf((Math.random() * range) + minimum).intValue();
+      int column = Double.valueOf((Math.random() * range) + minimum).intValue();
+      int health = Double.valueOf((Math.random() * 100) + 50).intValue();
+      int behavior = Double.valueOf((Math.random() * 3) + 0).intValue();
+      Alien alien = new Alien("Alien #" + (i + 1), health, behaviors[behavior], recoveryRate);
+      if (!e.getCell(row, column).hasLifeForm()) {
+        e.addLifeForm(alien, row, column);
+        continue;
+      } else {
+        --i;
+      }
+    }
     
-    LifeForm fighter = new Human("Fighter", 1000, 0);
-    e.addLifeForm(fighter, 3, 6);
-    Weapon gun = new Pistol();
-    fighter.pickUpWeapon(gun);
-    LifeForm target1 = new Alien("Target 1", 1000);
-    e.addLifeForm(target1, 3, 8);
-    LifeForm target2 = new Alien("Target 2", 1000);
-    e.addLifeForm(target2, 6, 6);
+    for(int i = 0; i < 10; ++i) {
+      int row = Double.valueOf((Math.random() * range) + minimum).intValue();
+      int column = Double.valueOf((Math.random() * range) + minimum).intValue();
+      int health = Double.valueOf((Math.random() * 100) + 50).intValue();
+      int armor = Double.valueOf((Math.random() * 10) + 0).intValue();
+      Human human = new Human("Human #" + (i + 1), health, armor);
+      if (!e.getCell(row, column).hasLifeForm()) {
+        e.addLifeForm(human, row, column);
+      } else {
+        --i;
+      }
+    }
     
-    LifeForm mover = new Human("Mover", 1000, 0);
-    e.addLifeForm(mover, 9, 9);
-    
-    Alien wall = new Alien("Wall", 1000);
-    e.addLifeForm(wall, 9, 7);
+    for(int i = 0; i < 10; ++i) {
+      final int row = Double.valueOf((Math.random() * range) + minimum).intValue();
+      final int column = Double.valueOf((Math.random() * range) + minimum).intValue();
+      Weapon[] base = { new Pistol(), new ChainGun(), new PlasmaCannon() };
+      final int index = Double.valueOf((Math.random() * 3) + 0).intValue();
+      Weapon weapon = base[index];
+      final int test1 = Double.valueOf((Math.random() * 2) + 0).intValue();
+      if (test1 == 1) {
+        Weapon[] baseOne = { new Scope(weapon), new PowerBooster(weapon), new Stabilizer(weapon) };
+        final int attachmentIndex = Double.valueOf((Math.random() * 3) + 0).intValue();
+        weapon = baseOne[attachmentIndex];
+        final int test2 = Double.valueOf((Math.random() * 2) + 0).intValue();
+        if (test2 == 1) {
+          Weapon[] baseTwo = { new Scope(weapon), new PowerBooster(weapon), new Stabilizer(weapon) };
+          final int secondAttachmentIndex = Double.valueOf((Math.random() * 3) + 0).intValue();
+          weapon = baseTwo[secondAttachmentIndex];
+          if (e.getCell(row, column).getWeaponsCount() < 2 && !e.getCell(row, column).hasLifeForm()) {
+            e.addWeapon(weapon, row, column);
+          } else {
+            --i;
+          }
+        } else {
+          if (e.getCell(row, column).getWeaponsCount() < 2 && !e.getCell(row, column).hasLifeForm()) {
+            e.addWeapon(weapon, row, column);
+          } else {
+            --i;
+          }
+        }
+      } else {
+        if (e.getCell(row, column).getWeaponsCount() < 2 && !e.getCell(row, column).hasLifeForm()) {
+          e.addWeapon(weapon, row, column);
+        } else {
+          --i;
+        }
+      }
+    }
+  //****************************************************************
     
     
     

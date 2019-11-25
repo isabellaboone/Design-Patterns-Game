@@ -1,18 +1,21 @@
 package exceptions;
 
 /**
- * Exceptions for weapons.
+ * An Exception class built to handle exceptions in the Weapon package.
+ * 
  * @author andrewjanuszko
- *
  */
+
 @SuppressWarnings("serial")
 public class WeaponException extends Exception {
 
   /**
-   * Allows the user to throw messages with exceptions.
-   * @param message holds the message to be printed.
+   * Constructor for WeaponException. Creates an exception.
+   * 
+   * @param message - the message to be displayed when thrown.
    */
   public WeaponException(String message) {
     super(message);
   }
+
 }

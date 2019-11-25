@@ -1,17 +1,21 @@
 package exceptions;
 
 /**
- * Exception for environment.
+ * An Exception class built to handle exceptions in the Environment package.
+ * 
  * @author andrewjanuszko
  */
+
 @SuppressWarnings("serial")
 public class EnvironmentException extends Exception {
 
   /**
-   * Allows the exception to throw messages.
-   * @param message holds the message to be printed.
+   * Constructor for EnvironmentException. Creates an exception.
+   * 
+   * @param message - the message to be displayed when thrown.
    */
   public EnvironmentException(String message) {
     super(message);
   }
+
 }
