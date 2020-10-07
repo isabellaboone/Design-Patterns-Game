@@ -4,6 +4,9 @@ import environment.Environment;
 
 import javax.swing.JButton;
 
+/**
+ * Reload a lifeforms weapon. 
+ */
 @SuppressWarnings("serial")
 public class Reload extends JButton implements Command {
 

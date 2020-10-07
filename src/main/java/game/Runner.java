@@ -43,6 +43,7 @@ import weapon.Weapon;
 public class Runner extends JFrame {
   static Environment e;
   static Gui gui;
+  static Remote r; 
 
   public static void main(String[] args) 
       throws RecoveryRateException, AttachmentException, WeaponException {
@@ -53,40 +54,22 @@ public class Runner extends JFrame {
   public void paint(Graphics g) {
     add(gui);
   }
-  
+ 
   static void start() throws RecoveryRateException, AttachmentException, WeaponException { 
     final int maximum = 10;
     final int minimum = 0;
     final int range = (maximum - minimum);
     e = Environment.getEnvironment(maximum, maximum);
     gui = new Gui(e);
-    //**********************The Remote******************************************
-    Remote r = new Remote(e);
-    Command north = new North();
-    Command east = new East();
-    Command south = new South();
-    Command west = new West();
-    Command reload = new Reload();
-    Command drop = new Drop();
-    Command attack = new Attack();
-    Command pickup = new Pickup();
-    Command move = new Move();
-    r.setCommand(0, north);
-    r.setCommand(1, east);
-    r.setCommand(2, south);
-    r.setCommand(3, west);
-    r.setCommand(4, reload);
-    r.setCommand(5, drop);
-    r.setCommand(6, attack);
-    r.setCommand(7, pickup);
-    r.setCommand(8, move);
+    r = new Remote(e);
+    makeRemote(r); 
     
-    //****************************************************************
     // Generate the lifeforms on the board.
     
-    for(int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i) {
       int recoveryRate = Double.valueOf((Math.random() * 5) + 1).intValue();
-      final RecoveryBehavior[] behaviors = { new RecoveryNone(), new RecoveryLinear(recoveryRate), new RecoveryFractional(recoveryRate / 100.00) };
+      final RecoveryBehavior[] behaviors = { new RecoveryNone(), 
+          new RecoveryLinear(recoveryRate), new RecoveryFractional(recoveryRate / 100.00) };
       int row = Double.valueOf((Math.random() * range) + minimum).intValue();
       int column = Double.valueOf((Math.random() * range) + minimum).intValue();
       int health = Double.valueOf((Math.random() * 100) + 50).intValue();
@@ -100,7 +83,7 @@ public class Runner extends JFrame {
       }
     }
     
-    for(int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i) {
       int row = Double.valueOf((Math.random() * range) + minimum).intValue();
       int column = Double.valueOf((Math.random() * range) + minimum).intValue();
       int health = Double.valueOf((Math.random() * 100) + 50).intValue();
@@ -113,7 +96,7 @@ public class Runner extends JFrame {
       }
     }
     
-    for(int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i) {
       final int row = Double.valueOf((Math.random() * range) + minimum).intValue();
       final int column = Double.valueOf((Math.random() * range) + minimum).intValue();
       Weapon[] base = { new Pistol(), new ChainGun(), new PlasmaCannon() };
@@ -126,7 +109,8 @@ public class Runner extends JFrame {
         weapon = baseOne[attachmentIndex];
         final int test2 = Double.valueOf((Math.random() * 2) + 0).intValue();
         if (test2 == 1) {
-          Weapon[] baseTwo = { new Scope(weapon), new PowerBooster(weapon), new Stabilizer(weapon) };
+          Weapon[] baseTwo = { new Scope(weapon), 
+              new PowerBooster(weapon), new Stabilizer(weapon) };
           final int secondAttachmentIndex = Double.valueOf((Math.random() * 3) + 0).intValue();
           weapon = baseTwo[secondAttachmentIndex];
           if (e.getCell(row, column).getWeaponsCount() < 2 && !e.getCell(row, column).hasLifeForm()) {
@@ -158,5 +142,32 @@ public class Runner extends JFrame {
     
     CommandGui commands = new CommandGui(e, gui, r); 
     
+  }
+  
+  /**
+   * Make a remote. Put this in a method because its
+   * an ugly block of code. We don't have to see it 
+   * down here. shhhh. 
+   * @param r - remote to build
+   */
+  public static void makeRemote(Remote r) {
+    Command north = new North();
+    Command east = new East();
+    Command south = new South();
+    Command west = new West();
+    Command reload = new Reload();
+    Command drop = new Drop();
+    Command attack = new Attack();
+    Command pickup = new Pickup();
+    Command move = new Move();
+    r.setCommand(0, north);
+    r.setCommand(1, east);
+    r.setCommand(2, south);
+    r.setCommand(3, west);
+    r.setCommand(4, reload);
+    r.setCommand(5, drop);
+    r.setCommand(6, attack);
+    r.setCommand(7, pickup);
+    r.setCommand(8, move);
   }
 }

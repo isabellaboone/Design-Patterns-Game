@@ -1,57 +1,57 @@
 package commands;
 
+import environment.Cell;
 import environment.Environment;
 
 import javax.swing.JButton;
 
 import weapon.Weapon;
 
+/**
+ * Command to make the lifeform pick up a weapon.
+ */
+@SuppressWarnings("serial")
 public class Pickup extends JButton implements Command {
-  /**
-   * pick up a weapon in the selected cell or swap it.
-   */
   public void execute(Environment env) {
-    if (env.getSelectedCell().getWeaponsCount() == 0) {
+    Cell cell = env.getSelectedCell(); // Readability
+
+    if (cell.getWeaponsCount() == 0) {
       // If the cell has a weapon count of 0
       System.out.println("No weapons to pick up in this cell.");
-      return;
+      return; // Exit out of the method
     }
-    if (env.getSelectedCell().getLifeForm().hasWeapon()) {
-      // If the selected lifeform has a weapon, swap it with
-      // what is on the ground.
+    
+    if (cell.getLifeForm().hasWeapon()) {
+      /* If the lifeform has a weapon, it will need to swap with
+         what is on the ground of the cell. */
 
-      if (env.getSelectedCell().getWeapon1() != null) {
+      if (cell.getWeapon1() != null) {
         // If weapon1 slot has a weapon (not null), perform a swap
-        Weapon a = env.getSelectedCell().getWeapon1();
-        Weapon b = env.getSelectedCell().getLifeForm().getWeapon();
-        env.getSelectedCell().removeWeapon(a);
-        env.getSelectedCell().addWeapon(b);
-        env.getSelectedCell().getLifeForm().dropWeapon();
-        env.getSelectedCell().getLifeForm().pickUpWeapon(a);
+        Weapon a = cell.getWeapon1();
+        cell.removeWeapon(a);
+        cell.addWeapon(cell.getLifeForm().dropWeapon());
+        cell.getLifeForm().pickUpWeapon(a);
 
-      } else if (env.getSelectedCell().getWeapon2() != null) {
+      } else if (cell.getWeapon2() != null) {
         // Otherwise, if the second slot is not null, perform that swap
-        Weapon a = env.getSelectedCell().getWeapon2();
-        Weapon b = env.getSelectedCell().getLifeForm().getWeapon();
-        env.getSelectedCell().removeWeapon(a);
-        env.getSelectedCell().addWeapon(b);
-        env.getSelectedCell().getLifeForm().dropWeapon();
-        env.getSelectedCell().getLifeForm().pickUpWeapon(a);
+        Weapon a = cell.getWeapon2();
+        cell.removeWeapon(a);
+        cell.addWeapon(cell.getLifeForm().dropWeapon());
+        cell.getLifeForm().pickUpWeapon(a);
       }
-    }
+    } else {
+      // Else, the lifeform does have a weapon
+      
+      if (cell.getWeapon1() != null) {
+        // If weapon1 slot has a weapon, pick it up and remove it from cell
+        cell.getLifeForm().pickUpWeapon(cell.getWeapon1());
+        cell.removeWeapon(cell.getWeapon1());
 
-    // If the lifeform does not have a weapon
-    if (env.getSelectedCell().getWeapon1() != null 
-        && !env.getSelectedCell().getLifeForm().hasWeapon()) {
-      // check if cell has a weapon1 and lifeform has no weapon
-      env.getSelectedCell().getLifeForm().pickUpWeapon(
-          env.getSelectedCell().getWeapon1());
-      env.getSelectedCell().removeWeapon(env.getSelectedCell().getWeapon1());
-    } else if (env.getSelectedCell().getWeapon2() != null 
-        && !env.getSelectedCell().getLifeForm().hasWeapon()) {
-      // check if cell has a weapon2 and lifeform has no weapon
-      env.getSelectedCell().getLifeForm().pickUpWeapon(env.getSelectedCell().getWeapon2());
-      env.getSelectedCell().removeWeapon(env.getSelectedCell().getWeapon2());
+      } else if (cell.getWeapon2() != null) {
+       // If weapon2 slot has a weapon, pick it up and remove it from cell
+        cell.getLifeForm().pickUpWeapon(cell.getWeapon2());
+        cell.removeWeapon(cell.getWeapon2());
+      }
     }
 
   }

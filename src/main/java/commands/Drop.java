@@ -4,6 +4,7 @@ import environment.Environment;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class Drop extends JButton implements Command {
   /**
    * drop a held weapon in the selected cell.
